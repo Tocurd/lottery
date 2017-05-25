@@ -41,7 +41,7 @@ class Automation extends CI_Controller {
 	private function open_lottery(){
 		echo '.';
 		// $this->prints('检查是否有彩票期数需要开奖');
-		$date = date('H:i');
+		$date = date('H:i:s');
 
 		// 获取所有彩票
 		$Lottery_list = $this->Lottery_model->get_list(array() , 0 , 0 , array('name' , 'id' , 'from_group' , 'draw_interval') , 'all');
@@ -51,9 +51,11 @@ class Automation extends CI_Controller {
 
 			$Lottery_time_data = $this->Lottery_time_model->get_by(array(
 				'from_lottery' => $value['id'],
-				'timestamp <=' => strtotime(date("Y-m-d H:i:s" , strtotime($date))) - strtotime(date('Y-m-d'))
+				'timestamp <=' => strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'))
 			) , array() , array('timestamp' => 'desc'));
-			
+
+
+
 			$data = $this->Lottery_data_model->get(array(
 				'from_time_id' => $Lottery_time_data['id'],
 				'from_lottery' => $value['id'],

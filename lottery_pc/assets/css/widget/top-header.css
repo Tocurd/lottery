@@ -1,0 +1,200 @@
+.header-nav-user {
+  position: absolute;
+  text-align: center;
+  right: 10px;
+  top: 10px;
+  color: #fff;
+  font-size: 12px;
+}
+.header-nav-user span {
+  float: left;
+  width: 100%;
+  position: relative;
+  left: -5px;
+}
+.header-nav-user li {
+  float: left;
+  width: 50px;
+  margin-left: 20px;
+  line-height: 2em;
+}
+.header-nav-user a {
+  color: #fff;
+  font-size: 12px;
+}
+.header-nav-user li div {
+  text-align: center;
+  line-height: 34px;
+  width: 39px;
+  height: 39px;
+  font-size: 23px;
+  border-radius: 36px;
+  border: 3px solid #844515;
+  float: left;
+  background: #ea721a;
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+}
+.header-nav-user li:hover div {
+  background: #12b35e;
+  border: 3px solid #29653e;
+  transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+}
+.header-nav-user li:hover a {
+  color: #ffffff;
+}
+.header-nav-game {
+  font-size: 12px;
+  position: relative;
+  left: 200px;
+  width: 100px;
+  padding: 5px;
+  cursor: pointer;
+  color: #fff;
+  border: 0;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+}
+.header-nav-game .nav-game-bt {
+  background: #12b35e;
+  border-radius: 5px;
+  position: relative;
+  width: 89px;
+  display: block;
+  margin: 20px 0;
+  padding-left: 11px;
+  line-height: 30px;
+  letter-spacing: 1px;
+}
+.header-nav-game .nav-game-bt i {
+  height: 30px;
+  width: 1px;
+  position: absolute;
+  top: 0;
+  background: #108e4b;
+  display: inline-block;
+  float: right;
+  margin-right: 27px;
+  border-right: 1px #18cc6d solid;
+}
+.header-nav-game li {
+  line-height: 18px;
+}
+.header-nav-game:active {
+  color: #289f51;
+}
+.header-nav-game:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 15px;
+  top: 38px;
+  border-width: 5px 5px 0 5px;
+  border-style: solid;
+  border-color: #fff transparent;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+}
+.header-nav-game .dropdown {
+  position: absolute;
+  width: 260px;
+  left: 0;
+  top: 56px;
+  background: rgba(39, 48, 65, 0.9);
+  border-top: 3px #12b35e solid;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  opacity: 0;
+  pointer-events: none;
+  padding-bottom: 8px;
+}
+.header-nav-game:hover .dropdown {
+  opacity: 1;
+}
+.header-nav-game .dropdown:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: 100%;
+  left: 25px;
+  top: -9px;
+  border-width: 0 6px 6px 6px;
+  border-style: solid;
+  border-color: #12b35e transparent;
+}
+.header-nav-game .dropdown dt {
+  width: 200px;
+  display: block;
+  color: #12b35e;
+  padding: 7px 30px;
+  float: left;
+  cursor: default;
+}
+.header-nav-game .dropdown dt i {
+  margin-right: 6px;
+}
+.header-nav-game .dropdown dd {
+  float: left;
+  margin: 0;
+  width: 129px;
+  border-right: 1px #474440 solid;
+}
+.header-nav-game .dropdown dd a {
+  display: block;
+  padding: 5px 5px;
+  color: #bebebe;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.header-nav-game .dropdown span {
+  opacity: 0;
+  padding: 0 8px 0 5px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.header-nav-game .dropdown dd:hover a {
+  background: #12b35e;
+  color: #ffffff;
+}
+.header-nav-game .dropdown dd:hover span {
+  opacity: 1;
+  z-index: 100;
+}
+.header-nav-game:hover {
+  color: #083d21;
+  text-shadow: none;
+}
+.header-nav-game:hover:after {
+  border-color: #083d21 transparent;
+  border-width: 0 5px 5px 5px;
+}
+.header-nav-game:hover .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 999;
+}

@@ -7,21 +7,23 @@ class Test extends CI_Controller {
 	public function index(){
 		$this->load->model('Lottery_time_model');
 		$Lottery_time_data = $this->Lottery_time_model->get_list_by(array(
-			'from_lottery' => 20
+			'from_lottery' => 23
 		) , 1 , 1 , array() , 'all' , array('periods' => 'asc'));
 		
 
-		$date = strtotime(date('Y-m-d'));
+		$date = strtotime(date('Y-m-d') . ' 21:0');
 		$timestamp = 0;
 		foreach ($Lottery_time_data as $key => $value) {
-			$timestamp += 120;
-			echo date('H:i:s' , (strtotime($value['time']) - $date) + $timestamp) . PHP_EOL;
+			$timestamp += 60;
 
-
-			//$this->Lottery_time_model->edit(array('id' => $value['id']) , array(
-			//	'time' => strtotime($value['time']) - $date,
-			//	'timestamp' => 0,
-			//));
+			// print_r(array(
+			// 	'time' => date('H:i' , $date + $timestamp),
+			// 	'timestamp' => $timestamp,
+			// ));
+			$this->Lottery_time_model->edit(array('id' => $value['id']) , array(
+				'time' => date('H:i' , $date + $timestamp),
+				'timestamp' => 75600 + $timestamp,
+			));
 		}
 
 		print_r($Lottery_time_data);
