@@ -1,0 +1,27 @@
+<div class="footer"></div>
+<footer>
+	<div class="item" webapp='item'>
+		<a href="#/">
+			<i class="iconfont icon-homepage"></i>
+			<p>首页</p>
+		</a>
+	</div>
+	<div class="item" webapp='item'>
+		<a href="#/shop">
+			<i class="iconfont icon-service"></i>
+			<p>购彩</p>
+		</a>
+	</div>
+	<div class="item" webapp='item'>
+		<a href="#/find">
+			<i class="iconfont icon-share"></i>
+			<p>发现</p>
+		</a>
+	</div>
+	<div class="item" webapp='item'>
+		<a href="#/me">
+			<i class="iconfont icon-mine"></i>
+			<p>我的</p>
+		</a>
+	</div>
+</footer>

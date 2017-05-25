@@ -1,0 +1,97 @@
+.label {
+  padding: 3px 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+.label.defualt {
+  color: #888;
+  background-color: #eee;
+  border: none;
+}
+.label.blue {
+  border: none;
+  background-color: #339BEB;
+  color: #fff;
+}
+.label.danger {
+  background-color: #ff5d4c;
+  color: #fff;
+  border: none;
+}
+.label.success {
+  background-color: #34bf5e;
+  color: #fff;
+  border: none;
+}
+.top-header {
+  width: 100%;
+  background-color: #fff;
+  float: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+.top-header .down {
+  float: right;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  bottom: 0px;
+}
+.top-header .down i {
+  font-size: 20px;
+}
+.number {
+  float: left;
+  width: 100%;
+  padding: 6px 12px;
+  background-color: #666;
+}
+.number span {
+  font-size: 12px;
+  color: #fff;
+}
+.number .time {
+  float: right;
+}
+.lottery_type {
+  display: none;
+  padding: 10px;
+  background-color: #fff;
+  width: 100%;
+  float: left;
+  position: fixed;
+  top: 71px;
+  z-index: 9999;
+  height: 200px;
+  overflow-y: scroll;
+}
+.lottery_type:after {
+  content: "123";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.lottery_type .item {
+  border-bottom: 1px solid #eee;
+  float: left;
+  width: 100%;
+  padding: 4px;
+}
+.lottery_type .item span {
+  float: left;
+  padding: 8px 0;
+  color: #aaa;
+  display: block;
+  width: 33.3%;
+  padding-right: 30px;
+  text-align: center;
+}
+.lottery_type .item b {
+  color: #333;
+  font-weight: 400;
+}

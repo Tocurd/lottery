@@ -1,0 +1,44 @@
+2017-05-25 14:54:02 脚本开启
+2017-05-25 14:54:02 检查【重庆时时彩】是否有近七日数据
+2017-05-25 14:54:03 2017-05-25 : yes
+2017-05-25 14:54:03 2017-05-26 : yes
+2017-05-25 14:54:03 2017-05-27 : yes
+2017-05-25 14:54:03 2017-05-28 : yes
+2017-05-25 14:54:03 2017-05-29 : yes
+2017-05-25 14:54:03 2017-05-30 : yes
+2017-05-25 14:54:03 2017-05-31 : no
+2017-05-25 14:54:03 【重庆时时彩】第54期，需要开奖
+2017-05-25 14:54:03 {"id":"33099","periods":"54","from_lottery":"20","time":"14:50","timestamp":"53400"}
+2017-05-25 14:54:03 {"id":"14107","from_time_id":"33099","from_lottery":"20","day":"2017-05-25 00:00:00","data":"133178","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-25 14:54:03 【重庆时时彩】第54期，正在摇奖中
+2017-05-25 14:54:04 【重庆时时彩】第54期，已成功开奖
+2017-05-25 14:55:00 【重庆时时彩】第55期，需要开奖
+2017-05-25 14:55:00 {"id":"33100","periods":"55","from_lottery":"20","time":"14:55","timestamp":"53700"}
+2017-05-25 14:55:00 {"id":"14106","from_time_id":"33100","from_lottery":"20","day":"2017-05-25 00:00:00","data":"853085","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-25 14:55:00 【重庆时时彩】第55期，正在摇奖中
+2017-05-25 14:57:00 【重庆时时彩】第55期，已成功开奖
+2017-05-25 15:00:00 【重庆时时彩】第56期，需要开奖
+2017-05-25 15:00:00 {"id":"33101","periods":"56","from_lottery":"20","time":"15:00","timestamp":"54000"}
+2017-05-25 15:00:00 {"id":"14105","from_time_id":"33101","from_lottery":"20","day":"2017-05-25 00:00:00","data":"445684","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-25 15:00:00 【重庆时时彩】第56期，正在摇奖中
+2017-05-25 15:02:00 【重庆时时彩】第56期，已成功开奖
+2017-05-25 15:05:00 【重庆时时彩】第57期，需要开奖
+2017-05-25 15:05:00 {"id":"33102","periods":"57","from_lottery":"20","time":"15:05","timestamp":"54300"}
+2017-05-25 15:05:00 {"id":"14104","from_time_id":"33102","from_lottery":"20","day":"2017-05-25 00:00:00","data":"283389","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-25 15:05:00 【重庆时时彩】第57期，正在摇奖中
+2017-05-25 15:07:00 【重庆时时彩】第57期，已成功开奖
+2017-05-25 15:10:00 【重庆时时彩】第58期，需要开奖
+2017-05-25 15:10:00 {"id":"33103","periods":"58","from_lottery":"20","time":"15:10","timestamp":"54600"}
+2017-05-25 15:10:00 {"id":"14103","from_time_id":"33103","from_lottery":"20","day":"2017-05-25 00:00:00","data":"492321","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-25 15:10:00 【重庆时时彩】第58期，正在摇奖中
+2017-05-25 15:12:01 【重庆时时彩】第58期，已成功开奖
+2017-05-25 15:15:00 【重庆时时彩】第59期，需要开奖
+2017-05-25 15:15:00 {"id":"33104","periods":"59","from_lottery":"20","time":"15:15","timestamp":"54900"}
+2017-05-25 15:15:00 {"id":"14102","from_time_id":"33104","from_lottery":"20","day":"2017-05-25 00:00:00","data":"873410","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-25 15:15:00 【重庆时时彩】第59期，正在摇奖中
+2017-05-25 15:17:00 【重庆时时彩】第59期，已成功开奖
+2017-05-25 15:20:00 【重庆时时彩】第60期，需要开奖
+2017-05-25 15:20:00 {"id":"33105","periods":"60","from_lottery":"20","time":"15:20","timestamp":"55200"}
+2017-05-25 15:20:00 {"id":"14101","from_time_id":"33105","from_lottery":"20","day":"2017-05-25 00:00:00","data":"332855","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-25 15:20:01 【重庆时时彩】第60期，正在摇奖中
+2017-05-25 15:22:00 【重庆时时彩】第60期，已成功开奖

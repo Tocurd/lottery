@@ -1,0 +1,241 @@
+@import '../color.less';
+.ranking{
+	table{
+		padding-bottom: 3px;
+		width: 100%;
+		background-color: #181c25;
+		th{
+			line-height: 2.5em;
+			color: #ea721a;
+			text-align: center;
+			font-weight: normal;
+		}
+		td{
+			text-align: center;
+			line-height: 26px;
+			color:#c6cde5;
+		}
+		.money{
+			color:#12b35e
+		}
+	}
+}
+
+
+.money{
+	.user-icon{
+		width: 40px;
+		height: 40px;
+		border-radius: 100%;
+		border: 3px #5a668b solid;
+		color:#5a668b;
+		line-height: 46px;
+		text-align: center;
+		margin:18px 15px 18px 25px;
+	}
+	.user-money{
+		font-size: 12px;
+		width: 160px;
+		color:#808cb0;
+		margin-top:20px;
+		#usermoney{
+			font-size: 14px;
+			color:@mainBackgroundColor2;
+			margin-top:6px;
+		}
+		.fa-refresh{
+			margin-top:10px;
+			color:#12b35e
+		}
+	}
+	.user-money , .user-icon{
+		float: left;
+	}
+	i{
+		float: right;
+	}
+
+}
+
+
+
+.left{
+	width: 750px;
+	float: left;
+	.box{
+		margin-left:0;
+		margin-right:0;
+	}
+}
+.right{
+	float: left;
+	width: 270px;
+	margin-left: 10px;
+	.box{
+		margin-left:0;
+		margin-right:0;
+	}
+}
+
+.recharge , .withdrawals{
+	width: 129px;
+	float: left;
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
+	cursor: pointer;
+	i{
+		margin-right: 10px;
+		position: relative;
+		top:3px;
+	}
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	transition: all .2s linear;
+}
+.recharge{
+	&:hover{
+		background-color: #12b35e;
+		color:#fff;
+	}
+	color: #12b35e;
+    border-left: 5px #12b35e solid;
+	margin-right: 11px!important;
+}
+.withdrawals{
+	&:hover{
+		background-color: #ea721a;
+		color:#fff;
+	}
+	color: #ea721a;
+    border-right: 5px #ea721a solid;
+}
+
+
+
+
+.mainbox{
+	background: url(../../../images/mainbox-bg1.jpg);
+	height: 320px;
+	margin-bottom:0;
+	.item{
+		text-align: center;
+		line-height: 150px;
+		padding:6px;
+		width: 187px;
+		height: 160px;
+		float: left;
+	}
+}
+
+.mainbox2{
+	margin-top:0;
+	background: url(../../../images/mainbox-bg2.jpg);
+	height: 115px;
+	.item{
+		text-align: center;
+		line-height: 110px;
+		width: 125px;
+		height: 115px;
+		float: left;
+	}
+}
+
+
+.news{
+	a{
+		line-height: 28.5px;
+		padding: 0 15px;
+		font-size: 12px;
+		display: block;
+		color: #c6cde5;
+		-webkit-transition: all .2s linear;
+		-moz-transition: all .2s linear;
+		-o-transition: all .2s linear;
+		-ms-transition: all .2s linear;
+		transition: all .2s linear;
+		span{
+			float: right;
+			color: #808cb0;
+		}
+		&:hover{
+			span{
+				color:#fff;
+			}
+			color:#fff;
+			background-color: @mainBackgroundColor2
+		}
+	}
+}
+
+
+
+
+.game1, .game2, .game3, .game4, .game5, .game6, .game7,.game8,.game15{
+    background: url(../../../images/game-icon.png) no-repeat;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.game9, .game10, .game11, .game12, .game13, .game14{
+    background: url(../../../images/game-icon2.png) no-repeat;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.game2 {
+    background-position: 0 -160px
+}
+
+.game3 {
+    background-position: 0 -320px
+}
+
+.game4 {
+    background-position: 0 -480px
+}
+
+.game5 {
+    background-position: 0 -640px
+}
+
+.game6 {
+    background-position: 0 -800px
+}
+
+.game7 {
+    background-position: 0 -960px
+}
+
+.game8 {
+    background-position: 0 -1120px
+}
+
+.game9 {
+    background-position: 0 0
+}
+
+.game10 {
+    background-position: 0 -112px
+}
+
+.game11 {
+    background-position: 0 -224px
+}
+
+.game12 {
+    background-position: 0 -680px
+}
+
+.game13 {
+    background-position: 0 -448px
+}
+
+.game14 {
+    background-position: 0 -560px
+}
+.game15{
+    background-position: 0 -2722px
+}

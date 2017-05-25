@@ -1,0 +1,38 @@
+.disabled {
+  opacity: 0.5!important;
+  cursor: no-drop !important;
+}
+.btn {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  color: #888;
+  font-size: 12px;
+  padding: 8px 12px;
+  border: 1px solid #f2f2f2;
+  border-radius: 4px;
+  margin-right: 6px;
+  background-color: #fff;
+}
+.btn i {
+  margin-right: 7px;
+}
+.btn.danger {
+  border: none;
+  background-color: #ff5d4c;
+  color: #fff;
+}
+.btn.success {
+  border: none;
+  background-color: #34bf5e;
+  color: #fff;
+}
+.btn.active,
+.btn.fezocms {
+  border: none;
+  background-color: #339BEB;
+  color: #fff;
+}
+.btn:hover {
+  opacity: 0.9;
+}

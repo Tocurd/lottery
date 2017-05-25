@@ -1,0 +1,14 @@
+CACHE MANIFEST
+
+CACHE:
+./index.html
+./templates/me.html
+./templates/home.html
+
+./assets/css/*.css
+./assets/image/*
+
+./component/*.component
+
+
+NETWORK:*

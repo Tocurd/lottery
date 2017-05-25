@@ -1,0 +1,135 @@
+@import '../widget/lable.widget.less';
+.top-header{
+	width:100%;
+	background-color:#fff;
+	float: left;
+	padding:10px 8px;
+	border-bottom: 1px solid #eee;
+	position: relative;
+	.down{
+		float:right;
+		position: absolute;
+		right:10px;
+		top:8px;
+		bottom:0px;
+		i{
+			font-size:20px;
+		}
+	}
+}
+.number{
+	float:left;
+	width:100%;
+	padding:6px 12px;
+	background-color:#666;
+	span{
+		font-size: 12px;
+		color:#fff;
+	}
+	.time{
+		float:right;
+	}
+}
+
+.lottery_type{
+	display: none;
+	padding:10px;
+	background-color:#fff;
+	width:100%;
+	float:left;
+	position: fixed;
+	top:66px;
+	z-index:9999;
+
+	height:200px;
+	overflow-y: scroll;
+
+	.item{
+		border-bottom:1px solid #eee;
+		float:left;
+		width:100%;
+		padding:4px;
+		span{
+			float:left;
+			padding: 8px 0;
+			color:#aaa;
+			display: block;
+			width:33.3%;
+			padding-right: 30px;
+			text-align: center;
+		}
+		b{
+			color:#333;
+			font-weight: 400;
+		}
+	}
+}
+.position{
+	background-color: #fff;
+	margin:12px 10px;
+	box-shadow: 0 0 10px 0px #eee;
+	padding:10px;
+	border-radius: 10px;
+	overflow: hidden;
+	.content{
+		float: left;
+		padding:20px 0 0px 0;
+		width: 100%;
+	}
+	.title{
+		float: left;
+		width: 100%;
+		border-bottom:1px solid #f0f0f0;
+		padding:0 5px 7px 5px;
+		h2{
+			float: left;
+			font-weight:400;
+			font-size:16px;
+		}
+		.type{
+			float: right;
+			font-size:12px;
+			span{
+				float: left;
+				position: relative;
+				top:4px;
+				margin-left:7px;
+			}
+		}
+
+	}
+	.sum{
+		font-size: 16px;
+		border:1px dashed #bbb;
+		border-radius: 50%;
+		display: block;
+		float: left;
+		text-align: center;
+		margin-right: 10px;
+		margin-bottom: 11px;
+		width: 25px;
+		height: 25px;
+		background-color:#eaeaea;
+		line-height: 23px;
+		&.active{
+			background-color: #f13131;
+			color:#fff;
+			border:none;
+			opacity: 0.9;
+			background: radial-gradient(circle at 0px 5px, #f13131, #c30808);
+			// background: -webkit-radial-gradient(9px 25px, circle, #f13131, #f13131);
+			// background: -moz-radial-gradient(9px 25px, circle, #f13131, #f13131);
+			// background: radial-gradient(9px 25px, circle, #f13131, #f13131);
+		}
+	}
+}
+
+.reslut{
+	position: fixed;
+	bottom:50px;
+	width:100%;
+	left:0;
+	background-color:rgba(0,0,0,0.5);
+	padding:10px;
+	color:#fff;
+}
