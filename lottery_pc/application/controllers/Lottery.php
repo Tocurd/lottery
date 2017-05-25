@@ -35,18 +35,14 @@ class Lottery extends CI_Controller {
 			), 1 , 1 , array() , 'all');
 		}
 
-		print_r($Lottery_data);
+		
 
-		$date = date('H:i');
-		print_r(array(
-			'from_lottery' => $Lottery_data['id'],
-			'timestamp <=' => strtotime(date("Y-m-d H:i:s" , strtotime($date))) - strtotime(date('Y-m-d'))
-		));
+
 		// 获取该彩票最近五期的开奖结果
 		$date = date('H:i');
 		$Lottery_time_data = $this->Lottery_time_model->get_list_by(array(
 			'from_lottery' => $Lottery_data['id'],
-			'timestamp <=' => strtotime(date("Y-m-d H:i:s" , strtotime($date))) - strtotime(date('Y-m-d'))
+			'timestamp <=' => strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'))
 		) , 1 , 5 , array() , 'Not all' , array('timestamp' => 'desc'));
 
 
@@ -64,6 +60,8 @@ class Lottery extends CI_Controller {
 		}
 
 
+		print_r($Lottery_data);
+
 
 
 
@@ -74,7 +72,7 @@ class Lottery extends CI_Controller {
 			'Lottery_data' => $Lottery_data,
 			'Game_rule_menu_list' => $Game_rule_menu_list,
 			'Lottery_time_data' => $Lottery_time_data,
-			'Now_lottery' => @$Lottery_time_data[0],
+			'Now_lottery' => $Lottery_time_data[0],
 		) , 'home');
 	}
 }

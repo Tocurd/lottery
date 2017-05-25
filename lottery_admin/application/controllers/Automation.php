@@ -23,7 +23,7 @@ class Automation extends CI_Controller {
 		while (true) {
 			$time ++;
 			if($time % ((60 * 60) * 2) == 0) $this->checkData();
-			$this->open_lottery();
+			$this->open_lottery($time);
 			sleep(1);
 		}
 
@@ -38,10 +38,11 @@ class Automation extends CI_Controller {
 	 * 开奖监听事件
 	 * @return [type] [description]
 	 */
-	private function open_lottery(){
-		echo '.';
+	private function open_lottery($time){
+
 		// $this->prints('检查是否有彩票期数需要开奖');
 		$date = date('H:i:s');
+		$now_time = strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'));
 
 		// 获取所有彩票
 		$Lottery_list = $this->Lottery_model->get_list(array() , 0 , 0 , array('name' , 'id' , 'from_group' , 'draw_interval') , 'all');
@@ -51,7 +52,7 @@ class Automation extends CI_Controller {
 
 			$Lottery_time_data = $this->Lottery_time_model->get_by(array(
 				'from_lottery' => $value['id'],
-				'timestamp <=' => strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'))
+				'timestamp <=' => $now_time
 			) , array() , array('timestamp' => 'desc'));
 
 
@@ -63,9 +64,23 @@ class Automation extends CI_Controller {
 			));
 
 
+
+			// 计算距离下一期开奖还有多久
+			$Lost_lottery = $this->Lottery_time_model->get_by(array(
+				'from_lottery' => $value['id'],
+				'timestamp >' => $now_time
+			) , array() , array('timestamp' => 'asc'));
+			print_r($Lost_lottery);
+			if($time % 10 == 0){
+				$lost_time = strtotime(date('Y-m-d H:i:s') , $Lost_lottery['time']) - strtotime(date('Y-m-d'));
+				echo $lost_time;
+			}
+
+
+
+
 			if(isset($data['id'])){
 				if($data['state'] == '0'){
-					echo PHP_EOL;
 					$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，需要开奖");
 					$this->prints(json_encode($Lottery_time_data));
 					$this->prints(json_encode($data));
@@ -76,7 +91,6 @@ class Automation extends CI_Controller {
 					$date = strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'));
 					if($date >= $Lottery_time_data['timestamp'] + $value['draw_interval']){
 
-						echo PHP_EOL;
 						$this->Lottery_data_model->edit(array('id' => $data['id']) , array('state' => 2));
 						$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，已成功开奖");
 					}

@@ -36,14 +36,14 @@
 							</div>
 
 
-							<h3>新蜂五分彩</h3>
+							<h3><?=$Lottery_data['name']?></h3>
 							<div class="gct_now">
 								<strong>
 									第&nbsp;&nbsp;<span id="current_issue" class="color-green">	<?=$Now_lottery['byid']?></span>&nbsp;&nbsp;期
 								</strong>
 								<br>
 								总共:&nbsp;&nbsp;
-								<strong><span id="current_sale" class="color-green">217</span></strong>
+								<strong><span id="current_sale" class="color-green"><?=$Lottery_data['periods']?></span></strong>
 								&nbsp;&nbsp;期
 								<br>
 								<a href="http://game.nb15.net/history_code.shtml?id=15&amp;frequencytype=0" target="_blank" class="bt01"><span class="fa fa-bar-chart"></span>

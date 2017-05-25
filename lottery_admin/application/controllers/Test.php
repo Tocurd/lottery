@@ -14,7 +14,8 @@ class Test extends CI_Controller {
 		$date = strtotime(date('Y-m-d') . ' 21:0');
 		$timestamp = 0;
 		foreach ($Lottery_time_data as $key => $value) {
-			$timestamp += 60;
+			$timestamp += 120;
+			print_r($value);
 
 			// print_r(array(
 			// 	'time' => date('H:i' , $date + $timestamp),

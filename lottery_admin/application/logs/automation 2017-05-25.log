@@ -233,3 +233,304 @@
 2017-05-25 21:55:35 2017-05-29 : yes
 2017-05-25 21:55:35 2017-05-30 : yes
 2017-05-25 21:55:35 2017-05-31 : yes
+2017-05-25 21:56:00 【测试】第56期，需要开奖
+2017-05-25 21:56:00 {"id":"33461","periods":"56","from_lottery":"23","time":"21:56","timestamp":"78960"}
+2017-05-25 21:56:00 {"id":"7172","from_time_id":"33461","from_lottery":"23","day":"2017-05-25 00:00:00","data":"849102","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 21:56:00 【测试】第56期，正在摇奖中
+2017-05-25 21:56:20 【测试】第56期，已成功开奖
+2017-05-25 21:57:00 【测试】第57期，需要开奖
+2017-05-25 21:57:00 {"id":"33462","periods":"57","from_lottery":"23","time":"21:57","timestamp":"79020"}
+2017-05-25 21:57:00 {"id":"7171","from_time_id":"33462","from_lottery":"23","day":"2017-05-25 00:00:00","data":"753604","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 21:57:00 【测试】第57期，正在摇奖中
+2017-05-25 21:57:20 【测试】第57期，已成功开奖
+2017-05-25 22:35:20 【测试】第95期，需要开奖
+2017-05-25 22:35:20 {"id":"33500","periods":"95","from_lottery":"23","time":"22:35","timestamp":"81300"}
+2017-05-25 22:35:20 {"id":"7133","from_time_id":"33500","from_lottery":"23","day":"2017-05-25 00:00:00","data":"216976","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:35:22 【测试】第95期，正在摇奖中
+2017-05-25 22:35:23 【测试】第95期，已成功开奖
+2017-05-25 22:36:00 【测试】第96期，需要开奖
+2017-05-25 22:36:00 {"id":"33501","periods":"96","from_lottery":"23","time":"22:36","timestamp":"81360"}
+2017-05-25 22:36:00 {"id":"7132","from_time_id":"33501","from_lottery":"23","day":"2017-05-25 00:00:00","data":"717486","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:36:00 【测试】第96期，正在摇奖中
+2017-05-25 22:36:20 【测试】第96期，已成功开奖
+2017-05-25 22:37:00 【测试】第97期，需要开奖
+2017-05-25 22:37:00 {"id":"33502","periods":"97","from_lottery":"23","time":"22:37","timestamp":"81420"}
+2017-05-25 22:37:00 {"id":"7131","from_time_id":"33502","from_lottery":"23","day":"2017-05-25 00:00:00","data":"229116","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:37:00 【测试】第97期，正在摇奖中
+2017-05-25 22:37:20 【测试】第97期，已成功开奖
+2017-05-25 22:38:00 【测试】第98期，需要开奖
+2017-05-25 22:38:00 {"id":"33503","periods":"98","from_lottery":"23","time":"22:38","timestamp":"81480"}
+2017-05-25 22:38:00 {"id":"7130","from_time_id":"33503","from_lottery":"23","day":"2017-05-25 00:00:00","data":"579553","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:38:00 【测试】第98期，正在摇奖中
+2017-05-25 22:38:20 【测试】第98期，已成功开奖
+2017-05-25 22:39:00 【测试】第99期，需要开奖
+2017-05-25 22:39:00 {"id":"33504","periods":"99","from_lottery":"23","time":"22:39","timestamp":"81540"}
+2017-05-25 22:39:00 {"id":"7129","from_time_id":"33504","from_lottery":"23","day":"2017-05-25 00:00:00","data":"627536","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:39:00 【测试】第99期，正在摇奖中
+2017-05-25 22:39:21 【测试】第99期，已成功开奖
+2017-05-25 22:40:00 【测试】第100期，需要开奖
+2017-05-25 22:40:00 {"id":"33505","periods":"100","from_lottery":"23","time":"22:40","timestamp":"81600"}
+2017-05-25 22:40:00 {"id":"7128","from_time_id":"33505","from_lottery":"23","day":"2017-05-25 00:00:00","data":"418328","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:40:00 【测试】第100期，正在摇奖中
+2017-05-25 22:40:20 【测试】第100期，已成功开奖
+2017-05-25 22:41:00 【测试】第101期，需要开奖
+2017-05-25 22:41:00 {"id":"33506","periods":"101","from_lottery":"23","time":"22:41","timestamp":"81660"}
+2017-05-25 22:41:00 {"id":"7127","from_time_id":"33506","from_lottery":"23","day":"2017-05-25 00:00:00","data":"586062","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:41:01 【测试】第101期，正在摇奖中
+2017-05-25 22:41:20 【测试】第101期，已成功开奖
+2017-05-25 22:42:00 【测试】第102期，需要开奖
+2017-05-25 22:42:00 {"id":"33507","periods":"102","from_lottery":"23","time":"22:42","timestamp":"81720"}
+2017-05-25 22:42:00 {"id":"7126","from_time_id":"33507","from_lottery":"23","day":"2017-05-25 00:00:00","data":"490454","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:42:00 【测试】第102期，正在摇奖中
+2017-05-25 22:42:21 【测试】第102期，已成功开奖
+2017-05-25 22:43:00 【测试】第103期，需要开奖
+2017-05-25 22:43:00 {"id":"33508","periods":"103","from_lottery":"23","time":"22:43","timestamp":"81780"}
+2017-05-25 22:43:00 {"id":"7125","from_time_id":"33508","from_lottery":"23","day":"2017-05-25 00:00:00","data":"825399","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:43:00 【测试】第103期，正在摇奖中
+2017-05-25 22:43:20 【测试】第103期，已成功开奖
+2017-05-25 22:44:00 【测试】第104期，需要开奖
+2017-05-25 22:44:00 {"id":"33509","periods":"104","from_lottery":"23","time":"22:44","timestamp":"81840"}
+2017-05-25 22:44:00 {"id":"7124","from_time_id":"33509","from_lottery":"23","day":"2017-05-25 00:00:00","data":"686944","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:44:00 【测试】第104期，正在摇奖中
+2017-05-25 22:44:20 【测试】第104期，已成功开奖
+2017-05-25 22:45:00 【测试】第105期，需要开奖
+2017-05-25 22:45:00 {"id":"33510","periods":"105","from_lottery":"23","time":"22:45","timestamp":"81900"}
+2017-05-25 22:45:00 {"id":"7123","from_time_id":"33510","from_lottery":"23","day":"2017-05-25 00:00:00","data":"238125","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:45:00 【测试】第105期，正在摇奖中
+2017-05-25 22:45:20 【测试】第105期，已成功开奖
+2017-05-25 22:46:00 【测试】第106期，需要开奖
+2017-05-25 22:46:00 {"id":"33511","periods":"106","from_lottery":"23","time":"22:46","timestamp":"81960"}
+2017-05-25 22:46:00 {"id":"7122","from_time_id":"33511","from_lottery":"23","day":"2017-05-25 00:00:00","data":"758190","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:46:00 【测试】第106期，正在摇奖中
+2017-05-25 22:46:20 【测试】第106期，已成功开奖
+2017-05-25 22:47:00 【测试】第107期，需要开奖
+2017-05-25 22:47:00 {"id":"33512","periods":"107","from_lottery":"23","time":"22:47","timestamp":"82020"}
+2017-05-25 22:47:00 {"id":"7121","from_time_id":"33512","from_lottery":"23","day":"2017-05-25 00:00:00","data":"613693","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:47:00 【测试】第107期，正在摇奖中
+2017-05-25 22:47:20 【测试】第107期，已成功开奖
+2017-05-25 22:48:00 【测试】第108期，需要开奖
+2017-05-25 22:48:00 {"id":"33513","periods":"108","from_lottery":"23","time":"22:48","timestamp":"82080"}
+2017-05-25 22:48:00 {"id":"7120","from_time_id":"33513","from_lottery":"23","day":"2017-05-25 00:00:00","data":"538958","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:48:00 【测试】第108期，正在摇奖中
+2017-05-25 22:48:20 【测试】第108期，已成功开奖
+2017-05-25 22:49:00 【测试】第109期，需要开奖
+2017-05-25 22:49:00 {"id":"33514","periods":"109","from_lottery":"23","time":"22:49","timestamp":"82140"}
+2017-05-25 22:49:00 {"id":"7119","from_time_id":"33514","from_lottery":"23","day":"2017-05-25 00:00:00","data":"563430","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:49:00 【测试】第109期，正在摇奖中
+2017-05-25 22:49:20 【测试】第109期，已成功开奖
+2017-05-25 22:50:04 【测试】第110期，需要开奖
+2017-05-25 22:50:04 {"id":"33515","periods":"110","from_lottery":"23","time":"22:50","timestamp":"82200"}
+2017-05-25 22:50:04 {"id":"7118","from_time_id":"33515","from_lottery":"23","day":"2017-05-25 00:00:00","data":"173388","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:50:04 【测试】第110期，正在摇奖中
+2017-05-25 22:50:21 【测试】第110期，已成功开奖
+2017-05-25 22:51:00 【测试】第111期，需要开奖
+2017-05-25 22:51:00 {"id":"33516","periods":"111","from_lottery":"23","time":"22:51","timestamp":"82260"}
+2017-05-25 22:51:00 {"id":"7117","from_time_id":"33516","from_lottery":"23","day":"2017-05-25 00:00:00","data":"245541","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:51:00 【测试】第111期，正在摇奖中
+2017-05-25 22:51:20 【测试】第111期，已成功开奖
+2017-05-25 22:52:00 【测试】第112期，需要开奖
+2017-05-25 22:52:00 {"id":"33517","periods":"112","from_lottery":"23","time":"22:52","timestamp":"82320"}
+2017-05-25 22:52:00 {"id":"7116","from_time_id":"33517","from_lottery":"23","day":"2017-05-25 00:00:00","data":"339996","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:52:00 【测试】第112期，正在摇奖中
+2017-05-25 22:52:20 【测试】第112期，已成功开奖
+2017-05-25 22:53:00 【测试】第113期，需要开奖
+2017-05-25 22:53:00 {"id":"33518","periods":"113","from_lottery":"23","time":"22:53","timestamp":"82380"}
+2017-05-25 22:53:00 {"id":"7115","from_time_id":"33518","from_lottery":"23","day":"2017-05-25 00:00:00","data":"690103","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:53:00 【测试】第113期，正在摇奖中
+2017-05-25 22:53:20 【测试】第113期，已成功开奖
+2017-05-25 22:54:00 【测试】第114期，需要开奖
+2017-05-25 22:54:00 {"id":"33519","periods":"114","from_lottery":"23","time":"22:54","timestamp":"82440"}
+2017-05-25 22:54:00 {"id":"7114","from_time_id":"33519","from_lottery":"23","day":"2017-05-25 00:00:00","data":"676672","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:54:00 【测试】第114期，正在摇奖中
+2017-05-25 22:54:20 【测试】第114期，已成功开奖
+2017-05-25 22:55:00 【测试】第115期，需要开奖
+2017-05-25 22:55:00 {"id":"33520","periods":"115","from_lottery":"23","time":"22:55","timestamp":"82500"}
+2017-05-25 22:55:00 {"id":"7113","from_time_id":"33520","from_lottery":"23","day":"2017-05-25 00:00:00","data":"424069","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:55:00 【测试】第115期，正在摇奖中
+2017-05-25 22:55:20 【测试】第115期，已成功开奖
+2017-05-25 22:56:00 【测试】第116期，需要开奖
+2017-05-25 22:56:00 {"id":"33521","periods":"116","from_lottery":"23","time":"22:56","timestamp":"82560"}
+2017-05-25 22:56:00 {"id":"7112","from_time_id":"33521","from_lottery":"23","day":"2017-05-25 00:00:00","data":"905682","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:56:00 【测试】第116期，正在摇奖中
+2017-05-25 22:56:20 【测试】第116期，已成功开奖
+2017-05-25 22:57:00 【测试】第117期，需要开奖
+2017-05-25 22:57:00 {"id":"33522","periods":"117","from_lottery":"23","time":"22:57","timestamp":"82620"}
+2017-05-25 22:57:00 {"id":"7111","from_time_id":"33522","from_lottery":"23","day":"2017-05-25 00:00:00","data":"196267","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:57:00 【测试】第117期，正在摇奖中
+2017-05-25 22:57:20 【测试】第117期，已成功开奖
+2017-05-25 22:58:00 【测试】第118期，需要开奖
+2017-05-25 22:58:00 {"id":"33523","periods":"118","from_lottery":"23","time":"22:58","timestamp":"82680"}
+2017-05-25 22:58:00 {"id":"7110","from_time_id":"33523","from_lottery":"23","day":"2017-05-25 00:00:00","data":"158666","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:58:00 【测试】第118期，正在摇奖中
+2017-05-25 22:58:20 【测试】第118期，已成功开奖
+2017-05-25 22:59:00 【测试】第119期，需要开奖
+2017-05-25 22:59:00 {"id":"33524","periods":"119","from_lottery":"23","time":"22:59","timestamp":"82740"}
+2017-05-25 22:59:00 {"id":"7109","from_time_id":"33524","from_lottery":"23","day":"2017-05-25 00:00:00","data":"502401","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:59:00 【测试】第119期，正在摇奖中
+2017-05-25 22:59:20 【测试】第119期，已成功开奖
+2017-05-25 23:00:00 【测试】第120期，需要开奖
+2017-05-25 23:00:00 {"id":"33525","periods":"120","from_lottery":"23","time":"23:00","timestamp":"82800"}
+2017-05-25 23:00:00 {"id":"7108","from_time_id":"33525","from_lottery":"23","day":"2017-05-25 00:00:00","data":"801641","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 23:00:00 【测试】第120期，正在摇奖中
+2017-05-25 23:00:20 【测试】第120期，已成功开奖
+2017-05-25 23:01:00 【测试】第121期，需要开奖
+2017-05-25 23:01:00 {"id":"33526","periods":"121","from_lottery":"23","time":"23:01","timestamp":"82860"}
+2017-05-25 23:01:00 {"id":"7107","from_time_id":"33526","from_lottery":"23","day":"2017-05-25 00:00:00","data":"910049","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 23:01:00 【测试】第121期，正在摇奖中
+2017-05-25 23:01:20 【测试】第121期，已成功开奖
+2017-05-25 23:02:00 【测试】第122期，需要开奖
+2017-05-25 23:02:00 {"id":"33527","periods":"122","from_lottery":"23","time":"23:02","timestamp":"82920"}
+2017-05-25 23:02:00 {"id":"7106","from_time_id":"33527","from_lottery":"23","day":"2017-05-25 00:00:00","data":"559997","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 23:02:00 【测试】第122期，正在摇奖中
+2017-05-25 23:02:20 【测试】第122期，已成功开奖
+2017-05-25 23:09:55 未发现开奖数据，正在准备号码采集策略
+2017-05-25 22:11:34 脚本开启
+2017-05-25 22:11:34 检查【测试】是否有近七日数据
+2017-05-25 22:11:34 2017-05-25 : no
+2017-05-25 22:11:34 2017-05-26 : no
+2017-05-25 22:11:34 2017-05-27 : no
+2017-05-25 22:11:35 2017-05-28 : no
+2017-05-25 22:11:35 2017-05-29 : no
+2017-05-25 22:11:35 2017-05-30 : no
+2017-05-25 22:11:35 2017-05-31 : no
+2017-05-25 22:11:35 【测试】第71期，需要开奖
+2017-05-25 22:11:35 {"id":"33476","periods":"71","from_lottery":"23","time":"22:11","timestamp":"79860"}
+2017-05-25 22:11:35 {"id":"8018","from_time_id":"33476","from_lottery":"23","day":"2017-05-25 00:00:00","data":"973962","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:11:35 【测试】第71期，正在摇奖中
+2017-05-25 22:11:36 【测试】第71期，已成功开奖
+2017-05-25 22:12:00 【测试】第72期，需要开奖
+2017-05-25 22:12:00 {"id":"33477","periods":"72","from_lottery":"23","time":"22:12","timestamp":"79920"}
+2017-05-25 22:12:00 {"id":"8017","from_time_id":"33477","from_lottery":"23","day":"2017-05-25 00:00:00","data":"919113","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:12:00 【测试】第72期，正在摇奖中
+2017-05-25 22:12:19 未发现开奖数据，正在准备号码采集策略
+2017-05-25 22:12:20 未发现开奖数据，正在准备号码采集策略
+2017-05-25 22:12:21 未发现开奖数据，正在准备号码采集策略
+2017-05-25 22:12:22 未发现开奖数据，正在准备号码采集策略
+2017-05-25 22:12:49 脚本开启
+2017-05-25 22:12:49 检查【测试】是否有近七日数据
+2017-05-25 22:12:49 2017-05-25 : no
+2017-05-25 22:12:49 2017-05-26 : no
+2017-05-25 22:12:49 2017-05-27 : no
+2017-05-25 22:12:49 2017-05-28 : no
+2017-05-25 22:12:49 2017-05-29 : no
+2017-05-25 22:12:49 2017-05-30 : no
+2017-05-25 22:12:49 2017-05-31 : no
+2017-05-25 22:12:50 【测试】第36期，需要开奖
+2017-05-25 22:12:50 {"id":"33441","periods":"36","from_lottery":"23","time":"22:12","timestamp":"79920"}
+2017-05-25 22:12:50 {"id":"8914","from_time_id":"33441","from_lottery":"23","day":"2017-05-25 00:00:00","data":"937680","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:12:50 【测试】第36期，正在摇奖中
+2017-05-25 22:12:51 【测试】第36期，已成功开奖
+2017-05-25 22:14:00 【测试】第37期，需要开奖
+2017-05-25 22:14:00 {"id":"33442","periods":"37","from_lottery":"23","time":"22:14","timestamp":"80040"}
+2017-05-25 22:14:00 {"id":"8913","from_time_id":"33442","from_lottery":"23","day":"2017-05-25 00:00:00","data":"608502","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:14:00 【测试】第37期，正在摇奖中
+2017-05-25 22:14:20 【测试】第37期，已成功开奖
+2017-05-25 22:16:00 【测试】第38期，需要开奖
+2017-05-25 22:16:00 {"id":"33443","periods":"38","from_lottery":"23","time":"22:16","timestamp":"80160"}
+2017-05-25 22:16:00 {"id":"8912","from_time_id":"33443","from_lottery":"23","day":"2017-05-25 00:00:00","data":"921694","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:16:00 【测试】第38期，正在摇奖中
+2017-05-25 22:16:20 【测试】第38期，已成功开奖
+2017-05-25 22:24:58 【测试】第42期，需要开奖
+2017-05-25 22:24:58 {"id":"33447","periods":"42","from_lottery":"23","time":"22:24","timestamp":"80640"}
+2017-05-25 22:24:58 {"id":"8908","from_time_id":"33447","from_lottery":"23","day":"2017-05-25 00:00:00","data":"997390","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:24:58 【测试】第42期，正在摇奖中
+2017-05-25 22:24:59 【测试】第42期，已成功开奖
+2017-05-25 22:25:01 脚本开启
+2017-05-25 22:25:01 检查【测试】是否有近七日数据
+2017-05-25 22:25:01 2017-05-25 : yes
+2017-05-25 22:25:01 2017-05-26 : yes
+2017-05-25 22:25:01 2017-05-27 : yes
+2017-05-25 22:25:01 2017-05-28 : yes
+2017-05-25 22:25:01 2017-05-29 : yes
+2017-05-25 22:25:01 2017-05-30 : yes
+2017-05-25 22:25:01 2017-05-31 : yes
+2017-05-25 22:25:13 脚本开启
+2017-05-25 22:25:13 检查【测试】是否有近七日数据
+2017-05-25 22:25:13 2017-05-25 : yes
+2017-05-25 22:25:13 2017-05-26 : yes
+2017-05-25 22:25:13 2017-05-27 : yes
+2017-05-25 22:25:13 2017-05-28 : yes
+2017-05-25 22:25:13 2017-05-29 : yes
+2017-05-25 22:25:13 2017-05-30 : yes
+2017-05-25 22:25:13 2017-05-31 : yes
+2017-05-25 22:25:30 脚本开启
+2017-05-25 22:25:30 检查【测试】是否有近七日数据
+2017-05-25 22:25:30 2017-05-25 : yes
+2017-05-25 22:25:30 2017-05-26 : yes
+2017-05-25 22:25:30 2017-05-27 : yes
+2017-05-25 22:25:30 2017-05-28 : yes
+2017-05-25 22:25:30 2017-05-29 : yes
+2017-05-25 22:25:30 2017-05-30 : yes
+2017-05-25 22:25:30 2017-05-31 : yes
+2017-05-25 22:36:09 脚本开启
+2017-05-25 22:36:09 检查【测试】是否有近七日数据
+2017-05-25 22:36:09 2017-05-25 : yes
+2017-05-25 22:36:09 2017-05-26 : yes
+2017-05-25 22:36:09 2017-05-27 : yes
+2017-05-25 22:36:09 2017-05-28 : yes
+2017-05-25 22:36:09 2017-05-29 : yes
+2017-05-25 22:36:09 2017-05-30 : yes
+2017-05-25 22:36:09 2017-05-31 : yes
+2017-05-25 22:36:09 【测试】第48期，需要开奖
+2017-05-25 22:36:09 {"id":"33453","periods":"48","from_lottery":"23","time":"22:36","timestamp":"81360"}
+2017-05-25 22:36:09 {"id":"8902","from_time_id":"33453","from_lottery":"23","day":"2017-05-25 00:00:00","data":"940646","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:36:09 【测试】第48期，正在摇奖中
+2017-05-25 22:36:32 脚本开启
+2017-05-25 22:36:32 检查【测试】是否有近七日数据
+2017-05-25 22:36:32 2017-05-25 : yes
+2017-05-25 22:36:32 2017-05-26 : yes
+2017-05-25 22:36:32 2017-05-27 : yes
+2017-05-25 22:36:32 2017-05-28 : yes
+2017-05-25 22:36:32 2017-05-29 : yes
+2017-05-25 22:36:32 2017-05-30 : yes
+2017-05-25 22:36:32 2017-05-31 : yes
+2017-05-25 22:36:32 【测试】第48期，已成功开奖
+2017-05-25 22:40:55 脚本开启
+2017-05-25 22:40:55 检查【测试】是否有近七日数据
+2017-05-25 22:40:55 2017-05-25 : yes
+2017-05-25 22:40:55 2017-05-26 : yes
+2017-05-25 22:40:55 2017-05-27 : yes
+2017-05-25 22:40:55 2017-05-28 : yes
+2017-05-25 22:40:55 2017-05-29 : yes
+2017-05-25 22:40:55 2017-05-30 : yes
+2017-05-25 22:40:55 2017-05-31 : yes
+2017-05-25 22:40:55 【测试】第50期，需要开奖
+2017-05-25 22:40:55 {"id":"33455","periods":"50","from_lottery":"23","time":"22:40","timestamp":"81600"}
+2017-05-25 22:40:55 {"id":"8900","from_time_id":"33455","from_lottery":"23","day":"2017-05-25 00:00:00","data":"412258","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:40:55 【测试】第50期，正在摇奖中
+2017-05-25 22:42:09 脚本开启
+2017-05-25 22:42:09 检查【测试】是否有近七日数据
+2017-05-25 22:42:09 2017-05-25 : yes
+2017-05-25 22:42:09 2017-05-26 : yes
+2017-05-25 22:42:09 2017-05-27 : yes
+2017-05-25 22:42:09 2017-05-28 : yes
+2017-05-25 22:42:09 2017-05-29 : yes
+2017-05-25 22:42:09 2017-05-30 : yes
+2017-05-25 22:42:09 2017-05-31 : yes
+2017-05-25 22:42:09 【测试】第51期，需要开奖
+2017-05-25 22:42:09 {"id":"33456","periods":"51","from_lottery":"23","time":"22:42","timestamp":"81720"}
+2017-05-25 22:42:09 {"id":"8899","from_time_id":"33456","from_lottery":"23","day":"2017-05-25 00:00:00","data":"205029","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:42:09 【测试】第51期，正在摇奖中
+2017-05-25 22:44:01 脚本开启
+2017-05-25 22:44:01 检查【测试】是否有近七日数据
+2017-05-25 22:44:01 2017-05-25 : yes
+2017-05-25 22:44:01 2017-05-26 : yes
+2017-05-25 22:44:01 2017-05-27 : yes
+2017-05-25 22:44:01 2017-05-28 : yes
+2017-05-25 22:44:01 2017-05-29 : yes
+2017-05-25 22:44:01 2017-05-30 : yes
+2017-05-25 22:44:01 2017-05-31 : yes
+2017-05-25 22:44:01 【测试】第52期，需要开奖
+2017-05-25 22:44:01 {"id":"33457","periods":"52","from_lottery":"23","time":"22:44","timestamp":"81840"}
+2017-05-25 22:44:01 {"id":"8898","from_time_id":"33457","from_lottery":"23","day":"2017-05-25 00:00:00","data":"741244","state":"0","lottery_time":null,"order_count":null,"send_lottery_count":null,"winning_count":null,"participate_count":null,"betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":null}
+2017-05-25 22:44:01 【测试】第52期，正在摇奖中
+2017-05-25 22:44:29 脚本开启
+2017-05-25 22:44:29 检查【测试】是否有近七日数据
+2017-05-25 22:44:29 2017-05-25 : yes
+2017-05-25 22:44:29 2017-05-26 : yes
+2017-05-25 22:44:29 2017-05-27 : yes
+2017-05-25 22:44:29 2017-05-28 : yes
+2017-05-25 22:44:29 2017-05-29 : yes
+2017-05-25 22:44:29 2017-05-30 : yes
+2017-05-25 22:44:29 2017-05-31 : yes
+2017-05-25 22:44:29 【测试】第52期，已成功开奖
