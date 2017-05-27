@@ -37,6 +37,10 @@
 					<td>开奖间隔 (秒)</td>
 					<td><input type="text" api-param-name="open_interval" placeholder="请输入开奖间隔 (秒)"></td>
 				</tr>
+				<tr>
+					<td>摇奖间隔 (秒)</td>
+					<td><input type="text" api-param-name="draw_interval" placeholder="请输入摇奖间隔 (秒)"></td>
+				</tr>
 
 
 				
