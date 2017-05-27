@@ -65,16 +65,7 @@ class Automation extends CI_Controller {
 
 
 
-			// 计算距离下一期开奖还有多久
-			// $Lost_lottery = $this->Lottery_time_model->get_by(array(
-			// 	'from_lottery' => $value['id'],
-			// 	'timestamp >' => $now_time
-			// ) , array() , array('timestamp' => 'asc'));
-			// print_r($Lost_lottery);
-			// if($time % 10 == 0){
-			// 	$lost_time = strtotime(date('Y-m-d H:i:s') , $Lost_lottery['time']) - strtotime(date('Y-m-d'));
-			// 	echo $lost_time;
-			// }
+			
 
 
 

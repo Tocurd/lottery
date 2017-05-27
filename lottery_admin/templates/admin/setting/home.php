@@ -1,4 +1,5 @@
 	<style type="text/css">
+		input[type='checkbox'] , input[type='radio']{margin-right: 3px;margin-left:8px;position: relative;top:2px;}
 		.btn{padding:9px 27px;}
 	</style>
 </head>
@@ -76,19 +77,10 @@
 				
 				<tr>
 					<td>总投注功能开关</td>
-					<td><input type="text" placeholder="请输入总投注功能开关"></td>
+					<td><input type="radio">开启 <input type="radio">关闭</td>
 					<td><span class="label">·····</span></td>
 				</tr>
-				<tr>
-					<td>代理投注开关</td>
-					<td><input type="text" placeholder="请输入代理投注开关"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
-				<tr>
-					<td>上级充值开关</td>
-					<td><input type="text" placeholder="请输入上级充值开关"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
+				
 				<tr>
 					<td>中奖排行开关</td>
 					<td><input type="text" placeholder="请输入中奖排行开关"></td>
@@ -106,22 +98,17 @@
 				</tr>
 				<tr>
 					<td>后台充值声音开关</td>
-					<td><input type="text" placeholder="请输入后台充值声音开关"></td>
+					<td><input type="radio">开启 <input type="radio">关闭</td>
 					<td><span class="label">·····</span></td>
 				</tr>
 				<tr>
 					<td>后台提现声音开关</td>
-					<td><input type="text" placeholder="请输入后台提现声音开关"></td>
+					<td><input type="radio">开启 <input type="radio">关闭</td>
 					<td><span class="label">·····</span></td>
 				</tr>
 				<tr>
 					<td>投注模式</td>
-					<td><input type="text" placeholder="请输入投注模式"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
-				<tr>
-					<td>前台密码错误</td>
-					<td><input type="text" placeholder="请输入前台密码错误"></td>
+					<td><input type="checkbox">元 <input type="checkbox">角 <input type="checkbox">分 <input type="checkbox">厘 </td>
 					<td><span class="label">·····</span></td>
 				</tr>
 				
@@ -135,11 +122,7 @@
 					<td><input type="text" placeholder="请输入消费赠送标准"></td>
 					<td><span class="label">·····</span></td>
 				</tr>
-				<tr>
-					<td>五分、两分、分分彩利润</td>
-					<td><input type="text" placeholder="请输入五分、两分、分分彩利润"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
+			
 				<tr>
 					<td>会员上榜最低中奖金额</td>
 					<td><input type="text" placeholder="请输入会员上榜最低中奖金额"></td>
@@ -165,42 +148,7 @@
 					<td><input type="text" placeholder="请输入最大投注限制"></td>
 					<td><span class="label">·····</span></td>
 				</tr>
-				
-				<tr>
-					<td>清理账号规则</td>
-					<td><input type="text" placeholder="请输入清理账号规则"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
-				<tr>
-					<td>清理数据</td>
-					<td><input type="text" placeholder="请输入清理数据"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
-				<tr>
-					<td>清理数据 2</td>
-					<td><input type="text" placeholder="请输入清理数据"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
-				<tr>
-					<td>充值佣金 活动</td>
-					<td><input type="text" placeholder="请输入充值佣金"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
-				<tr>
-					<td>消费佣金 活动</td>
-					<td><input type="text" placeholder="请输入消费佣金"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
-				<tr>
-					<td>返点最大值</td>
-					<td><input type="text" placeholder="请输入返点最大值"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
-				<tr>
-					<td>上下级返点最小差值</td>
-					<td><input type="text" placeholder="请输入上下级返点最小差值"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
+			
 				<tr>
 					<td>积分比例</td>
 					<td><input type="text" placeholder="请输入积分比例"></td>
@@ -211,16 +159,7 @@
 					<td><input type="text" placeholder="请输入积分规则"></td>
 					<td><span class="label">·····</span></td>
 				</tr>
-				<tr>
-					<td>客服状态</td>
-					<td><input type="text" placeholder="请输入客服状态"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
-				<tr>	
-					<td>客服链接</td>
-					<td><input type="text" placeholder="请输入客服链接"></td>
-					<td><span class="label">·····</span></td>
-				</tr>
+				
 			</table>
 			<div class="tools" style="padding:0px 12px;margin-top:26px;">
 				<button class='btn fezocms'><i class="fa fa-save"></i> 保存配置项</button>
