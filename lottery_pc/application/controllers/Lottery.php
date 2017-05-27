@@ -45,11 +45,28 @@ class Lottery extends CI_Controller {
 			'timestamp <=' => strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'))
 		) , 1 , 5 , array() , 'Not all' , array('timestamp' => 'desc'));
 
+		
+
+		if(count($Lottery_time_data) < 5){
+			$data = $this->Lottery_time_model->get_list_by(array(
+				'from_lottery' => $Lottery_data['id'],
+			) , 1 , 5 , array() , 'Not all' , array('timestamp' => 'desc'));
+			
+			foreach ($data as &$value) {
+				$value['lost_time'] = true;
+				array_push($Lottery_time_data, $value);
+			}
+		}
+
+	
+
+
 		foreach ($Lottery_time_data as &$Lottery_time_data_value) {
-			$Lottery_time_data_value['byid'] = date('Ymd') . '-' . $Lottery_time_data_value['periods'];
+			$time = isset($Lottery_time_data_value['lost_time']) && $Lottery_time_data_value['lost_time'] ? time() - 86400 : time();
+			$Lottery_time_data_value['byid'] = date('Ymd' , $time). '-' . $Lottery_time_data_value['periods'];
 			$Lottery_time_data_value['data'] = $this->Lottery_data_model->get(array(
 				'from_time_id' => $Lottery_time_data_value['id'],
-				'day' => date('Y-m-d')
+				'day' => date('Y-m-d' , $time)
 			))['data'];
 			$Lottery_time_data_value['a'] = $Lottery_time_data_value['data'][0];
 			$Lottery_time_data_value['b'] = $Lottery_time_data_value['data'][1];
@@ -57,6 +74,8 @@ class Lottery extends CI_Controller {
 			$Lottery_time_data_value['d'] = $Lottery_time_data_value['data'][3];
 			$Lottery_time_data_value['e'] = $Lottery_time_data_value['data'][4];
 		}
+
+
 
 
 
@@ -68,7 +87,7 @@ class Lottery extends CI_Controller {
 		// 获取彩票下一期的开奖ID
 		$Next_lottery_data = $this->Lottery_time_model->get_by(array(
 			'from_lottery' => $Lottery_data['id'],
-			'timestamp >' => $Lottery_time_data[0]['timestamp']
+			'timestamp >=' => isset($Lottery_time_data[0]['lost_time']) ? 0 : $Lottery_time_data[0]['timestamp']
 		) , array() , array('timestamp' => 'asc'));
 		$Next_lottery_data['byid'] = date('Ymd') . '-' . $Next_lottery_data['periods'];
 

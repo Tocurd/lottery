@@ -52,10 +52,20 @@ class Lottery extends CI_Controller {
 			'from_lottery' => $lottery_id,
 			'timestamp <=' => strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'))
 		) , array() , array('timestamp' => 'desc'));
-		$Now_lottery_data = $this->Lottery_data_model->get(array(
+		if( ! isset($Now_lottery['id'])){
+			$Now_lottery = $this->Lottery_time_model->get_by(array(
+				'from_lottery' => $lottery_id,
+			) , array() , array('timestamp' => 'asc'));
+			$Now_lottery['is_lost'] = true;
+			
+		}
+
+
+		$Now_lottery_data = $this->Lottery_data_model->get_by(array(
 			'from_time_id' => $Now_lottery['id'],
-			'day' => date('Y-m-d'),
-		));
+			'day' => date('Y-m-d' , @$Now_lottery['is_lost'] ? time() - 86400 : time()),
+		) , array() , array());
+
 
 
 
@@ -69,6 +79,7 @@ class Lottery extends CI_Controller {
 				$data = '';
 			}
 		}
+		
 		
 
 

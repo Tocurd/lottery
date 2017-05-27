@@ -137,6 +137,25 @@ function stop(){
 
 
 
+// 切换第一期或者是第五期
+$("#shownb-box .box-ul a").click(function(){
+	var index = $("#shownb-box .box-ul a").index(this) + 1;
+	$("#shownb-box .box-ul a").removeClass('tabulous_active')
+	$(this).addClass('tabulous_active');
+
+
+	console.log(index)
+	$("#nb-box1 , #nb-box2").removeClass('make_transist').removeClass('showleft').addClass('hideleft');
+	$("#nb-box" + index).removeClass('hideleft').addClass('make_transist').addClass('showleft');
+	return false;
+})
+
+
+
+
+
+
+
 
 function formatSeconds_array(value) { 
 	var theTime = parseInt(value);// 秒 

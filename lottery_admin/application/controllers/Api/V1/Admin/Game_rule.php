@@ -52,7 +52,7 @@ class Game_rule extends CI_Controller {
 
 
 	public function Edit(){
-		$params = Autumn::params(array('id' , 'from_group' , 'description' , 'winning_description' , 'rule'));
+		$params = Autumn::params(array('id' , 'from_group' , 'description' , 'winning_description' , 'rule' , 'byid'));
 		Rule::check($params , array(
 			'from_group' => array('name' => '玩法组' , 'is_number' => true) ,
 			'description' => array('max' => 500 , 'min' => 2 , 'name' => '玩法描述') ,
@@ -73,6 +73,7 @@ class Game_rule extends CI_Controller {
 			'winning_description' => $winning_description,
 			'rule' => $rule,
 			'type' => 2,
+			'byid' => $byid,
 			'create_time' => date('Y-m-d h:i:s'),
 		));
 		Autumn::end(true);
@@ -153,7 +154,7 @@ class Game_rule extends CI_Controller {
 	 * @return [type] [description]
 	 */
 	public function Add_item(){
-		$params = Autumn::params(array('name' , 'from_group' , 'description' , 'winning_description' , 'rule'));
+		$params = Autumn::params(array('name' , 'from_group' , 'description' , 'winning_description' , 'rule' , 'byid'));
 		Rule::check($params , array(
 			'name' => array('max' => 16 , 'min' => 2 , 'name' => '玩法名称') ,
 			'from_group' => array('name' => '玩法组' , 'is_number' => true) ,
@@ -181,6 +182,7 @@ class Game_rule extends CI_Controller {
 			'winning_description' => $winning_description,
 			'rule' => $rule,
 			'type' => 2,
+			'byid' => $byid,
 			'create_time' => date('Y-m-d h:i:s'),
 		));
 

@@ -549,3 +549,72 @@
 2017-05-27 08:55:00 {"id":"20174","byid":"20170527107","periods":"107","from_time_id":"33152","from_lottery":"20","day":"2017-05-27 00:00:00","data":"273089","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
 2017-05-27 08:55:00 【重庆时时彩】第107期，正在摇奖中
 2017-05-27 08:55:20 【重庆时时彩】第107期，已成功开奖
+2017-05-27 09:05:46 脚本开启
+2017-05-27 09:05:46 检查【重庆时时彩】是否有近七日数据
+2017-05-27 09:05:46 2017-05-27 : yes
+2017-05-27 09:05:46 2017-05-28 : yes
+2017-05-27 09:05:46 2017-05-29 : yes
+2017-05-27 09:05:46 2017-05-30 : yes
+2017-05-27 09:05:46 2017-05-31 : yes
+2017-05-27 09:05:46 2017-06-01 : yes
+2017-05-27 09:05:46 2017-06-02 : yes
+2017-05-27 09:05:46 【重庆时时彩】第109期，需要开奖
+2017-05-27 09:05:46 {"id":"33154","periods":"109","from_lottery":"20","time":"09:05","timestamp":"32700"}
+2017-05-27 09:05:46 {"id":"20172","byid":"20170527109","periods":"109","from_time_id":"33154","from_lottery":"20","day":"2017-05-27 00:00:00","data":"867285","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-27 09:05:46 【重庆时时彩】第109期，正在摇奖中
+2017-05-27 09:05:47 【重庆时时彩】第109期，已成功开奖
+2017-05-27 09:10:00 【重庆时时彩】第110期，需要开奖
+2017-05-27 09:10:00 {"id":"33155","periods":"110","from_lottery":"20","time":"09:10","timestamp":"33000"}
+2017-05-27 09:10:00 {"id":"20171","byid":"20170527110","periods":"110","from_time_id":"33155","from_lottery":"20","day":"2017-05-27 00:00:00","data":"241586","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-27 09:10:00 【重庆时时彩】第110期，正在摇奖中
+2017-05-27 09:10:20 【重庆时时彩】第110期，已成功开奖
+2017-05-27 09:15:00 【重庆时时彩】第111期，需要开奖
+2017-05-27 09:15:00 {"id":"33156","periods":"111","from_lottery":"20","time":"09:15","timestamp":"33300"}
+2017-05-27 09:15:00 {"id":"20170","byid":"20170527111","periods":"111","from_time_id":"33156","from_lottery":"20","day":"2017-05-27 00:00:00","data":"503033","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-27 09:15:00 【重庆时时彩】第111期，正在摇奖中
+2017-05-27 09:15:20 【重庆时时彩】第111期，已成功开奖
+2017-05-27 09:20:00 【重庆时时彩】第112期，需要开奖
+2017-05-27 09:20:00 {"id":"33157","periods":"112","from_lottery":"20","time":"09:20","timestamp":"33600"}
+2017-05-27 09:20:00 {"id":"20169","byid":"20170527112","periods":"112","from_time_id":"33157","from_lottery":"20","day":"2017-05-27 00:00:00","data":"169351","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-27 09:20:00 【重庆时时彩】第112期，正在摇奖中
+2017-05-27 09:20:20 【重庆时时彩】第112期，已成功开奖
+2017-05-27 09:25:00 【重庆时时彩】第113期，需要开奖
+2017-05-27 09:25:00 {"id":"33158","periods":"113","from_lottery":"20","time":"09:25","timestamp":"33900"}
+2017-05-27 09:25:00 {"id":"20168","byid":"20170527113","periods":"113","from_time_id":"33158","from_lottery":"20","day":"2017-05-27 00:00:00","data":"843225","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-27 09:25:00 【重庆时时彩】第113期，正在摇奖中
+2017-05-27 09:25:20 【重庆时时彩】第113期，已成功开奖
+2017-05-27 09:30:00 【重庆时时彩】第114期，需要开奖
+2017-05-27 09:30:00 {"id":"33159","periods":"114","from_lottery":"20","time":"09:30","timestamp":"34200"}
+2017-05-27 09:30:00 {"id":"20167","byid":"20170527114","periods":"114","from_time_id":"33159","from_lottery":"20","day":"2017-05-27 00:00:00","data":"258395","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-27 09:30:01 【重庆时时彩】第114期，正在摇奖中
+2017-05-27 09:30:20 【重庆时时彩】第114期，已成功开奖
+2017-05-27 09:35:00 【重庆时时彩】第115期，需要开奖
+2017-05-27 09:35:00 {"id":"33160","periods":"115","from_lottery":"20","time":"09:35","timestamp":"34500"}
+2017-05-27 09:35:00 {"id":"20166","byid":"20170527115","periods":"115","from_time_id":"33160","from_lottery":"20","day":"2017-05-27 00:00:00","data":"935125","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-27 09:35:00 【重庆时时彩】第115期，正在摇奖中
+2017-05-27 09:35:20 【重庆时时彩】第115期，已成功开奖
+2017-05-27 09:40:00 【重庆时时彩】第116期，需要开奖
+2017-05-27 09:40:00 {"id":"33161","periods":"116","from_lottery":"20","time":"09:40","timestamp":"34800"}
+2017-05-27 09:40:00 {"id":"20165","byid":"20170527116","periods":"116","from_time_id":"33161","from_lottery":"20","day":"2017-05-27 00:00:00","data":"582546","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-27 09:40:00 【重庆时时彩】第116期，正在摇奖中
+2017-05-27 09:40:20 【重庆时时彩】第116期，已成功开奖
+2017-05-27 09:45:00 【重庆时时彩】第117期，需要开奖
+2017-05-27 09:45:00 {"id":"33162","periods":"117","from_lottery":"20","time":"09:45","timestamp":"35100"}
+2017-05-27 09:45:00 {"id":"20164","byid":"20170527117","periods":"117","from_time_id":"33162","from_lottery":"20","day":"2017-05-27 00:00:00","data":"135375","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-27 09:45:00 【重庆时时彩】第117期，正在摇奖中
+2017-05-27 09:45:20 【重庆时时彩】第117期，已成功开奖
+2017-05-27 09:50:00 【重庆时时彩】第118期，需要开奖
+2017-05-27 09:50:00 {"id":"33163","periods":"118","from_lottery":"20","time":"09:50","timestamp":"35400"}
+2017-05-27 09:50:00 {"id":"20163","byid":"20170527118","periods":"118","from_time_id":"33163","from_lottery":"20","day":"2017-05-27 00:00:00","data":"962509","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-27 09:50:00 【重庆时时彩】第118期，正在摇奖中
+2017-05-27 09:50:20 【重庆时时彩】第118期，已成功开奖
+2017-05-27 09:55:00 【重庆时时彩】第119期，需要开奖
+2017-05-27 09:55:00 {"id":"33164","periods":"119","from_lottery":"20","time":"09:55","timestamp":"35700"}
+2017-05-27 09:55:00 {"id":"20162","byid":"20170527119","periods":"119","from_time_id":"33164","from_lottery":"20","day":"2017-05-27 00:00:00","data":"134991","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-27 09:55:00 【重庆时时彩】第119期，正在摇奖中
+2017-05-27 09:55:20 【重庆时时彩】第119期，已成功开奖
+2017-05-27 10:00:00 【重庆时时彩】第120期，需要开奖
+2017-05-27 10:00:00 {"id":"33165","periods":"120","from_lottery":"20","time":"10:00","timestamp":"36000"}
+2017-05-27 10:00:00 {"id":"20161","byid":"20170527120","periods":"120","from_time_id":"33165","from_lottery":"20","day":"2017-05-27 00:00:00","data":"290859","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-05-27 10:00:00 【重庆时时彩】第120期，正在摇奖中
+2017-05-27 10:00:20 【重庆时时彩】第120期，已成功开奖

@@ -1,3 +1,11 @@
+#rightcon *, #rightcon *:after {
+    -moz-box-sizing: content-box;
+    /* -webkit-box-sizing: content-box; */
+    -o-box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
 #rightcon{
     float: left;
 }
@@ -262,11 +270,11 @@ ul, li {
 }
 
 .make_transist {
-    // -webkit-transition: all .3s ease-in-out;
-    // -moz-transition: all .3s ease-in-out;
-    // -o-transition: all .3s ease-in-out;
-    // -ms-transition: all .3s ease-in-out;
-    // transition: all .3s ease-in-out
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out
 }
 
 .hideleft {
@@ -278,6 +286,11 @@ ul, li {
     -ms-filter: "alpha(opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0
+        -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out
 }
 
 .showleft {

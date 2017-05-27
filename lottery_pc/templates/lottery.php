@@ -47,17 +47,17 @@
 								<strong><span id="current_sale" class="color-green"><?=$Lottery_data['periods']?></span></strong>
 								&nbsp;&nbsp;期
 								<br>
-								<!-- <a href="http://game.nb15.net/history_code.shtml?id=15&amp;frequencytype=0" target="_blank" class="bt01"><span class="fa fa-bar-chart"></span>
+								<a href="http://game.nb15.net/history_code.shtml?id=15&amp;frequencytype=0" target="_blank" class="bt01"><span class="fa fa-bar-chart"></span>
 									号码走势
-								</a> -->
+								</a>
 							</div>
 						</div>
 
 
 						<div id="shownb-box">
 							<ul class="box-ul">
-								<li><a href="http://game.nb15.net/play_nbwfc.shtml#nb-box1" class="tabulous_active">近一期</a></li>
-								<li><a href="http://game.nb15.net/play_nbwfc.shtml#nb-box2">近五期</a></li>
+								<li><a href="" class="tabulous_active">近一期</a></li>
+								<li><a href="">近五期</a></li>
 							</ul>
 							<div id="tabs_container" style="height: 120px;">
 								<div id="nb-box1" style="position: absolute; top: 40px;">
@@ -137,10 +137,9 @@
 								<div class="unit_title">
 									<div class="u_tab_div" id="tabbar-div-s2">
 										
-
 										{Game_rule_menu_list}
-										<span class="tab-front" value="0" tag="0" default="0">
-										<span class="tabbar-left">
+										<span class="tab-back" value="0" tag="0" default="0">
+											<span class="tabbar-left">
 											</span>
 											<span class="content">
 												{name}
@@ -149,8 +148,6 @@
 											</span>
 										</span>
 										{/Game_rule_menu_list}
-
-
 
 									</div>
 								</div>
