@@ -45,9 +45,8 @@ class Lottery extends CI_Controller {
 			'timestamp <=' => strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'))
 		) , 1 , 5 , array() , 'Not all' , array('timestamp' => 'desc'));
 
-
 		foreach ($Lottery_time_data as &$Lottery_time_data_value) {
-			$Lottery_time_data_value['byid'] = date('Ymd') . $Lottery_time_data_value['periods'];
+			$Lottery_time_data_value['byid'] = date('Ymd') . '-' . $Lottery_time_data_value['periods'];
 			$Lottery_time_data_value['data'] = $this->Lottery_data_model->get(array(
 				'from_time_id' => $Lottery_time_data_value['id'],
 				'day' => date('Y-m-d')
@@ -60,7 +59,36 @@ class Lottery extends CI_Controller {
 		}
 
 
-		print_r($Lottery_data);
+
+		// 获取凌晨到现在的秒数
+		$now_time = time() - strtotime(date('Y-m-d'));
+
+
+
+		// 获取彩票下一期的开奖ID
+		$Next_lottery_data = $this->Lottery_time_model->get_by(array(
+			'from_lottery' => $Lottery_data['id'],
+			'timestamp >' => $Lottery_time_data[0]['timestamp']
+		) , array() , array('timestamp' => 'asc'));
+		$Next_lottery_data['byid'] = date('Ymd') . '-' . $Next_lottery_data['periods'];
+
+
+		// 假如获取不到下一期开奖数据
+		// 则顺延到第二天
+		if( ! isset($Next_lottery_data['id'])){
+			$Next_lottery_data = $this->Lottery_time_model->get_by(array(
+				'from_lottery' => $Lottery_data['id'],
+				'timestamp >' => 0
+			) , array() , array('timestamp' => 'asc'));
+			$Next_lottery_data['timestamp'] += 86400;
+			$Next_lottery_data['byid'] = date('Ymd' , time() + 86400) . '-' . $Next_lottery_data['periods'];
+		}
+
+
+
+
+
+
 
 
 
@@ -73,6 +101,22 @@ class Lottery extends CI_Controller {
 			'Game_rule_menu_list' => $Game_rule_menu_list,
 			'Lottery_time_data' => $Lottery_time_data,
 			'Now_lottery' => $Lottery_time_data[0],
+			'Next_lottery_data' => $Next_lottery_data,
+
+			// 下一期彩票开奖时间
+			'Next_lottery_time' => $Next_lottery_data['timestamp'] - $now_time,
 		) , 'home');
+	}
+
+
+
+	/**
+	 * 转换时间
+	 * @param  [type] $time [description]
+	 * @return [type]       [description]
+	 */
+	private function trun_time($time){
+		$date = strtotime(date('Y-m-d'));
+		return strtotime(date('Y-m-d') . ' ' . $time) - $date;
 	}
 }

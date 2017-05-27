@@ -6,6 +6,7 @@
 
 	<?php $this->load->view('\template\top-header.php')?>
 
+
 <div id="rightcon">
 	<div class="game_rc">
 		<form>
@@ -22,14 +23,14 @@
 							<div class="gct_time">
 								<div class="gct_time_now">
 									<div class="gct_time_now_l" id="count_down">
-										<span class="leaveh-1"><span>0</span></span>
-										<span class="leaveh-2"><span>0</span></span>
-										<span class="interval"><span>:</span></span>
-										<span class="leavem-1"><span>0</span></span>
-										<span class="leavem-2"><span>3</span></span>
-										<span class="interval"><span>:</span></span>
-										<span class="leaves-1"><span>5</span></span>
-										<span class="leaves-2"><span>3</span></span>
+										<span class="leaveh-1">-</span>
+										<span class="leaveh-2">-</span>
+										<span class="interval">:</span>
+										<span class="leavem-1">-</span>
+										<span class="leavem-2">-</span>
+										<span class="interval">:</span>
+										<span class="leaves-1">-</span>
+										<span class="leaves-2">-</span>
 										<span id="endsound" class="onsound"></span>
 									</div>
 								</div>
@@ -39,16 +40,16 @@
 							<h3><?=$Lottery_data['name']?></h3>
 							<div class="gct_now">
 								<strong>
-									第&nbsp;&nbsp;<span id="current_issue" class="color-green">	<?=$Now_lottery['byid']?></span>&nbsp;&nbsp;期
+									第&nbsp;&nbsp;<span id="current_issue" class="color-green"><?=$Next_lottery_data['byid']?></span>&nbsp;&nbsp;期
 								</strong>
 								<br>
 								总共:&nbsp;&nbsp;
 								<strong><span id="current_sale" class="color-green"><?=$Lottery_data['periods']?></span></strong>
 								&nbsp;&nbsp;期
 								<br>
-								<a href="http://game.nb15.net/history_code.shtml?id=15&amp;frequencytype=0" target="_blank" class="bt01"><span class="fa fa-bar-chart"></span>
+								<!-- <a href="http://game.nb15.net/history_code.shtml?id=15&amp;frequencytype=0" target="_blank" class="bt01"><span class="fa fa-bar-chart"></span>
 									号码走势
-								</a>
+								</a> -->
 							</div>
 						</div>
 
@@ -61,10 +62,10 @@
 							<div id="tabs_container" style="height: 120px;">
 								<div id="nb-box1" style="position: absolute; top: 40px;">
 									<p>
-										新蜂五分彩第&nbsp;&nbsp;
+										<?=$Lottery_data['name']?>第&nbsp;&nbsp;
 										<b>
 											<span class="color-green" id="lt_gethistorycode">
-												170524179
+												<?=$Now_lottery['byid']?>
 											</span>
 										</b>
 										&nbsp;&nbsp;期
@@ -84,12 +85,14 @@
 											</strong>
 										</span>
 									</p>
+
+
 									<ul class="show-nb1 " id="showcodebox">
-										<li flag="normal">8</li>
-										<li flag="normal">2</li>
-										<li flag="normal">2</li>
-										<li flag="normal">8</li>
-										<li flag="normal">0</li>
+										<li flag="normal"><?=$Now_lottery['a']?></li>
+										<li flag="normal"><?=$Now_lottery['b']?></li>
+										<li flag="normal"><?=$Now_lottery['c']?></li>
+										<li flag="normal"><?=$Now_lottery['d']?></li>
+										<li flag="normal"><?=$Now_lottery['e']?></li>
 									</ul>
 								</div>
 
@@ -6204,5 +6207,10 @@
 			</div>
 
 	<?php $this->load->view('\template\footer.php')?>
+	<script type="text/javascript">
+		var lotteryId = <?=$this->input->get('id' , true)?>;
+		var nextLotteryTime = <?=$Next_lottery_time?>;
+	</script>
+	<script type="text/javascript" src="./assets/js/lottery.js"></script>
 </body>
 </html>

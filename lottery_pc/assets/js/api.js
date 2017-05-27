@@ -1,4 +1,3 @@
-
 /**
  * api返回格式
  * {state : true , message : "" , xxx : {} , xxxx : {}}
@@ -33,9 +32,9 @@ var ApiRequest = (function(ApiRequestList){
 	 * @param  {[type]} option [{
 	 *    autoCommit 是否自动提交(bool)
 	 *    target 自动获取参数的元素
-	 *    params 添加的参数
+	 *    params
 	 * }]
-	 * @param  {[type]} target [自定义获取API参数的元素]
+	 * @param  {[type]} target [自定义获取API参数的]
 	 */
 	modules.prototype.push = function(apiName , option){
 		this.SelectApi = uriGet(this.ApiRequestList , apiName);
@@ -89,7 +88,7 @@ var ApiRequest = (function(ApiRequestList){
 
 		doAjax({
 			url : (isset(this.AllOption) && isset(this.AllOption.url) ? this.AllOption.url : '') + api.url,
-			data : params.apiParams , 
+			data : params['apiParams'] , 
 			type : isset(api.type) ? api.type : "POST",
 			dataType : isset(api.dataType) ? api.dataType : "JSON",
 			timeOut : isset(api.timeOut) ? api.timeOut : 5000,
@@ -122,7 +121,7 @@ var ApiRequest = (function(ApiRequestList){
 				if(data.state){
 					options.promise.resolve(data);
 				}else{
-					if( ! isset(data.message)){
+					if(isset(data.message)){
 						options.promise.reject({
 							message : "请求出现异常，接口服务器尚未反馈错误信息，请稍候再试！"
 						});
@@ -165,7 +164,7 @@ var ApiRequest = (function(ApiRequestList){
 			}else{
 				window.location.href = url
 			}
-		} , 1000)
+		} , ! isNaN(url) ? url : 1000)
 	}
 
 
@@ -194,22 +193,18 @@ var ApiRequest = (function(ApiRequestList){
 			if(key == 'uriGet') return;
 			var thisRule = rule[key];
 			var param = params[key];
-
-			if(typeof thisRule == 'undefined'){
-				return false;
-			}
 			var thisName = toastText.header + thisRule.name;
 			var message = '';
 			var length = param.length;
 			if( ! isset(thisRule) || ! isset(thisRule['name'])) return false;
 
 			if(isset(thisRule.is_null) && thisRule.is_null == true && length == 0){
-				return true;
+				error.push({message : thisName + toastText.rule.nullText , data : thisRule.other});
 			}else if(isset(thisRule.min) && length < thisRule.min){
 				error.push({message : thisName + toastText.rule.min + thisRule.min + toastText.sum , data : thisRule.other});
 			}else if(isset(thisRule.max) && length > thisRule.max){
 				error.push({message : thisName + toastText.rule.max + thisRule.max + toastText.sum , data : thisRule.other});
-			}else if(isset(thisRule.is_number) && thisRule.is_number == true &&  (! isNaN(rule[key]) || length < thisRule.number_min || length > thisRule.number_max )){
+			}else if(isset(thisRule.is_number) && thisRule.is_number == true &&  (! isNaN(rule[key]) || value < thisRule.number_min || value > thisRule.number_max )){
 				error.push({message : thisName + toastText.rule.error , data : thisRule.other});
 			}
 
@@ -230,8 +225,7 @@ var ApiRequest = (function(ApiRequestList){
 			? "[" + NameOption.name.apiName + "='" + apiName + "']" 
 			: option.target ,
 		apiParamsTemp = {} , apiOther = {} ;
-
-		$(target).find("[" + apiParamName + ']').each(function(key , value){
+		$(target + " [" + apiParamName + ']').each(function(key , value){
 			apiParamsTemp[$(value).attr(apiParamName)] = $(value).val();
 			apiOther[$(value).attr(apiParamName)] = $(value);
 		});

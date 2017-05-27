@@ -177,7 +177,7 @@ ul, li {
     float: right;
     position: relative;
     top: 7px;
-    left: -38px;
+    left: -10px;
     font-family: "DISPLAYFREETFB", 'Microsoft Yahei'
 }
 
@@ -185,14 +185,13 @@ ul, li {
     width: 42px;
     height: 54px;
     color: #12b35e;
-    margin-right: 2px;
     text-align: center;
     font-size: 32px;
     font-weight: 500;
     line-height: 48px;
     display: inline-block;
     text-shadow: 1px 1px #000;
-    background: url(/images/newbee/time-bg.png) no-repeat;
+    background: url(../../images/time-bg.png) no-repeat;
     padding: 5px 0 0 2px
 }
 
