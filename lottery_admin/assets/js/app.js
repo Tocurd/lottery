@@ -202,6 +202,7 @@ var ApiRequest = new ApiRequest({
 				id : {},
 				name : {max : 16 , min : 2 , name : '规则名称'},
 				count : {max : 2 , min : 1 , name : '规则位数'},
+				numberRange : {max : 20 , min : 1 , name : '单位置号码范围'},
 			}
 		} ,
 
@@ -212,6 +213,11 @@ var ApiRequest = new ApiRequest({
 			}
 		} ,
 
+
+
+
+
+
 		Edit : {
 			params : {
 				id : {},
@@ -221,15 +227,11 @@ var ApiRequest = new ApiRequest({
 				winning_description : {max : 300 , min : 2 , name : '中奖规则'},
 				rule : {max : 500 , min : 2 , name : '玩法表达式'},
 				byid : {max : 120 , min : 2 , name : 'byid'},
+				number : {max : 120 , min : 2 , name : '玩法号码'},
+				quick : {max : 120 , min : 2 , name : '快捷按钮名称'},
+				indexName : {max : 1024 , min : 2 , name : '开奖位置名称'},
 			}
 		} ,
-
-		Add_group : {
-			params : {
-				name : {max : 16 , min : 2 , name : '玩法组名称'},
-			}
-		} ,
-
 		Add_item : {
 			params : {
 				name : {max : 16 , min : 2 , name : '玩法组名称'},
@@ -238,8 +240,24 @@ var ApiRequest = new ApiRequest({
 				winning_description : {max : 300 , min : 2 , name : '中奖规则'},
 				rule : {max : 500 , min : 2 , name : '玩法表达式'},
 				byid : {max : 120 , min : 2 , name : 'byid'},
+				number : {max : 120 , min : 2 , name : '玩法号码'},
+				quick : {max : 120 , min : 2 , name : '快捷按钮名称'},
+				indexName : {max : 1024 , min : 2 , name : '开奖位置名称'},
 			}
 		} ,
+		
+
+
+
+
+
+
+		Add_group : {
+			params : {
+				name : {max : 16 , min : 2 , name : '玩法组名称'},
+			}
+		} ,
+
 
 		Edit_item : {
 			params : {

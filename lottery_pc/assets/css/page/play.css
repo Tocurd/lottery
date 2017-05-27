@@ -162,11 +162,11 @@ ul, li {
     color: #fff;
     text-decoration: none;
     border-radius: 3px;
-    // -webkit-transition: all .2s linear;
-    // -moz-transition: all .2s linear;
-    // -o-transition: all .2s linear;
-    // -ms-transition: all .2s linear;
-    // transition: all .2s linear
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    transition: all .2s linear
 }
 
 .bt01:hover {
@@ -239,11 +239,11 @@ ul, li {
     text-decoration: none;
     color: #f6f6f6;
     background:rgba(26,29,40,.5);
-    // -webkit-transition: all .2s linear;
-    // -moz-transition: all .2s linear;
-    // -o-transition: all .2s linear;
-    // -ms-transition: all .2s linear;
-    // transition: all .2s linear
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    transition: all .2s linear
 }
 
 #tabs_container {
@@ -341,11 +341,11 @@ ul, li {
     color: #f6f6f6;
     font-weight: 800;
     margin-right: 12px;
-    // -webkit-transition: all .2s linear;
-    // -moz-transition: all .2s linear;
-    // -o-transition: all .2s linear;
-    // -ms-transition: all .2s linear;
-    // transition: all .2s linear
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    transition: all .2s linear
 }
 
 .show-keno {
@@ -433,11 +433,11 @@ ul, li {
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#808cb0), to(#5a627a));
     padding: 10px 30px;
     text-shadow: 0 -1px rgba(0, 0, 0, 0.50);
-    // -webkit-transition: all .2s linear;
-    // -moz-transition: all .2s linear;
-    // -o-transition: all .2s linear;
-    // -ms-transition: all .2s linear;
-    // transition: all .2s linear
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    transition: all .2s linear
 }
 
 #changemode .content:hover, #lt_buy:hover {
@@ -528,7 +528,7 @@ ul, li {
 }
 
 .tbn_top {
-    padding: 7px 10px 0 15px
+    padding: 21px 10px 16px 15px
 }
 
 .tbn_top h5 {
@@ -594,11 +594,11 @@ ul, li {
     background: #d5d5d5;
     box-shadow: 0 3px 5px #bbb inset;
     margin-top: 7px;
-    // -webkit-transition: all .2s linear;
-    // -moz-transition: all .2s linear;
-    // -o-transition: all .2s linear;
-    // -ms-transition: all .2s linear;
-    // transition: all .2s linear
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    transition: all .2s linear
 }
 
 .to {
@@ -642,11 +642,11 @@ ul, li {
     font-weight: 500;
     margin: 0 5px;
     cursor: pointer;
-    // -webkit-transition: all .2s linear;
-    // -moz-transition: all .2s linear;
-    // -o-transition: all .2s linear;
-    // -ms-transition: all .2s linear;
-    // transition: all .2s linear
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    transition: all .2s linear
 }
 
 .nbts div, .nbksts div, .bl div, .random_button, .possibleprize {
@@ -761,11 +761,11 @@ ul, li {
     background: #d5d5d5;
     box-shadow: 0 3px 5px #bbb inset;
     margin: 15px 0 20px 0;
-    // -webkit-transition: all .2s linear;
-    // -moz-transition: all .2s linear;
-    // -o-transition: all .2s linear;
-    // -ms-transition: all .2s linear;
-    // transition: all .2s linear
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    transition: all .2s linear
 }
 
 .selposition label {

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-05-28 00:05:27
+Date: 2017-05-27 18:03:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -61,7 +61,7 @@ CREATE TABLE `autumn_admin_user` (
 -- ----------------------------
 -- Records of autumn_admin_user
 -- ----------------------------
-INSERT INTO `autumn_admin_user` VALUES ('1', '超级管理员', '', 'admin123456', 'ae2f4f5052e0096ca325861f1c6b510e', '818038', '0', '1495758274', '127.168.0.1', '1495835277', '127.168.0.1', '', '1', '0');
+INSERT INTO `autumn_admin_user` VALUES ('1', '超级管理员', '', 'admin123456', 'ae2f4f5052e0096ca325861f1c6b510e', '818038', '0', '1495955335', '127.168.0.1', '1495992675', '127.168.0.1', '', '1', '0');
 
 -- ----------------------------
 -- Table structure for autumn_betting
@@ -129,46 +129,49 @@ CREATE TABLE `autumn_game_rule` (
   `winning_description` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `from_group` int(10) DEFAULT NULL,
   `type` int(1) DEFAULT NULL,
-  `data` varchar(1024) COLLATE utf8_bin DEFAULT NULL,
   `index` int(11) DEFAULT '0',
   `highest_bonus` double DEFAULT '0',
   `minimum_bonus` double DEFAULT '0',
   `topbet` int(11) DEFAULT '0',
+  `number` varchar(1024) COLLATE utf8_bin DEFAULT NULL,
+  `indexName` varchar(1024) COLLATE utf8_bin DEFAULT NULL,
+  `quick` varchar(1024) COLLATE utf8_bin DEFAULT NULL,
+  `numberRange` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `minimum_money` double(255,0) DEFAULT '0',
   `create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of autumn_game_rule
 -- ----------------------------
-INSERT INTO `autumn_game_rule` VALUES ('51', null, '五星', null, null, null, null, '50', '1', null, '0', '0', '0', '0', '0', '2017-05-19 12:09:07');
-INSERT INTO `autumn_game_rule` VALUES ('53', null, '三星', null, null, null, null, '50', '1', null, '0', '0', '0', '0', '0', '2017-05-19 12:09:20');
-INSERT INTO `autumn_game_rule` VALUES ('55', null, '时时彩', '5', null, null, null, null, '0', null, '0', '0', '0', '0', '0', '2017-05-20 03:06:51');
-INSERT INTO `autumn_game_rule` VALUES ('56', null, '五星', null, null, null, null, '55', '1', null, '0', '0', '0', '0', '0', '2017-05-20 03:07:00');
-INSERT INTO `autumn_game_rule` VALUES ('57', 'five_stars', '五星复式', null, '1=a&&2=b&&3=c&&4=d&&5=e', '五星复式', '五星复式', '56', '2', null, '1', '199000', '170000', '75000', '0', '2017-05-27 09:26:49');
-INSERT INTO `autumn_game_rule` VALUES ('58', 'five_star', '五星单式', null, '1=a&&2=b&&3=c&&4=d&&5=e', '五星', '五星', '56', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:27:50');
-INSERT INTO `autumn_game_rule` VALUES ('59', null, '四星', null, null, null, null, '55', '1', null, '0', '0', '0', '0', '0', '2017-05-27 09:28:02');
-INSERT INTO `autumn_game_rule` VALUES ('60', 'start_four_stars', '前四复式', null, '1=a&&2=b&&3=c&&4=d', '前四复式', '前四复式', '59', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:28:25');
-INSERT INTO `autumn_game_rule` VALUES ('61', 'start_four_star', '前四单式', null, '1=a&&2=b&&3=c&&4=d', 'start_four_star', 'start_four_star', '59', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:28:41');
-INSERT INTO `autumn_game_rule` VALUES ('62', 'end_four_stars', '后四复式', null, '2=b&&3=c&&4=d&&5=e', 'end_four_stars', 'end_four_stars', '59', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:28:55');
-INSERT INTO `autumn_game_rule` VALUES ('63', 'end_four_star', '后四单式', null, '2=b&&3=c&&4=d&&5=e', 'end_four_star', 'end_four_star', '59', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:29:11');
-INSERT INTO `autumn_game_rule` VALUES ('64', null, '三星', null, null, null, null, '55', '1', null, '0', '0', '0', '0', '0', '2017-05-27 09:29:22');
-INSERT INTO `autumn_game_rule` VALUES ('65', 'start_three_stars', '前三复式', null, '1=a&&2=b&&3=c', 'start_three_stars', 'start_three_stars', '64', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:29:53');
-INSERT INTO `autumn_game_rule` VALUES ('66', 'start_three_star', '前三单式', null, '1=a&&2=b&&3=c', 'start_three_star', 'start_three_star', '64', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:30:08');
-INSERT INTO `autumn_game_rule` VALUES ('67', 'center_three_stars', '中三复式', null, '2=b&&3=c&&4=d', 'center_three_stars', 'center_three_stars', '64', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:30:24');
-INSERT INTO `autumn_game_rule` VALUES ('68', 'center_three_star', '中三单式', null, '2=b&&3=c&&4=d', 'center_three_star', 'center_three_star', '64', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:30:41');
-INSERT INTO `autumn_game_rule` VALUES ('69', 'end_three_stars', '后三复式', null, '3=c&&4=d&&5=e', 'end_three_stars', 'end_three_stars', '64', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:30:59');
-INSERT INTO `autumn_game_rule` VALUES ('70', 'end_three_star', '后三单式', null, '3=c&&4=d&&5=e', 'end_three_star', 'end_three_star', '64', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:31:18');
-INSERT INTO `autumn_game_rule` VALUES ('71', 'end_three_group_three', '后三组三', null, 'null', 'end_three_group_three', 'end_three_group_three', '64', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:31:35');
-INSERT INTO `autumn_game_rule` VALUES ('72', 'end_three_group_six', '后三组六', null, 'end_three_group_six', 'end_three_group_six', 'end_three_group_six', '64', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:31:46');
-INSERT INTO `autumn_game_rule` VALUES ('73', null, '二星', null, null, null, null, '55', '1', null, '0', '0', '0', '0', '0', '2017-05-27 09:31:53');
-INSERT INTO `autumn_game_rule` VALUES ('74', 'start_two_stars', '前二复式', null, '1=a&&2=b', 'start_two_stars', 'start_two_stars', '73', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:32:07');
-INSERT INTO `autumn_game_rule` VALUES ('75', 'start_two_star', '前二单式', null, '1=a&&2=b', 'start_two_star', 'start_two_star', '73', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:32:21');
-INSERT INTO `autumn_game_rule` VALUES ('76', 'end_two_stars', '后二复式', null, '4=d&&5=e', 'end_two_stars', 'end_two_stars', '73', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:32:35');
-INSERT INTO `autumn_game_rule` VALUES ('77', 'end_two_star', '后二单式', null, '4=d&&5=e', 'end_two_star', 'end_two_star', '73', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:33:06');
-INSERT INTO `autumn_game_rule` VALUES ('78', null, '定位胆', null, null, null, null, '55', '1', null, '0', '0', '0', '0', '0', '2017-05-27 09:37:54');
-INSERT INTO `autumn_game_rule` VALUES ('79', 'five_location', '五星定位胆', null, '1=a||2=b||3=c||4=d||5=e', 'five_location', 'five_location', '78', '2', null, '0', '0', '0', '0', '0', '2017-05-27 09:38:07');
+INSERT INTO `autumn_game_rule` VALUES ('51', null, '五星', null, null, null, null, '50', '1', '0', '0', '0', '0', null, null, null, null, '0', '2017-05-19 12:09:07');
+INSERT INTO `autumn_game_rule` VALUES ('53', null, '三星', null, null, null, null, '50', '1', '0', '0', '0', '0', null, null, null, null, '0', '2017-05-19 12:09:20');
+INSERT INTO `autumn_game_rule` VALUES ('55', 'shishicai', '时时彩', '5', null, null, null, null, '0', '0', '0', '0', '0', null, '万,千,百,十,个', null, '0,9', '0', '2017-05-20 03:06:51');
+INSERT INTO `autumn_game_rule` VALUES ('56', null, '五星', null, null, null, null, '55', '1', '0', '0', '0', '0', null, null, null, null, '0', '2017-05-20 03:07:00');
+INSERT INTO `autumn_game_rule` VALUES ('57', 'five_stars', '五星复式', null, '1=a&&2=b&&3=c&&4=d&&5=e', '五星复式', '五星复式', '56', '2', '1', '199000', '170000', '75000', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:26:49');
+INSERT INTO `autumn_game_rule` VALUES ('58', 'five_star', '五星单式', null, '1=a&&2=b&&3=c&&4=d&&5=e', '五星', '五星', '56', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:27:50');
+INSERT INTO `autumn_game_rule` VALUES ('59', null, '四星', null, null, null, null, '55', '1', '0', '0', '0', '0', null, null, null, null, '0', '2017-05-27 09:28:02');
+INSERT INTO `autumn_game_rule` VALUES ('60', 'start_four_stars', '前四复式', null, '1=a&&2=b&&3=c&&4=d', '前四复式', '前四复式', '59', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:28:25');
+INSERT INTO `autumn_game_rule` VALUES ('61', 'start_four_star', '前四单式', null, '1=a&&2=b&&3=c&&4=d', 'start_four_star', 'start_four_star', '59', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:28:41');
+INSERT INTO `autumn_game_rule` VALUES ('62', 'end_four_stars', '后四复式', null, '2=b&&3=c&&4=d&&5=e', 'end_four_stars', 'end_four_stars', '59', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:28:55');
+INSERT INTO `autumn_game_rule` VALUES ('63', 'end_four_star', '后四单式', null, '2=b&&3=c&&4=d&&5=e', 'end_four_star', 'end_four_star', '59', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:29:11');
+INSERT INTO `autumn_game_rule` VALUES ('64', null, '三星', null, null, null, null, '55', '1', '0', '0', '0', '0', null, null, null, null, '0', '2017-05-27 09:29:22');
+INSERT INTO `autumn_game_rule` VALUES ('65', 'start_three_stars', '前三复式', null, '1=a&&2=b&&3=c', 'start_three_stars', 'start_three_stars', '64', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:29:53');
+INSERT INTO `autumn_game_rule` VALUES ('66', 'start_three_star', '前三单式', null, '1=a&&2=b&&3=c', 'start_three_star', 'start_three_star', '64', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-29 01:51:26');
+INSERT INTO `autumn_game_rule` VALUES ('67', 'center_three_stars', '中三复式', null, '2=b&&3=c&&4=d', 'center_three_stars', 'center_three_stars', '64', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:30:24');
+INSERT INTO `autumn_game_rule` VALUES ('68', 'center_three_star', '中三单式', null, '2=b&&3=c&&4=d', 'center_three_star', 'center_three_star', '64', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:30:41');
+INSERT INTO `autumn_game_rule` VALUES ('69', 'end_three_stars', '后三复式', null, '3=c&&4=d&&5=e', 'end_three_stars', 'end_three_stars', '64', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:30:59');
+INSERT INTO `autumn_game_rule` VALUES ('70', 'end_three_star', '后三单式', null, '3=c&&4=d&&5=e', 'end_three_star', 'end_three_star', '64', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:31:18');
+INSERT INTO `autumn_game_rule` VALUES ('71', 'end_three_group_three', '后三组三', null, 'null', 'end_three_group_three', 'end_three_group_three', '64', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:31:35');
+INSERT INTO `autumn_game_rule` VALUES ('72', 'end_three_group_six', '后三组六', null, 'end_three_group_six', 'end_three_group_six', 'end_three_group_six', '64', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:31:46');
+INSERT INTO `autumn_game_rule` VALUES ('73', null, '二星', null, null, null, null, '55', '1', '0', '0', '0', '0', null, null, null, null, '0', '2017-05-27 09:31:53');
+INSERT INTO `autumn_game_rule` VALUES ('74', 'start_two_stars', '前二复式', null, '1=a&&2=b', 'start_two_stars', 'start_two_stars', '73', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:32:07');
+INSERT INTO `autumn_game_rule` VALUES ('75', 'start_two_star', '前二单式', null, '1=a&&2=b', 'start_two_star', 'start_two_star', '73', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:32:21');
+INSERT INTO `autumn_game_rule` VALUES ('76', 'end_two_stars', '后二复式', null, '4=d&&5=e', 'end_two_stars', 'end_two_stars', '73', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:32:35');
+INSERT INTO `autumn_game_rule` VALUES ('77', 'end_two_star', '后二单式', null, '4=d&&5=e', 'end_two_star', 'end_two_star', '73', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-27 09:33:06');
+INSERT INTO `autumn_game_rule` VALUES ('78', null, '定位胆', null, null, null, null, '55', '1', '0', '0', '0', '0', null, null, null, null, '0', '2017-05-27 09:37:54');
+INSERT INTO `autumn_game_rule` VALUES ('81', 'five_location', '五星定位胆', null, '1=a||2=b||3=c||4=d||5=e', '五星定位胆', '五星定位胆', '78', '2', '0', '0', '0', '0', '0,1,2,3,4,5,6,7,8,9', '万位,千位,百位,十位,个位', '全,大,小,奇,偶,清', null, '0', '2017-05-29 02:18:22');
 
 -- ----------------------------
 -- Table structure for autumn_lottery
@@ -213,7 +216,7 @@ CREATE TABLE `autumn_lottery_data` (
   `rebate_money` double NOT NULL DEFAULT '0',
   `profit_loss` double DEFAULT '0',
   PRIMARY KEY (`id`,`from_time_id`,`from_lottery`)
-) ENGINE=InnoDB AUTO_INCREMENT=21121 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21361 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of autumn_lottery_data
@@ -338,7 +341,7 @@ INSERT INTO `autumn_lottery_data` VALUES ('20277', '201705274', '4', '33049', '2
 INSERT INTO `autumn_lottery_data` VALUES ('20278', '201705273', '3', '33048', '20', '2017-05-27 00:00:00', '111151', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20279', '201705272', '2', '33047', '20', '2017-05-27 00:00:00', '220162', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20280', '201705271', '1', '33046', '20', '2017-05-27 00:00:00', '950891', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20281', '20170528120', '120', '33165', '20', '2017-05-28 00:00:00', '879946', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20281', '20170528120', '120', '33165', '20', '2017-05-28 00:00:00', '879946', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20282', '20170528119', '119', '33164', '20', '2017-05-28 00:00:00', '332965', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20283', '20170528118', '118', '33163', '20', '2017-05-28 00:00:00', '379135', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20284', '20170528117', '117', '33162', '20', '2017-05-28 00:00:00', '335107', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
@@ -539,45 +542,45 @@ INSERT INTO `autumn_lottery_data` VALUES ('20478', '2017052943', '43', '33088', 
 INSERT INTO `autumn_lottery_data` VALUES ('20479', '2017052942', '42', '33087', '20', '2017-05-29 00:00:00', '601388', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20480', '2017052941', '41', '33086', '20', '2017-05-29 00:00:00', '316979', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20481', '2017052940', '40', '33085', '20', '2017-05-29 00:00:00', '746133', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20482', '2017052939', '39', '33084', '20', '2017-05-29 00:00:00', '259796', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20483', '2017052938', '38', '33083', '20', '2017-05-29 00:00:00', '166220', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20484', '2017052937', '37', '33082', '20', '2017-05-29 00:00:00', '639868', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20485', '2017052936', '36', '33081', '20', '2017-05-29 00:00:00', '672195', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20486', '2017052935', '35', '33080', '20', '2017-05-29 00:00:00', '806805', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20487', '2017052934', '34', '33079', '20', '2017-05-29 00:00:00', '671481', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20488', '2017052933', '33', '33078', '20', '2017-05-29 00:00:00', '869592', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20489', '2017052932', '32', '33077', '20', '2017-05-29 00:00:00', '343374', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20490', '2017052931', '31', '33076', '20', '2017-05-29 00:00:00', '571588', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20491', '2017052930', '30', '33075', '20', '2017-05-29 00:00:00', '514047', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20492', '2017052929', '29', '33074', '20', '2017-05-29 00:00:00', '865527', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20493', '2017052928', '28', '33073', '20', '2017-05-29 00:00:00', '631546', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20494', '2017052927', '27', '33072', '20', '2017-05-29 00:00:00', '988519', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20495', '2017052926', '26', '33071', '20', '2017-05-29 00:00:00', '340792', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20496', '2017052925', '25', '33070', '20', '2017-05-29 00:00:00', '937048', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20497', '2017052924', '24', '33069', '20', '2017-05-29 00:00:00', '158584', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20498', '2017052923', '23', '33068', '20', '2017-05-29 00:00:00', '341973', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20499', '2017052922', '22', '33067', '20', '2017-05-29 00:00:00', '348593', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20500', '2017052921', '21', '33066', '20', '2017-05-29 00:00:00', '943530', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20501', '2017052920', '20', '33065', '20', '2017-05-29 00:00:00', '696365', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20502', '2017052919', '19', '33064', '20', '2017-05-29 00:00:00', '966326', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20482', '2017052939', '39', '33084', '20', '2017-05-29 00:00:00', '259796', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20483', '2017052938', '38', '33083', '20', '2017-05-29 00:00:00', '166220', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20484', '2017052937', '37', '33082', '20', '2017-05-29 00:00:00', '639868', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20485', '2017052936', '36', '33081', '20', '2017-05-29 00:00:00', '672195', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20486', '2017052935', '35', '33080', '20', '2017-05-29 00:00:00', '806805', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20487', '2017052934', '34', '33079', '20', '2017-05-29 00:00:00', '671481', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20488', '2017052933', '33', '33078', '20', '2017-05-29 00:00:00', '869592', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20489', '2017052932', '32', '33077', '20', '2017-05-29 00:00:00', '343374', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20490', '2017052931', '31', '33076', '20', '2017-05-29 00:00:00', '571588', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20491', '2017052930', '30', '33075', '20', '2017-05-29 00:00:00', '514047', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20492', '2017052929', '29', '33074', '20', '2017-05-29 00:00:00', '865527', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20493', '2017052928', '28', '33073', '20', '2017-05-29 00:00:00', '631546', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20494', '2017052927', '27', '33072', '20', '2017-05-29 00:00:00', '988519', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20495', '2017052926', '26', '33071', '20', '2017-05-29 00:00:00', '340792', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20496', '2017052925', '25', '33070', '20', '2017-05-29 00:00:00', '937048', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20497', '2017052924', '24', '33069', '20', '2017-05-29 00:00:00', '158584', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20498', '2017052923', '23', '33068', '20', '2017-05-29 00:00:00', '341973', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20499', '2017052922', '22', '33067', '20', '2017-05-29 00:00:00', '348593', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20500', '2017052921', '21', '33066', '20', '2017-05-29 00:00:00', '943530', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20501', '2017052920', '20', '33065', '20', '2017-05-29 00:00:00', '696365', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20502', '2017052919', '19', '33064', '20', '2017-05-29 00:00:00', '966326', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20503', '2017052918', '18', '33063', '20', '2017-05-29 00:00:00', '284323', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20504', '2017052917', '17', '33062', '20', '2017-05-29 00:00:00', '294348', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20505', '2017052916', '16', '33061', '20', '2017-05-29 00:00:00', '866763', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20506', '2017052915', '15', '33060', '20', '2017-05-29 00:00:00', '245953', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20507', '2017052914', '14', '33059', '20', '2017-05-29 00:00:00', '344857', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20508', '2017052913', '13', '33058', '20', '2017-05-29 00:00:00', '648876', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20509', '2017052912', '12', '33057', '20', '2017-05-29 00:00:00', '641653', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20510', '2017052911', '11', '33056', '20', '2017-05-29 00:00:00', '515228', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20511', '2017052910', '10', '33055', '20', '2017-05-29 00:00:00', '277072', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20512', '201705299', '9', '33054', '20', '2017-05-29 00:00:00', '516491', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20513', '201705298', '8', '33053', '20', '2017-05-29 00:00:00', '442910', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20514', '201705297', '7', '33052', '20', '2017-05-29 00:00:00', '958526', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20515', '201705296', '6', '33051', '20', '2017-05-29 00:00:00', '277841', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20516', '201705295', '5', '33050', '20', '2017-05-29 00:00:00', '656567', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20517', '201705294', '4', '33049', '20', '2017-05-29 00:00:00', '242410', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20518', '201705293', '3', '33048', '20', '2017-05-29 00:00:00', '310223', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20519', '201705292', '2', '33047', '20', '2017-05-29 00:00:00', '994039', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `autumn_lottery_data` VALUES ('20520', '201705291', '1', '33046', '20', '2017-05-29 00:00:00', '478479', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20509', '2017052912', '12', '33057', '20', '2017-05-29 00:00:00', '641653', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20510', '2017052911', '11', '33056', '20', '2017-05-29 00:00:00', '515228', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20511', '2017052910', '10', '33055', '20', '2017-05-29 00:00:00', '277072', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20512', '201705299', '9', '33054', '20', '2017-05-29 00:00:00', '516491', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20513', '201705298', '8', '33053', '20', '2017-05-29 00:00:00', '442910', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20514', '201705297', '7', '33052', '20', '2017-05-29 00:00:00', '958526', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20515', '201705296', '6', '33051', '20', '2017-05-29 00:00:00', '277841', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20516', '201705295', '5', '33050', '20', '2017-05-29 00:00:00', '656567', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20517', '201705294', '4', '33049', '20', '2017-05-29 00:00:00', '242410', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20518', '201705293', '3', '33048', '20', '2017-05-29 00:00:00', '310223', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20519', '201705292', '2', '33047', '20', '2017-05-29 00:00:00', '994039', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('20520', '201705291', '1', '33046', '20', '2017-05-29 00:00:00', '478479', '2', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20521', '20170530120', '120', '33165', '20', '2017-05-30 00:00:00', '462026', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20522', '20170530119', '119', '33164', '20', '2017-05-30 00:00:00', '454693', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('20523', '20170530118', '118', '33163', '20', '2017-05-30 00:00:00', '822543', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
@@ -1178,6 +1181,246 @@ INSERT INTO `autumn_lottery_data` VALUES ('21117', '201706034', '4', '33049', '2
 INSERT INTO `autumn_lottery_data` VALUES ('21118', '201706033', '3', '33048', '20', '2017-06-03 00:00:00', '87486', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('21119', '201706032', '2', '33047', '20', '2017-06-03 00:00:00', '91817', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `autumn_lottery_data` VALUES ('21120', '201706031', '1', '33046', '20', '2017-06-03 00:00:00', '22529', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21121', '', null, '33165', '20', '2017-06-04 00:00:00', '35859', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21122', '', null, '33164', '20', '2017-06-04 00:00:00', '96451', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21123', '', null, '33163', '20', '2017-06-04 00:00:00', '78985', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21124', '', null, '33162', '20', '2017-06-04 00:00:00', '63838', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21125', '', null, '33161', '20', '2017-06-04 00:00:00', '59490', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21126', '', null, '33160', '20', '2017-06-04 00:00:00', '67919', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21127', '', null, '33159', '20', '2017-06-04 00:00:00', '12178', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21128', '', null, '33158', '20', '2017-06-04 00:00:00', '32406', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21129', '', null, '33157', '20', '2017-06-04 00:00:00', '81540', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21130', '', null, '33156', '20', '2017-06-04 00:00:00', '46947', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21131', '', null, '33155', '20', '2017-06-04 00:00:00', '49256', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21132', '', null, '33154', '20', '2017-06-04 00:00:00', '74627', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21133', '', null, '33153', '20', '2017-06-04 00:00:00', '31695', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21134', '', null, '33152', '20', '2017-06-04 00:00:00', '19470', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21135', '', null, '33151', '20', '2017-06-04 00:00:00', '97409', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21136', '', null, '33150', '20', '2017-06-04 00:00:00', '63937', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21137', '', null, '33149', '20', '2017-06-04 00:00:00', '64643', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21138', '', null, '33148', '20', '2017-06-04 00:00:00', '16427', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21139', '', null, '33147', '20', '2017-06-04 00:00:00', '18824', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21140', '', null, '33146', '20', '2017-06-04 00:00:00', '98775', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21141', '', null, '33145', '20', '2017-06-04 00:00:00', '20071', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21142', '', null, '33144', '20', '2017-06-04 00:00:00', '23754', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21143', '', null, '33143', '20', '2017-06-04 00:00:00', '80688', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21144', '', null, '33142', '20', '2017-06-04 00:00:00', '52577', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21145', '', null, '33141', '20', '2017-06-04 00:00:00', '52668', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21146', '', null, '33140', '20', '2017-06-04 00:00:00', '72391', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21147', '', null, '33139', '20', '2017-06-04 00:00:00', '55189', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21148', '', null, '33138', '20', '2017-06-04 00:00:00', '23782', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21149', '', null, '33137', '20', '2017-06-04 00:00:00', '92120', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21150', '', null, '33136', '20', '2017-06-04 00:00:00', '58273', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21151', '', null, '33135', '20', '2017-06-04 00:00:00', '29514', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21152', '', null, '33134', '20', '2017-06-04 00:00:00', '65827', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21153', '', null, '33133', '20', '2017-06-04 00:00:00', '23114', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21154', '', null, '33132', '20', '2017-06-04 00:00:00', '12340', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21155', '', null, '33131', '20', '2017-06-04 00:00:00', '45851', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21156', '', null, '33130', '20', '2017-06-04 00:00:00', '97149', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21157', '', null, '33129', '20', '2017-06-04 00:00:00', '45340', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21158', '', null, '33128', '20', '2017-06-04 00:00:00', '10527', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21159', '', null, '33127', '20', '2017-06-04 00:00:00', '11387', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21160', '', null, '33126', '20', '2017-06-04 00:00:00', '81185', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21161', '', null, '33125', '20', '2017-06-04 00:00:00', '43483', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21162', '', null, '33124', '20', '2017-06-04 00:00:00', '83773', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21163', '', null, '33123', '20', '2017-06-04 00:00:00', '58309', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21164', '', null, '33122', '20', '2017-06-04 00:00:00', '26375', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21165', '', null, '33121', '20', '2017-06-04 00:00:00', '37232', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21166', '', null, '33120', '20', '2017-06-04 00:00:00', '38015', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21167', '', null, '33119', '20', '2017-06-04 00:00:00', '93806', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21168', '', null, '33118', '20', '2017-06-04 00:00:00', '76154', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21169', '', null, '33117', '20', '2017-06-04 00:00:00', '91274', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21170', '', null, '33116', '20', '2017-06-04 00:00:00', '84190', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21171', '', null, '33115', '20', '2017-06-04 00:00:00', '70065', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21172', '', null, '33114', '20', '2017-06-04 00:00:00', '58960', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21173', '', null, '33113', '20', '2017-06-04 00:00:00', '45296', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21174', '', null, '33112', '20', '2017-06-04 00:00:00', '28237', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21175', '', null, '33111', '20', '2017-06-04 00:00:00', '74272', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21176', '', null, '33110', '20', '2017-06-04 00:00:00', '28231', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21177', '', null, '33109', '20', '2017-06-04 00:00:00', '53986', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21178', '', null, '33108', '20', '2017-06-04 00:00:00', '81092', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21179', '', null, '33107', '20', '2017-06-04 00:00:00', '58617', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21180', '', null, '33106', '20', '2017-06-04 00:00:00', '82405', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21181', '', null, '33105', '20', '2017-06-04 00:00:00', '47032', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21182', '', null, '33104', '20', '2017-06-04 00:00:00', '48693', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21183', '', null, '33103', '20', '2017-06-04 00:00:00', '20285', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21184', '', null, '33102', '20', '2017-06-04 00:00:00', '94918', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21185', '', null, '33101', '20', '2017-06-04 00:00:00', '89120', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21186', '', null, '33100', '20', '2017-06-04 00:00:00', '51978', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21187', '', null, '33099', '20', '2017-06-04 00:00:00', '91466', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21188', '', null, '33098', '20', '2017-06-04 00:00:00', '74209', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21189', '', null, '33097', '20', '2017-06-04 00:00:00', '19939', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21190', '', null, '33096', '20', '2017-06-04 00:00:00', '76884', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21191', '', null, '33095', '20', '2017-06-04 00:00:00', '89346', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21192', '', null, '33094', '20', '2017-06-04 00:00:00', '73715', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21193', '', null, '33093', '20', '2017-06-04 00:00:00', '84176', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21194', '', null, '33092', '20', '2017-06-04 00:00:00', '64349', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21195', '', null, '33091', '20', '2017-06-04 00:00:00', '56112', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21196', '', null, '33090', '20', '2017-06-04 00:00:00', '11873', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21197', '', null, '33089', '20', '2017-06-04 00:00:00', '31519', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21198', '', null, '33088', '20', '2017-06-04 00:00:00', '90310', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21199', '', null, '33087', '20', '2017-06-04 00:00:00', '78952', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21200', '', null, '33086', '20', '2017-06-04 00:00:00', '32120', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21201', '', null, '33085', '20', '2017-06-04 00:00:00', '16654', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21202', '', null, '33084', '20', '2017-06-04 00:00:00', '95704', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21203', '', null, '33083', '20', '2017-06-04 00:00:00', '20055', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21204', '', null, '33082', '20', '2017-06-04 00:00:00', '52896', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21205', '', null, '33081', '20', '2017-06-04 00:00:00', '59270', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21206', '', null, '33080', '20', '2017-06-04 00:00:00', '66469', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21207', '', null, '33079', '20', '2017-06-04 00:00:00', '56606', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21208', '', null, '33078', '20', '2017-06-04 00:00:00', '37636', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21209', '', null, '33077', '20', '2017-06-04 00:00:00', '44054', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21210', '', null, '33076', '20', '2017-06-04 00:00:00', '33543', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21211', '', null, '33075', '20', '2017-06-04 00:00:00', '50794', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21212', '', null, '33074', '20', '2017-06-04 00:00:00', '84778', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21213', '', null, '33073', '20', '2017-06-04 00:00:00', '80694', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21214', '', null, '33072', '20', '2017-06-04 00:00:00', '72863', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21215', '', null, '33071', '20', '2017-06-04 00:00:00', '89807', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21216', '', null, '33070', '20', '2017-06-04 00:00:00', '67760', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21217', '', null, '33069', '20', '2017-06-04 00:00:00', '53876', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21218', '', null, '33068', '20', '2017-06-04 00:00:00', '35367', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21219', '', null, '33067', '20', '2017-06-04 00:00:00', '35831', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21220', '', null, '33066', '20', '2017-06-04 00:00:00', '85020', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21221', '', null, '33065', '20', '2017-06-04 00:00:00', '73289', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21222', '', null, '33064', '20', '2017-06-04 00:00:00', '86992', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21223', '', null, '33063', '20', '2017-06-04 00:00:00', '66054', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21224', '', null, '33062', '20', '2017-06-04 00:00:00', '99994', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21225', '', null, '33061', '20', '2017-06-04 00:00:00', '23620', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21226', '', null, '33060', '20', '2017-06-04 00:00:00', '78675', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21227', '', null, '33059', '20', '2017-06-04 00:00:00', '42665', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21228', '', null, '33058', '20', '2017-06-04 00:00:00', '31121', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21229', '', null, '33057', '20', '2017-06-04 00:00:00', '14556', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21230', '', null, '33056', '20', '2017-06-04 00:00:00', '86354', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21231', '', null, '33055', '20', '2017-06-04 00:00:00', '52849', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21232', '', null, '33054', '20', '2017-06-04 00:00:00', '21837', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21233', '', null, '33053', '20', '2017-06-04 00:00:00', '20785', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21234', '', null, '33052', '20', '2017-06-04 00:00:00', '50968', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21235', '', null, '33051', '20', '2017-06-04 00:00:00', '48795', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21236', '', null, '33050', '20', '2017-06-04 00:00:00', '80581', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21237', '', null, '33049', '20', '2017-06-04 00:00:00', '61995', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21238', '', null, '33048', '20', '2017-06-04 00:00:00', '48452', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21239', '', null, '33047', '20', '2017-06-04 00:00:00', '27690', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21240', '', null, '33046', '20', '2017-06-04 00:00:00', '80790', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21241', '20170526-120', '120', '33165', '20', '2017-05-26 00:00:00', '36361', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21242', '20170526-119', '119', '33164', '20', '2017-05-26 00:00:00', '17643', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21243', '20170526-118', '118', '33163', '20', '2017-05-26 00:00:00', '57230', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21244', '20170526-117', '117', '33162', '20', '2017-05-26 00:00:00', '45126', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21245', '20170526-116', '116', '33161', '20', '2017-05-26 00:00:00', '29363', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21246', '20170526-115', '115', '33160', '20', '2017-05-26 00:00:00', '92955', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21247', '20170526-114', '114', '33159', '20', '2017-05-26 00:00:00', '81784', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21248', '20170526-113', '113', '33158', '20', '2017-05-26 00:00:00', '94685', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21249', '20170526-112', '112', '33157', '20', '2017-05-26 00:00:00', '81954', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21250', '20170526-111', '111', '33156', '20', '2017-05-26 00:00:00', '93559', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21251', '20170526-110', '110', '33155', '20', '2017-05-26 00:00:00', '63272', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21252', '20170526-109', '109', '33154', '20', '2017-05-26 00:00:00', '40006', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21253', '20170526-108', '108', '33153', '20', '2017-05-26 00:00:00', '22573', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21254', '20170526-107', '107', '33152', '20', '2017-05-26 00:00:00', '39143', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21255', '20170526-106', '106', '33151', '20', '2017-05-26 00:00:00', '77631', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21256', '20170526-105', '105', '33150', '20', '2017-05-26 00:00:00', '58276', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21257', '20170526-104', '104', '33149', '20', '2017-05-26 00:00:00', '84657', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21258', '20170526-103', '103', '33148', '20', '2017-05-26 00:00:00', '84396', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21259', '20170526-102', '102', '33147', '20', '2017-05-26 00:00:00', '65799', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21260', '20170526-101', '101', '33146', '20', '2017-05-26 00:00:00', '11683', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21261', '20170526-100', '100', '33145', '20', '2017-05-26 00:00:00', '96643', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21262', '20170526-99', '99', '33144', '20', '2017-05-26 00:00:00', '69004', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21263', '20170526-98', '98', '33143', '20', '2017-05-26 00:00:00', '13713', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21264', '20170526-97', '97', '33142', '20', '2017-05-26 00:00:00', '77414', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21265', '20170526-96', '96', '33141', '20', '2017-05-26 00:00:00', '21969', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21266', '20170526-95', '95', '33140', '20', '2017-05-26 00:00:00', '57655', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21267', '20170526-94', '94', '33139', '20', '2017-05-26 00:00:00', '42310', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21268', '20170526-93', '93', '33138', '20', '2017-05-26 00:00:00', '27657', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21269', '20170526-92', '92', '33137', '20', '2017-05-26 00:00:00', '49072', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21270', '20170526-91', '91', '33136', '20', '2017-05-26 00:00:00', '70037', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21271', '20170526-90', '90', '33135', '20', '2017-05-26 00:00:00', '47529', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21272', '20170526-89', '89', '33134', '20', '2017-05-26 00:00:00', '39599', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21273', '20170526-88', '88', '33133', '20', '2017-05-26 00:00:00', '51390', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21274', '20170526-87', '87', '33132', '20', '2017-05-26 00:00:00', '80837', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21275', '20170526-86', '86', '33131', '20', '2017-05-26 00:00:00', '60306', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21276', '20170526-85', '85', '33130', '20', '2017-05-26 00:00:00', '65428', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21277', '20170526-84', '84', '33129', '20', '2017-05-26 00:00:00', '37361', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21278', '20170526-83', '83', '33128', '20', '2017-05-26 00:00:00', '19742', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21279', '20170526-82', '82', '33127', '20', '2017-05-26 00:00:00', '66579', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21280', '20170526-81', '81', '33126', '20', '2017-05-26 00:00:00', '12331', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21281', '20170526-80', '80', '33125', '20', '2017-05-26 00:00:00', '60421', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21282', '20170526-79', '79', '33124', '20', '2017-05-26 00:00:00', '41440', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21283', '20170526-78', '78', '33123', '20', '2017-05-26 00:00:00', '97286', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21284', '20170526-77', '77', '33122', '20', '2017-05-26 00:00:00', '12496', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21285', '20170526-76', '76', '33121', '20', '2017-05-26 00:00:00', '39009', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21286', '20170526-75', '75', '33120', '20', '2017-05-26 00:00:00', '75618', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21287', '20170526-74', '74', '33119', '20', '2017-05-26 00:00:00', '48364', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21288', '20170526-73', '73', '33118', '20', '2017-05-26 00:00:00', '63110', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21289', '20170526-72', '72', '33117', '20', '2017-05-26 00:00:00', '26561', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21290', '20170526-71', '71', '33116', '20', '2017-05-26 00:00:00', '96965', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21291', '20170526-70', '70', '33115', '20', '2017-05-26 00:00:00', '40750', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21292', '20170526-69', '69', '33114', '20', '2017-05-26 00:00:00', '26361', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21293', '20170526-68', '68', '33113', '20', '2017-05-26 00:00:00', '31516', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21294', '20170526-67', '67', '33112', '20', '2017-05-26 00:00:00', '35166', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21295', '20170526-66', '66', '33111', '20', '2017-05-26 00:00:00', '60383', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21296', '20170526-65', '65', '33110', '20', '2017-05-26 00:00:00', '79436', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21297', '20170526-64', '64', '33109', '20', '2017-05-26 00:00:00', '17311', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21298', '20170526-63', '63', '33108', '20', '2017-05-26 00:00:00', '44911', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21299', '20170526-62', '62', '33107', '20', '2017-05-26 00:00:00', '48199', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21300', '20170526-61', '61', '33106', '20', '2017-05-26 00:00:00', '84523', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21301', '20170526-60', '60', '33105', '20', '2017-05-26 00:00:00', '82383', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21302', '20170526-59', '59', '33104', '20', '2017-05-26 00:00:00', '55887', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21303', '20170526-58', '58', '33103', '20', '2017-05-26 00:00:00', '80136', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21304', '20170526-57', '57', '33102', '20', '2017-05-26 00:00:00', '38808', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21305', '20170526-56', '56', '33101', '20', '2017-05-26 00:00:00', '10170', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21306', '20170526-55', '55', '33100', '20', '2017-05-26 00:00:00', '42780', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21307', '20170526-54', '54', '33099', '20', '2017-05-26 00:00:00', '97132', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21308', '20170526-53', '53', '33098', '20', '2017-05-26 00:00:00', '74481', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21309', '20170526-52', '52', '33097', '20', '2017-05-26 00:00:00', '79109', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21310', '20170526-51', '51', '33096', '20', '2017-05-26 00:00:00', '25279', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21311', '20170526-50', '50', '33095', '20', '2017-05-26 00:00:00', '85124', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21312', '20170526-49', '49', '33094', '20', '2017-05-26 00:00:00', '98728', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21313', '20170526-48', '48', '33093', '20', '2017-05-26 00:00:00', '72638', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21314', '20170526-47', '47', '33092', '20', '2017-05-26 00:00:00', '68070', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21315', '20170526-46', '46', '33091', '20', '2017-05-26 00:00:00', '75050', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21316', '20170526-45', '45', '33090', '20', '2017-05-26 00:00:00', '63736', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21317', '20170526-44', '44', '33089', '20', '2017-05-26 00:00:00', '89194', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21318', '20170526-43', '43', '33088', '20', '2017-05-26 00:00:00', '10843', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21319', '20170526-42', '42', '33087', '20', '2017-05-26 00:00:00', '52846', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21320', '20170526-41', '41', '33086', '20', '2017-05-26 00:00:00', '56694', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21321', '20170526-40', '40', '33085', '20', '2017-05-26 00:00:00', '92216', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21322', '20170526-39', '39', '33084', '20', '2017-05-26 00:00:00', '98283', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21323', '20170526-38', '38', '33083', '20', '2017-05-26 00:00:00', '49451', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21324', '20170526-37', '37', '33082', '20', '2017-05-26 00:00:00', '29789', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21325', '20170526-36', '36', '33081', '20', '2017-05-26 00:00:00', '90139', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21326', '20170526-35', '35', '33080', '20', '2017-05-26 00:00:00', '80079', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21327', '20170526-34', '34', '33079', '20', '2017-05-26 00:00:00', '50803', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21328', '20170526-33', '33', '33078', '20', '2017-05-26 00:00:00', '70207', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21329', '20170526-32', '32', '33077', '20', '2017-05-26 00:00:00', '46403', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21330', '20170526-31', '31', '33076', '20', '2017-05-26 00:00:00', '20917', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21331', '20170526-30', '30', '33075', '20', '2017-05-26 00:00:00', '87838', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21332', '20170526-29', '29', '33074', '20', '2017-05-26 00:00:00', '40138', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21333', '20170526-28', '28', '33073', '20', '2017-05-26 00:00:00', '59443', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21334', '20170526-27', '27', '33072', '20', '2017-05-26 00:00:00', '30486', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21335', '20170526-26', '26', '33071', '20', '2017-05-26 00:00:00', '56494', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21336', '20170526-25', '25', '33070', '20', '2017-05-26 00:00:00', '26767', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21337', '20170526-24', '24', '33069', '20', '2017-05-26 00:00:00', '92699', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21338', '20170526-23', '23', '33068', '20', '2017-05-26 00:00:00', '83473', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21339', '20170526-22', '22', '33067', '20', '2017-05-26 00:00:00', '77708', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21340', '20170526-21', '21', '33066', '20', '2017-05-26 00:00:00', '72284', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21341', '20170526-20', '20', '33065', '20', '2017-05-26 00:00:00', '64607', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21342', '20170526-19', '19', '33064', '20', '2017-05-26 00:00:00', '19566', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21343', '20170526-18', '18', '33063', '20', '2017-05-26 00:00:00', '47419', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21344', '20170526-17', '17', '33062', '20', '2017-05-26 00:00:00', '83874', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21345', '20170526-16', '16', '33061', '20', '2017-05-26 00:00:00', '28605', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21346', '20170526-15', '15', '33060', '20', '2017-05-26 00:00:00', '83451', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21347', '20170526-14', '14', '33059', '20', '2017-05-26 00:00:00', '86563', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21348', '20170526-13', '13', '33058', '20', '2017-05-26 00:00:00', '13727', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21349', '20170526-12', '12', '33057', '20', '2017-05-26 00:00:00', '83130', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21350', '20170526-11', '11', '33056', '20', '2017-05-26 00:00:00', '24817', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21351', '20170526-10', '10', '33055', '20', '2017-05-26 00:00:00', '91079', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21352', '20170526-9', '9', '33054', '20', '2017-05-26 00:00:00', '39028', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21353', '20170526-8', '8', '33053', '20', '2017-05-26 00:00:00', '11620', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21354', '20170526-7', '7', '33052', '20', '2017-05-26 00:00:00', '88351', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21355', '20170526-6', '6', '33051', '20', '2017-05-26 00:00:00', '91903', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21356', '20170526-5', '5', '33050', '20', '2017-05-26 00:00:00', '21966', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21357', '20170526-4', '4', '33049', '20', '2017-05-26 00:00:00', '92512', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21358', '20170526-3', '3', '33048', '20', '2017-05-26 00:00:00', '23741', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21359', '20170526-2', '2', '33047', '20', '2017-05-26 00:00:00', '74973', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `autumn_lottery_data` VALUES ('21360', '20170526-1', '1', '33046', '20', '2017-05-26 00:00:00', '49729', '0', null, '0', '0', '0', '0', '0', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for autumn_lottery_time

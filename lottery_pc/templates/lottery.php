@@ -1,5 +1,8 @@
 	<link href="./assets/css/page/play.css" rel="stylesheet" type="text/css">
-	<style type="text/css">body{font-size:12px}</style>
+	<style type="text/css">
+		body{font-size:12px}
+		#tabCon{display: none;}
+	</style>
 </head>
 
 <body>
@@ -138,7 +141,7 @@
 									<div class="u_tab_div" id="tabbar-div-s2">
 										
 										{Game_rule_menu_list}
-										<span class="tab-back" value="0" tag="0" default="0">
+										<span class="tab-header tab-back" data-id="{id}">
 											<span class="tabbar-left">
 											</span>
 											<span class="content">
@@ -155,9 +158,9 @@
 								<?php
 									$index = 0;
 									foreach ($Game_rule_menu_list as $key => $value) {
-										echo '<div id="tabCon"><div class="tabcon_n">';
+										echo '<div id="tabCon" class="tabCon" data-id="' . $value['id'] . '"><div class="tabcon_n">';
 										foreach ($value['song'] as $song_key => $song_value) {
-											echo "<div class='back'><span class='method-tab-back'>{$song_value['name']}</span></div>";
+											echo "<div class='item back'><span class='method-tab-back'>{$song_value['name']}</span></div>";
 										}
 										echo '</div></div>';
 									}
@@ -187,163 +190,7 @@
 									</div>
 									<div class="tbn_c_s">
 										<div id="lt_selector">
-											<div class="nbs">
-												<div class="ti">
-													万位
-												</div>
-												<div class="nb">
-													<div name="lt_place_0">0</div>
-													<div name="lt_place_0">1</div>
-													<div name="lt_place_0">2</div>
-													<div name="lt_place_0">3</div>
-													<div name="lt_place_0">4</div>
-													<div name="lt_place_0">5</div>
-													<div name="lt_place_0">6</div>
-													<div name="lt_place_0">7</div>
-													<div name="lt_place_0">8</div>
-													<div name="lt_place_0">9</div>
-												</div>
-												<div class="to">
-													<ul>
-														<li class="l"></li>
-														<li class="dxjoq" name="all">全</li>
-														<li class="dxjoq" name="big">大</li>
-														<li class="dxjoq" name="small">小</li>
-														<li class="dxjoq" name="odd">奇</li>
-														<li class="dxjoq" name="even">偶</li>
-														<li class="dxjoq" name="clean">清</li>
-														<li class="r"></li>
-													</ul>
-												</div>
-											</div>
-											<div class="nbs">
-												<div class="ti">
-													千位
-												</div>
-												<div class="nb">
-													<div name="lt_place_1">
-														0
-													</div>
-													<div name="lt_place_1">
-														1
-													</div>
-													<div name="lt_place_1">
-														2
-													</div>
-													<div name="lt_place_1">
-														3
-													</div>
-													<div name="lt_place_1">
-														4
-													</div>
-													<div name="lt_place_1">
-														5
-													</div>
-													<div name="lt_place_1">
-														6
-													</div>
-													<div name="lt_place_1">
-														7
-													</div>
-													<div name="lt_place_1">
-														8
-													</div>
-													<div name="lt_place_1">
-														9
-													</div>
-												</div>
-												<div class="to">
-													<ul>
-														<li class="l">
-														</li>
-														<li class="dxjoq" name="all">
-															全
-														</li>
-														<li class="dxjoq" name="big">
-															大
-														</li>
-														<li class="dxjoq" name="small">
-															小
-														</li>
-														<li class="dxjoq" name="odd">
-															奇
-														</li>
-														<li class="dxjoq" name="even">
-															偶
-														</li>
-														<li class="dxjoq" name="clean">
-															清
-														</li>
-														<li class="r">
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="nbs">
-												<div class="ti">
-													百位
-												</div>
-												<div class="nb">
-													<div name="lt_place_2">
-														0
-													</div>
-													<div name="lt_place_2">
-														1
-													</div>
-													<div name="lt_place_2">
-														2
-													</div>
-													<div name="lt_place_2">
-														3
-													</div>
-													<div name="lt_place_2">
-														4
-													</div>
-													<div name="lt_place_2">
-														5
-													</div>
-													<div name="lt_place_2">
-														6
-													</div>
-													<div name="lt_place_2">
-														7
-													</div>
-													<div name="lt_place_2">
-														8
-													</div>
-													<div name="lt_place_2">
-														9
-													</div>
-												</div>
-												<div class="to">
-													<ul>
-														<li class="l">
-														</li>
-														<li class="dxjoq" name="all">
-															全
-														</li>
-														<li class="dxjoq" name="big">
-															大
-														</li>
-														<li class="dxjoq" name="small">
-															小
-														</li>
-														<li class="dxjoq" name="odd">
-															奇
-														</li>
-														<li class="dxjoq" name="even">
-															偶
-														</li>
-														<li class="dxjoq" name="clean">
-															清
-														</li>
-														<li class="r">
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="c">
-											</div>
+											
 										</div>
 										<div class="random_sel_button" id="random_sel_button">
 										</div>
@@ -408,7 +255,7 @@
 													</option>
 												</select>
 											</span>
-											<span id="lt_sel_prize">
+											<!-- <span id="lt_sel_prize">
 												选择奖金返点:
 												<div class="cs-select cs-skin-border" tabindex="0">
 													<span class="cs-placeholder">
@@ -437,7 +284,7 @@
 														</option>
 													</select>
 												</div>
-											</span>
+											</span> -->
 										</div>
 										<div class="g_submit" id="lt_sel_insert">
 											<span class="fa fa-plus fa-lg">
@@ -6207,6 +6054,7 @@
 	<script type="text/javascript">
 		var lotteryId = <?=$this->input->get('id' , true)?>;
 		var nextLotteryTime = <?=$Next_lottery_time?>;
+		var Game_rule_data = <?=json_encode($Game_rule_data)?>
 	</script>
 	<script type="text/javascript" src="./assets/js/lottery.js"></script>
 </body>

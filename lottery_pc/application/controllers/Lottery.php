@@ -112,6 +112,7 @@ class Lottery extends CI_Controller {
 
 
 
+		$Game_rule_data['Game_rule_menu_list'] = $Game_rule_menu_list;
 
 		Loader::view(array('lottery') , array(
 			'Game_rule_list' => $Game_rule_list,
@@ -121,6 +122,7 @@ class Lottery extends CI_Controller {
 			'Lottery_time_data' => $Lottery_time_data,
 			'Now_lottery' => $Lottery_time_data[0],
 			'Next_lottery_data' => $Next_lottery_data,
+			'Game_rule_data' => $Game_rule_data,
 
 			// 下一期彩票开奖时间
 			'Next_lottery_time' => $Next_lottery_data['timestamp'] - $now_time,

@@ -23,6 +23,11 @@
 					<td>开奖位数</td>
 					<td><input type="text" api-param-name="count" value="{count}" placeholder="请输入开奖位数"></td>
 				</tr>
+				<tr>
+					<td>单位置号码范围</td>
+					<td><input type="text" api-param-name="numberRange" value="{numberRange}" placeholder="单位置号码范围 (以逗号分隔)"></td>
+				</tr> 
+
 			</table>
 			<div class="tools" style="padding:0px 12px;margin-top:26px;">
 				<button class='btn fezocms' id="js-save"><i class="fa fa-save"></i> 保存配置项</button>
@@ -104,8 +109,12 @@
 			</select>
 			<textarea api-param-name='description' placeholder="请输入玩法描述"></textarea>
 			<textarea api-param-name='winning_description' placeholder="请输入中奖规则"></textarea>
+		
 			<textarea api-param-name='rule' placeholder="请输入玩法表达式"></textarea>
 			<input type="text" placeholder="请输入玩法KEY" api-param-name="byid" name="name" />
+			<input type="text" placeholder="玩法号码（以逗号分隔）" api-param-name="number" name="name" />
+			<input type="text" placeholder="开奖位置名称（以逗号分隔）" api-param-name="indexName" name="name" />
+			<textarea api-param-name='quick' placeholder="快捷按钮名称（以逗号分隔）"></textarea>
 		</div>
 
 
@@ -119,9 +128,11 @@
 			<textarea api-param-name='description' placeholder="请输入玩法描述">{%description%}</textarea>
 			<textarea api-param-name='winning_description' placeholder="请输入中奖规则">{%winning_description%}</textarea>
 			<textarea api-param-name='rule' placeholder="请输入玩法表达式">{%rule%}</textarea>
-			<input type="text" placeholder="请输入玩法byid" api-param-name="byid" name="name" value="{%byid%}"/>
+			<input type="text" placeholder="请输入玩法KEY" api-param-name="byid" name="name" value="{%byid%}"/>
+			<input type="text" placeholder="玩法号码（请用，号分隔）" api-param-name="number" value="{%number%}" name="name" />
+			<input type="text" placeholder="开奖位置名称（以逗号分隔）" api-param-name="indexName" value="{%indexName%}" name="name" />
+			<textarea api-param-name='quick' placeholder="快捷按钮（以逗号分隔）">{%quick%}</textarea>
 		</div>
-
 		
 		
 		var groupEdit = <div api-name='Game_rule/Edit_name'>

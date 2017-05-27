@@ -29,14 +29,17 @@ class Game_rule extends CI_Controller {
 
 
 
+
 	public function Save(){
-		$params = Autumn::params(array('name' , 'count' , 'id'));
+		$params = Autumn::params(array('name' , 'count' , 'id' , 'indexName' , 'numberRange'));
 		extract($params);
 		$Game_rule_data = $this->Game_rule_model->get(array('id' => $id));
 		if($Game_rule_data['type'] != '0') Autumn::end(false , '您操作的玩法不是顶级玩法');
 		$this->Game_rule_model->edit(array('id' => $id) , array(
 			'name' => $name , 
 			'count' => $count,
+			'indexName' => $indexName,
+			'numberRange' => $numberRange,
 		));
 		Autumn::end(true);
 	}
@@ -48,16 +51,19 @@ class Game_rule extends CI_Controller {
 		if($Game_rule_data['type'] != '2') Autumn::end(false , '您操作的玩法不是最小玩法');
 		$this->Game_rule_model->remove(array('id' => $id));
 		Autumn::end(true);
-	}
+	} 
 
 
 	public function Edit(){
-		$params = Autumn::params(array('id' , 'from_group' , 'description' , 'winning_description' , 'rule' , 'byid'));
+		$params = Autumn::params(array('id' , 'from_group' , 'description' , 'winning_description' , 'rule' , 'byid' , 'indexName' ,'number' , 'quick'));
 		Rule::check($params , array(
 			'from_group' => array('name' => '玩法组' , 'is_number' => true) ,
 			'description' => array('max' => 500 , 'min' => 2 , 'name' => '玩法描述') ,
 			'winning_description' => array('max' => 500 , 'min' => 2 , 'name' => '中奖规则') ,
 			'rule' => array('max' => 500 , 'min' => 2 , 'name' => '玩法名称') ,
+			'number' => array('max' => 1024 , 'min' => 2 , 'name' => '玩法号码'),
+			'quick' => array('max' => 1024 , 'min' => 2 , 'name' => '快捷按钮名称'),
+			'indexName' => array('max' => 1024 , 'min' => 2 , 'name' => '开奖位置名称'),
 		) , true);
 		extract($params);
 
@@ -74,6 +80,9 @@ class Game_rule extends CI_Controller {
 			'rule' => $rule,
 			'type' => 2,
 			'byid' => $byid,
+			'number' => $number,
+			'quick' => $quick,
+			'indexName' => $indexName,
 			'create_time' => date('Y-m-d h:i:s'),
 		));
 		Autumn::end(true);

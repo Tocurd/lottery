@@ -38,6 +38,7 @@ var ApiRequest = (function(ApiRequestList){
 	 * @param  {[type]} target [自定义获取API参数的元素]
 	 */
 	modules.prototype.push = function(apiName , option){
+		console.log(apiName)
 		this.SelectApi = uriGet(this.ApiRequestList , apiName);
 		if(this.SelectApi == false) return reslut(false , "未能找到定义好的API" , {});
 
