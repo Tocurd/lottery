@@ -18,6 +18,8 @@ class Lottery extends CI_Controller {
 			'lottery_id' => array('is_number' => true , 'name' => '彩票编号') ,
 		) , true);
 		extract(Rule::reslut());
+
+		$lottery_id = 20;
 		if( ! $this->Lottery_model->is_exist(array('id' => $lottery_id))) Autumn::end(false , '您输入的彩票不存在');
 		$Lottery_data = $this->Lottery_model->get(array('id' => $lottery_id));
 
@@ -57,18 +59,28 @@ class Lottery extends CI_Controller {
 				'from_lottery' => $lottery_id,
 			) , array() , array('timestamp' => 'asc'));
 			$Now_lottery['is_lost'] = true;
-			
 		}
 
 
-		$Now_lottery_data = $this->Lottery_data_model->get_by(array(
-			'from_time_id' => $Now_lottery['id'],
-			'day' => date('Y-m-d' , @$Now_lottery['is_lost'] ? time() - 86400 : time()),
-		) , array() , array());
+		if(isset($Now_lottery['is_lost']) && $Now_lottery['is_lost'] == true){
+			$Now_lottery_data = $this->Lottery_data_model->get_by(array(
+				'from_lottery' => $lottery_id,
+				'day' => date('Y-m-d' , time() - 86400),
+			) , array() , array('periods' => 'desc'));
+		}else{
+			$Now_lottery_data = $this->Lottery_data_model->get_by(array(
+				'from_lottery' => $lottery_id,
+				'periods' => $Now_lottery['periods'],
+				'day' => date('Y-m-d' , time()),
+			) , array() , array('periods' => 'asc'));
+		}
+
+
+	
 
 
 
-
+		$data = '';
 		if($Now_lottery_data['state'] == '1'){
 			$time = ($Now_lottery['timestamp'] + $Lottery_data['draw_interval']) - (time() - strtotime(date('Y-m-d')));
 		}else{
@@ -89,7 +101,7 @@ class Lottery extends CI_Controller {
 			'Next_lottery_time' => $Next_lottery_data['timestamp'] - $now_time,
 
 			'Now_lottery' => array(
-				'byid' => date('Ymd') . '-' . $Now_lottery['periods'] ,
+				'byid' => $Now_lottery_data['byid'] ,
 				'data' => $data, 
 				'time' => $time
 			)

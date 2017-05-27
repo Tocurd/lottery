@@ -120,7 +120,7 @@ class Automation extends CI_Controller {
 			// 彩票的游戏规则
 			$Game_rule = $this->Game_rule_model->get(array('id' => $value['from_group']));
 
-			$date = date('Y-m-d');
+			$date = date('Y-m-d' , time() - 86400);
 			for($index = 0;$index < 7;$index++) { 
 				if( ! $this->Lottery_data_model->is_exist(array(
 					'from_lottery' => $value['id'],
@@ -132,7 +132,7 @@ class Automation extends CI_Controller {
 					foreach ($Lottery_time_list as $time_value) {
 						$push = array(
 							'day' => $date,
-							'byid' => date('Ymd' , strtotime($date)) . $time_value['periods'],
+							'byid' => date('Ymd' , strtotime($date)) . '-' . $time_value['periods'],
 							'periods' => $time_value['periods'],
 							'from_lottery' => $value['id'],
 							'from_time_id' => $time_value['id'],

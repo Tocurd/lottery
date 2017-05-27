@@ -151,18 +151,18 @@
 
 									</div>
 								</div>
-								<div id="tabCon">
-									<?php
-										$index = 0;
-										foreach ($Game_rule_menu_list as $key => $value) {
-											echo '<div class="tabcon_n">';
-											foreach ($value['song'] as $song_key => $song_value) {
-												echo "<div class='back'><span class='method-tab-back'>{$song_value['name']}</span></div>";
-											}
-											echo '</div>';
+								
+								<?php
+									$index = 0;
+									foreach ($Game_rule_menu_list as $key => $value) {
+										echo '<div id="tabCon"><div class="tabcon_n">';
+										foreach ($value['song'] as $song_key => $song_value) {
+											echo "<div class='back'><span class='method-tab-back'>{$song_value['name']}</span></div>";
 										}
-									?>
-								</div>
+										echo '</div></div>';
+									}
+								?>
+								
 							</div>
 							<div class="clear">
 							</div>
