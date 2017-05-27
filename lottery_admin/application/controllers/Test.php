@@ -7,15 +7,14 @@ class Test extends CI_Controller {
 	public function index(){
 		$this->load->model('Lottery_time_model');
 		$Lottery_time_data = $this->Lottery_time_model->get_list_by(array(
-			'from_lottery' => 23
+			'from_lottery' => 20
 		) , 1 , 1 , array() , 'all' , array('periods' => 'asc'));
 		
 
-		$date = strtotime(date('Y-m-d') . ' 21:0');
+		$date = strtotime(date('Y-m-d'));
 		$timestamp = 0;
 		foreach ($Lottery_time_data as $key => $value) {
-			$timestamp += 120;
-			print_r($value);
+			$timestamp += 300;
 
 			// print_r(array(
 			// 	'time' => date('H:i' , $date + $timestamp),
@@ -23,7 +22,7 @@ class Test extends CI_Controller {
 			// ));
 			$this->Lottery_time_model->edit(array('id' => $value['id']) , array(
 				'time' => date('H:i' , $date + $timestamp),
-				'timestamp' => 75600 + $timestamp,
+				'timestamp' => $timestamp,
 			));
 		}
 

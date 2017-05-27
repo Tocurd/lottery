@@ -66,15 +66,15 @@ class Automation extends CI_Controller {
 
 
 			// 计算距离下一期开奖还有多久
-			$Lost_lottery = $this->Lottery_time_model->get_by(array(
-				'from_lottery' => $value['id'],
-				'timestamp >' => $now_time
-			) , array() , array('timestamp' => 'asc'));
-			print_r($Lost_lottery);
-			if($time % 10 == 0){
-				$lost_time = strtotime(date('Y-m-d H:i:s') , $Lost_lottery['time']) - strtotime(date('Y-m-d'));
-				echo $lost_time;
-			}
+			// $Lost_lottery = $this->Lottery_time_model->get_by(array(
+			// 	'from_lottery' => $value['id'],
+			// 	'timestamp >' => $now_time
+			// ) , array() , array('timestamp' => 'asc'));
+			// print_r($Lost_lottery);
+			// if($time % 10 == 0){
+			// 	$lost_time = strtotime(date('Y-m-d H:i:s') , $Lost_lottery['time']) - strtotime(date('Y-m-d'));
+			// 	echo $lost_time;
+			// }
 
 
 
@@ -132,6 +132,8 @@ class Automation extends CI_Controller {
 					foreach ($Lottery_time_list as $time_value) {
 						$push = array(
 							'day' => $date,
+							'byid' => date('Ymd' , strtotime($date)) . $time_value['periods'],
+							'periods' => $time_value['periods'],
 							'from_lottery' => $value['id'],
 							'from_time_id' => $time_value['id'],
 							'data' => $this->generate_code($Game_rule['count']),

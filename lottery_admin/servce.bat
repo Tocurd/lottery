@@ -1,1 +1,1 @@
-F:\xampp\php\php.exe F:\xampp\htdocs\lottery_admin\index.php Automation index
+F:\xampp\php\php.exe F:\xampp\htdocs\lottery\lottery_admin\index.php Automation index
