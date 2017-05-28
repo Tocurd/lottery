@@ -181,6 +181,7 @@ function switchTab(eq , conEq){
  * @return {[type]} [description]
  */
 function rule(data){
+	console.log(data)
 	var reslut = [] , html = '';
 	var indexName = {
 		'全' : 'all',
@@ -310,12 +311,35 @@ function notes(){
 	var $this = $("#lt_selector");
 	var byid = $this.attr('data-byid');
 
-	var option = {
-		row : 1 , 
-		type : 'default'
-	};
+
 	var effective = {row : 0};
 	var notes = {count : 0}
+	var option = {};
+
+
+
+	switch(Game_rule_data.byid){
+		case 'shishicai' :
+			switch(byid){
+				case 'five_location' :
+					option.row = 1; 
+					option.type = 'dan';
+				break;
+			
+				case 'end_three_group_six' :
+					option.row = 1; 
+					option.count = 3; 
+					option.type = 'zu';
+				break;
+				default : 
+					option.row = $this.find('.nbs .nb').length; 
+					option.type = 'default';
+				break;
+			}
+		break;
+	}
+
+
 
 	$this.find('.nbs .nb').each(function(index, el) {
 		var row = [];
@@ -336,10 +360,14 @@ function notes(){
 			}
 		}
 		if(row.length != 0) effective.row ++;
-		reslut.push(row);
 	});
 
-	console.log(notes)
+
+	// 获得用户选的什么玩法方式
+	var chooseMoney = [2 , 0.2 , 0.02 , 0.002];
+	var index = $(".choose-money li").index($(".choose-money .on"));
+	$('#lt_sel_nums').text(notes.count)
+	$('#lt_sel_money').text((notes.count * chooseMoney[index]) * $("#lt_sel_times").val())
 
 	if(effective.row < option.row){
 		$("#lt_sel_nums").text('0');
@@ -348,17 +376,23 @@ function notes(){
 	}
 
 
-
-	switch(Game_rule_data.byid){
-		case 'shishicai' :
-			switch(byid){
-				case 'five_location' :
-
-				break;
-			}
-		break;
-	}
 }
+
+// 倍数点击按钮及元角分厘按钮
+$(".choose-money li").click(function(){
+	$(".choose-money li").removeClass('on');
+	$(this).addClass('on');
+	notes()
+});
+$("#plustime").click(function(){
+	$("#lt_sel_times").val(parseInt($("#lt_sel_times").val()) + 1)
+	notes()
+});
+$("#reducetime").click(function(){
+	if($("#lt_sel_times").val() - 1 <= 0) return;
+	$("#lt_sel_times").val(parseInt($("#lt_sel_times").val()) - 1)
+	notes()
+});
 
 
 

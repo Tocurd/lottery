@@ -219,7 +219,7 @@
 											<span class="changetime" id="reducetime" title="减少1倍">
 												－
 											</span>
-											<input name="lt_sel_times" type="text" size="4" class="bei" id="lt_sel_times">
+											<input name="lt_sel_times" value="1" type="text" size="4" class="bei" id="lt_sel_times">
 											<span class="changetime" id="plustime" title="增加1倍">
 												＋
 											</span>
