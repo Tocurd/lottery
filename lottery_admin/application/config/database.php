@@ -73,13 +73,14 @@
 $active_group = 'default';
 $query_builder = TRUE;
 
+
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	'port' => '3300',
 	'database' => 'autumn',
+	'port' => 3306,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => 'autumn_',
 	'pconnect' => FALSE,
@@ -95,4 +96,3 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
-
