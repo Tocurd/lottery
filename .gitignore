@@ -1,2 +1,7 @@
-config.php
-database.php
+lottery_admin\application\config\autumn.config.php
+lottery_admin\application\config\database.php
+
+lottery_pc\application\config\autumn.config.php
+lottery_pc\application\config\database.php
+
+

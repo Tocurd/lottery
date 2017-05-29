@@ -123,7 +123,7 @@ class Automation extends CI_Controller {
 					foreach ($Lottery_time_list as $time_value) {
 						$push = array(
 							'day' => $date,
-							'byid' => date('Ymd' , strtotime($date)) . '-' . $time_value['periods'],
+							'byid' => date('Ymd' , strtotime($date)) . $time_value['periods'],
 							'periods' => $time_value['periods'],
 							'from_lottery' => $value['id'],
 							'from_time_id' => $time_value['id'],

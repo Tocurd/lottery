@@ -22,6 +22,7 @@ function updateLotterTime(){
 			nextLotteryTime = data.result.Next_lottery_time;
 			$("#current_issue").text(data.result.byid);
 			draw();
+			reloadPeriods();
 		});
 	}
 
@@ -173,7 +174,9 @@ function switchTab(eq , conEq){
 	$(".tabCon").find('.item').removeClass('act').addClass('back');
 	$(".tabCon[data-id='" + id + "']").show()
 	.find('.item').eq(conEq).removeClass('back').addClass('act');
-	rule(Game_rule_data.Game_rule_menu_list[eq].song[conEq])
+	rule(Game_rule_data.Game_rule_menu_list[eq].song[conEq]);
+	$("#lt_sel_nums , #lt_sel_money").text('0');
+	$("#lt_sel_times").val('1')
 }
 
 /**
@@ -301,82 +304,213 @@ $("#lt_selector").on('click' , '.to .dxjoq' , function(){
 
 
 
+
 /**
  * 计算当前的注数
  * @return {[type]} [description]
  */
 var reslut = [];
-function notes(){
-	reslut = [];
+var number = [];
+var is_add = false;
+function notes(data){
+	$("#lt_sel_nums").text('0');
+	$("#lt_sel_money").text('0');
+	is_add = false;
 	var $this = $("#lt_selector");
 	var byid = $this.attr('data-byid');
+	var line = 0;
+	var rule = {
+		line : $this.find('.nb').length,	// 最少选中多少行
+		count : 1,							// 每行最少选择多位个注数
+	};
 
 
-	var effective = {row : 0};
-	var notes = {count : 0}
-	var option = {};
 
+	// 时时彩定位胆，五星定位胆格式
+	if(Game_rule_data.byid == 'shishicai'){
+		switch(byid){
+			case 'five_location' : 
+				rule.line = 1;
+				rule.count = 1;
+			break;
+			case 'end_three_group_three' : 
+				rule.line = 1;
+				rule.count = 2;
+			break;
+			case 'end_three_group_six' : 
+				rule.line = 1;
+				rule.count = 3;
+			break;
+		}
 
-
-	switch(Game_rule_data.byid){
-		case 'shishicai' :
-			switch(byid){
-				case 'five_location' :
-					option.row = 1; 
-					option.type = 'dan';
-				break;
-			
-				case 'end_three_group_six' :
-					option.row = 1; 
-					option.count = 3; 
-					option.type = 'zu';
-				break;
-				default : 
-					option.row = $this.find('.nbs .nb').length; 
-					option.type = 'default';
-				break;
-			}
-		break;
 	}
 
 
 
-	$this.find('.nbs .nb').each(function(index, el) {
-		var row = [];
-		$(el).find('[name="lt_place_0"].on').each(function(key , value) {
-			row.push($(value).text());
-			switch(option.type){
-				case 'dan':
-					notes.count ++;
-				break;
-			}
-		});
 
-		if(option.type == 'default'){
-			if(index == 0){
-				notes.count = row.length
-			}else{
-				if(row.length > 0) notes.count *= row.length
-			}
-		}
-		if(row.length != 0) effective.row ++;
-	});
+	// 将数据整理集合出来
+	if(typeof data == 'undefined'){
+		number = [];
+		$this.find('.nbs .nb').each(function(index, el) {
+			var row = [];
+			$(el).find('[name="lt_place_0"].on').each(function(key , value) {
+				row.push($(value).text());
+			});
+
+			if(row.length >= rule.count) line ++;
+			number.push(row);
+		});
+	}else{
+		number = data;
+	}
+
+
+
+
+	// 如果没有达到选中的要求就返回
+	if(line < rule.line) return false;
+	is_add = true;
+
+
+	var noteNumber = 0;
+	var custom = false;
+
+
+
+	// 时时彩定位胆，五星定位胆算注算法
+	if(Game_rule_data.byid == 'shishicai' && byid == 'five_location'){
+		custom = true;
+		$.each(number , function(key , value){
+			noteNumber += value.length
+		})
+	}
+
+	// 时时彩定位胆，后三组六算注算法
+	if(Game_rule_data.byid == 'shishicai' && byid == 'end_three_group_six'){
+		custom = true;
+		noteNumber = combine(number[0] , rule.count).length
+	}
+
+
+	// 时时彩定位胆，后三组三胆算注算法
+	if(Game_rule_data.byid == 'shishicai' && byid == 'end_three_group_three'){
+		custom = true;
+		noteNumber = permutation(number[0] , rule.count).length
+	}
+
+
+
+
+	// 默认算法
+	if(custom == false){
+		noteNumber = 1;
+		$.each(number , function(index , value){
+			noteNumber *= value.length
+		})
+	}
 
 
 	// 获得用户选的什么玩法方式
 	var chooseMoney = [2 , 0.2 , 0.02 , 0.002];
+	var chooseMoneyLost = [0 , 2 , 2 , 3];
 	var index = $(".choose-money li").index($(".choose-money .on"));
-	$('#lt_sel_nums').text(notes.count)
-	$('#lt_sel_money').text((notes.count * chooseMoney[index]) * $("#lt_sel_times").val())
+	$('#lt_sel_nums').text(noteNumber)
+	$('#lt_sel_money').text(((noteNumber * chooseMoney[index]) * $("#lt_sel_times").val()).toFixed(chooseMoneyLost[index]))
+}
 
-	if(effective.row < option.row){
-		$("#lt_sel_nums").text('0');
-		$("#lt_sel_money").text('0');
+/**
+ * 添加
+ * @param  {[type]} ){	$(".tz_tab_list_box").} [description]
+ * @return {[type]}                              [description]
+ */
+var reslutItem = 0;
+var nowNotes = [];
+var index = 0;
+$("#lt_sel_insert").click(function(){
+	var popup = new popupWidget();
+	if(reslutItem == 0){
+		$("#lt_cf_content tbody").html('')
+	}
+
+	if(is_add == false){
+		popup.sure({
+			title : '温馨提示',
+			content : '号码选择不完整，请重新选择'
+		}).then(function(){popup.close()});
+		return false;
+	}
+	reslutItem ++;
+	index ++;
+
+
+
+
+	var data = '';
+	$.each(number , function(key , value){
+		data += value.join('') + ',';
+	});
+	data = data.substr(0 , data.length - 1);
+
+
+	var is_identical = false;
+	$.each(nowNotes , function(key , value){
+		if( ! is_identical){
+			if(value.data == data){
+				is_identical = true
+				return false;
+			}
+		}
+	})
+
+	if(is_identical){
+		popup.sure({
+			title : '温馨提示',
+			content : '确认区有相同的投注内容'
+		}).then(function(){
+			$("[name='lt_place_0']").removeClass('on');
+			$(".dxjoq").removeClass('on')
+			popup.close()
+		});
 		return false;
 	}
 
 
-}
+	var rule = Game_rule_data.Game_rule_menu_list[topIndex];
+	var song = rule.song[songIndex];
+	
+	data = {
+		index : index,
+		topIndex : rule.id,
+		songIndex : song.id,
+		name : rule.name + "_" + song.name,
+		data : data,
+		type : $(".choose-money .on").text(),
+		lt_sel_nums : parseInt($("#lt_sel_nums").text()),
+		lt_sel_money : parseInt($("#lt_sel_money").text()),
+		lt_sel_times : parseInt($("#lt_sel_times").val()),
+	};
+	nowNotes.push(data);
+	$("[name='lt_place_0']").removeClass('on');
+	$(".dxjoq").removeClass('on')
+	$("#lt_cf_content tbody").append("<tr data-index='" + index + "' style='cursor:pointer;' class='><td class='tl_li_l' width='4'></td><td><span style='display:block;width:240px;overflow: hidden;overflow: hidden;padding-right:20px;text-overflow:ellipsis;white-space: nowrap;'>[" + data.name + "] " + data.data + "</span></td><td width='25'>" + data.type + "</td><td width='80' class='r' style='min-width:100px;'>" + data.lt_sel_nums + "注</td><td width='80' class='r'>" + data.lt_sel_times + "倍</td><td width='120' class='r'>" + data.lt_sel_money + "元</td><td class='c tl_li_r' width='16' title='删除'></td></tr>")		
+
+
+
+	$.each(nowNotes , function(key , value){
+		$("#lt_cf_nums").text(parseInt($("#lt_cf_nums").text()) + value.lt_sel_nums);
+		$("#lt_cf_money").text(parseInt($("#lt_cf_money").text()) + value.lt_sel_money);
+	})
+});
+
+
+$(document).on('click' , '.tl_li_r' , function(){
+	var index = $(this).parent().attr('data-index');
+	$(this).parent().remove().empty();
+	$.each(nowNotes , function(key , value){
+		if(value.index == index) nowNotes.splice(key, 1);
+	});
+})
+
 
 // 倍数点击按钮及元角分厘按钮
 $(".choose-money li").click(function(){
@@ -393,6 +527,38 @@ $("#reducetime").click(function(){
 	$("#lt_sel_times").val(parseInt($("#lt_sel_times").val()) - 1)
 	notes()
 });
+
+
+
+
+// 未来期数操作
+function reloadPeriods(){
+	ApiRequest.push('Lottery/ReloadPeriods' , {params : {lottery_id : lotteryId}}).then(function(data){
+		console.log();
+		$.each(data.result.Periods_list , function(key , value){
+
+			console.log()
+			$("#lt_issue_start").append("<option value=''>" + value.byid  + (key == 0 ? '(当前期)' : '') + "</option>")
+		})
+	})
+}
+reloadPeriods();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -423,3 +589,36 @@ function formatSeconds_array(value) {
 	}
 	return time; 
 } 
+
+
+/**
+ * 各种彩种玩法、算法
+ * DAVID 2015-04-09
+ * *****************************
+ * *****************************
+ * *****************************
+ */
+
+function combine(arr, num) {
+	var r = [];
+	(function f(t, a, n) {
+		if (n == 0) return r.push(t);
+		for (var i = 0, l = a.length; i <= l - n; i++) {
+			f(t.concat(a[i]), a.slice(i + 1), n - 1);
+		}
+	})([], arr, num);
+	return r;
+} /* 排列算法*/
+
+
+/* 组合算法*/
+function permutation(arr, num) {
+	var r = [];
+	(function f(t, a, n) {
+		if (n == 0) return r.push(t);
+		for (var i = 0, l = a.length; i < l; i++) {
+			f(t.concat(a[i]), a.slice(0, i).concat(a.slice(i + 1)), n - 1);
+		}
+	})([], arr, num);
+	return r;
+}
