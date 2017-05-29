@@ -465,11 +465,11 @@ $("#lt_sel_insert").click(function(){
 	}
 	console.log(number);
 
-	
+
 
 	var data = '';
 	$.each(number , function(key , value){
-		data += value.join('') + ',';
+		data += value.join(' ') + ',';
 	});
 	data = data.substr(0 , data.length - 1);
 
@@ -605,7 +605,6 @@ function random(numberLength){
 	
 
 
-
 	var reslut = [];
 	var number = '';
 	for(var countIndex = 0;countIndex < Game_rule_data.count;countIndex ++){
@@ -620,14 +619,31 @@ function random(numberLength){
 		reslut.push(number != '' ? number : '');
 	}
 
-	
+
+
+
+	var data = {
+		index : index,
+		topIndex : rule.id,
+		songIndex : song.id,
+		name : rule.name + "_" + song.name,
+		data : reslut.join(','),
+		type : $(".choose-money .on").text(),
+		lt_sel_nums : parseInt($("#lt_sel_nums").text()),
+		lt_sel_money : parseInt($("#lt_sel_money").text()),
+		lt_sel_times : parseInt($("#lt_sel_times").val()),
+	};
+	nowNotes.push(data);
+	$("#lt_cf_content tbody").append("<tr data-index='" + index + "' style='cursor:pointer;' class='><td class='tl_li_l' width='4'></td><td><span style='display:block;width:240px;overflow: hidden;overflow: hidden;padding-right:20px;text-overflow:ellipsis;white-space: nowrap;'>[" + data.name + "] " + data.data + "</span></td><td width='25'>" + data.type + "</td><td width='80' class='r' style='min-width:100px;'>" + data.lt_sel_nums + "注</td><td width='80' class='r'>" + data.lt_sel_times + "倍</td><td width='120' class='r'>" + data.lt_sel_money + "元</td><td class='c tl_li_r' width='16' title='删除'></td></tr>")		
+
 
 }
 function arrayRandom(arr , len){
 	var reslut = '';
 	for(var index = 0;index < len;index++){
-		reslut += arr[randNum(0 , arr.length)]
+		reslut += arr[randNum(0 , arr.length)] + ' '
 	}
+	reslut = reslut.substr(0 , reslut.length - 1);
 	return reslut;
 }
 function randNum(minnum , maxnum){
