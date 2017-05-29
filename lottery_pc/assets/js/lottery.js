@@ -160,7 +160,7 @@ $("#tabbar-div-s2 .tab-header").click(function(){
 	switchTab(topIndex , 0);
 });
 $(".tabCon .item").click(function(){
-	var songIndex = $(".tabCon").eq(topIndex).find('.item').index(this);
+	songIndex = $(".tabCon").eq(topIndex).find('.item').index(this);
 	switchTab(topIndex , songIndex);
 });
 
@@ -230,7 +230,7 @@ function rule(data){
 
 
 function parse(name , data , index , quick){
-	var reslut = '<div class="nbs"><div class="ti">' + name + '</div><div class="nb">';
+	var reslut = '<div class="nbs" data-index="' + index + '"><div class="ti">' + name + '</div><div class="nb">';
 	$.each(data , function(key , value){
 		reslut += '<div name="lt_place_0" data-index="' + index + '">' + value + '</div>';
 	});
@@ -304,27 +304,12 @@ $("#lt_selector").on('click' , '.to .dxjoq' , function(){
 
 
 
-
-/**
- * 计算当前的注数
- * @return {[type]} [description]
- */
-var reslut = [];
-var number = [];
-var is_add = false;
-function notes(data){
-	$("#lt_sel_nums").text('0');
-	$("#lt_sel_money").text('0');
-	is_add = false;
-	var $this = $("#lt_selector");
-	var byid = $this.attr('data-byid');
-	var line = 0;
+function getRule(){
 	var rule = {
-		line : $this.find('.nb').length,	// 最少选中多少行
+		line : $("#lt_selector").find('.nb').length,	// 最少选中多少行
 		count : 1,							// 每行最少选择多位个注数
 	};
-
-
+	var byid = $("#lt_selector").attr('data-byid');
 
 	// 时时彩定位胆，五星定位胆格式
 	if(Game_rule_data.byid == 'shishicai'){
@@ -342,9 +327,26 @@ function notes(data){
 				rule.count = 3;
 			break;
 		}
-
 	}
+	return rule;
+}
 
+/**
+ * 计算当前的注数
+ * @return {[type]} [description]
+ */
+var reslut = [];
+var number = [];
+var is_add = false;
+function notes(data){
+	$("#lt_sel_nums").text('0');
+	$("#lt_sel_money").text('0');
+	is_add = false;
+	var $this = $("#lt_selector");
+	var byid = $this.attr('data-byid');
+	var line = 0;
+
+	var rule = getRule();
 
 
 
@@ -415,7 +417,17 @@ function notes(data){
 	var chooseMoneyLost = [0 , 2 , 2 , 3];
 	var index = $(".choose-money li").index($(".choose-money .on"));
 	$('#lt_sel_nums').text(noteNumber)
-	$('#lt_sel_money').text(((noteNumber * chooseMoney[index]) * $("#lt_sel_times").val()).toFixed(chooseMoneyLost[index]))
+	$('#lt_sel_money').text(((noteNumber * chooseMoney[index]) * $("#lt_sel_times").val()).toFixed(chooseMoneyLost[index]));
+
+
+	if(typeof data != 'undefined'){
+		return {
+			times : chooseMoneyLost[index],
+			chooseMoney : $(".choose-money .on").text(),
+			noteNumber : noteNumber,
+			Money : ((noteNumber * chooseMoney[index]) * $("#lt_sel_times").val()).toFixed(chooseMoneyLost[index]),
+		}
+	}
 }
 
 /**
@@ -428,9 +440,6 @@ var nowNotes = [];
 var index = 0;
 $("#lt_sel_insert").click(function(){
 	var popup = new popupWidget();
-	if(reslutItem == 0){
-		$("#lt_cf_content tbody").html('')
-	}
 
 	if(is_add == false){
 		popup.sure({
@@ -439,17 +448,32 @@ $("#lt_sel_insert").click(function(){
 		}).then(function(){popup.close()});
 		return false;
 	}
-	reslutItem ++;
-	index ++;
+	
 
 
+	var rule = getRule();
+	var $this = $("#lt_selector");
+	number = [];
+	for(var countIndex = 0;countIndex < Game_rule_data.count;countIndex ++){
+		var row = [];
+		$this.find('.nbs[data-index="' + (countIndex + 1) +  '"] .nb').each(function(index, el) {
+			$(el).find('[name="lt_place_0"].on').each(function(key , value) {
+				row.push($(value).text());
+			});
+		});
+		number.push(row.length > 0 ? row : [])
+	}
+	console.log(number);
 
+	
 
 	var data = '';
 	$.each(number , function(key , value){
 		data += value.join('') + ',';
 	});
 	data = data.substr(0 , data.length - 1);
+
+
 
 
 	var is_identical = false;
@@ -473,8 +497,12 @@ $("#lt_sel_insert").click(function(){
 		});
 		return false;
 	}
+	if(reslutItem == 0){
+		$("#lt_cf_content tbody").html('')
+	}
 
-
+	reslutItem ++;
+	index ++;
 	var rule = Game_rule_data.Game_rule_menu_list[topIndex];
 	var song = rule.song[songIndex];
 	
@@ -493,6 +521,11 @@ $("#lt_sel_insert").click(function(){
 	$("[name='lt_place_0']").removeClass('on');
 	$(".dxjoq").removeClass('on')
 	$("#lt_cf_content tbody").append("<tr data-index='" + index + "' style='cursor:pointer;' class='><td class='tl_li_l' width='4'></td><td><span style='display:block;width:240px;overflow: hidden;overflow: hidden;padding-right:20px;text-overflow:ellipsis;white-space: nowrap;'>[" + data.name + "] " + data.data + "</span></td><td width='25'>" + data.type + "</td><td width='80' class='r' style='min-width:100px;'>" + data.lt_sel_nums + "注</td><td width='80' class='r'>" + data.lt_sel_times + "倍</td><td width='120' class='r'>" + data.lt_sel_money + "元</td><td class='c tl_li_r' width='16' title='删除'></td></tr>")		
+	$("#lt_sel_nums").text('0')
+	$("#lt_sel_money").text('0')
+	$("#lt_sel_times").val('1')
+
+
 
 
 
@@ -533,11 +566,9 @@ $("#reducetime").click(function(){
 
 // 未来期数操作
 function reloadPeriods(){
+	$("#lt_issue_start").html('');
 	ApiRequest.push('Lottery/ReloadPeriods' , {params : {lottery_id : lotteryId}}).then(function(data){
-		console.log();
 		$.each(data.result.Periods_list , function(key , value){
-
-			console.log()
 			$("#lt_issue_start").append("<option value=''>" + value.byid  + (key == 0 ? '(当前期)' : '') + "</option>")
 		})
 	})
@@ -547,7 +578,69 @@ reloadPeriods();
 
 
 
+// 随机注数
+function random(numberLength){
+	var rule = getRule();
+	var $lt_selector = $("#lt_selector .nbs .nb");
+	var song = Game_rule_data.Game_rule_menu_list[topIndex].song[songIndex];
 
+	
+	var data = song.rule.split(/[&&||]/);
+	for(var i = 0 ;i < data.length;i++){  
+		if(data[i] == "" || typeof(data[i]) == "undefined"){  
+			data.splice(i,1);  
+			i = i - 1;  
+		} 
+	}
+
+
+	// 时时彩定位胆，五星定位胆格式
+	var byid = $("#lt_selector").attr('data-byid');
+	if(Game_rule_data.byid == 'shishicai' && byid == 'five_location'){
+		rule.line = 5;
+	}
+
+
+
+	
+
+
+
+	var reslut = [];
+	var number = '';
+	for(var countIndex = 0;countIndex < Game_rule_data.count;countIndex ++){
+		number = '';
+		// 循环的将号码转换成HTML
+		$.each(data , function(key , value){
+			var split = value.split('=');
+			if(split[0] == countIndex + 1){
+				number = arrayRandom(song.number.split(',') , rule.count);
+			}
+		});
+		reslut.push(number != '' ? number : '');
+	}
+
+	
+
+}
+function arrayRandom(arr , len){
+	var reslut = '';
+	for(var index = 0;index < len;index++){
+		reslut += arr[randNum(0 , arr.length)]
+	}
+	return reslut;
+}
+function randNum(minnum , maxnum){
+    return Math.floor(minnum + Math.random() * (maxnum - minnum));
+}
+$("#lt_random_five").click(function(){random(5)})
+$("#lt_random_one").click(function(){random(1)})
+$("#lt_cf_clear").click(function(){
+	nowNotes = [];
+	reslutItem = 0;
+	$("#lt_cf_nums , #lt_cf_money").text('0')
+	$(".tz_tab_list_box table").html('<tbody><tr class="nr"><td class="tl_li_l" width="4"></td><td class="noinfo">暂无投注项</td><td class="tl_li_rn" width="4"></td></tr></tbody>')
+})
 
 
 
