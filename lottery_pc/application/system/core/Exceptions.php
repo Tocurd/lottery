@@ -216,7 +216,7 @@ class CI_Exceptions {
 		}
 
 		ob_start();
-		include($templates_path.'error_exception.php');
+		include(APPPATH . 'views\errors\html\error_exception.php');
 		$buffer = ob_get_contents();
 		ob_end_clean();
 		echo $buffer;

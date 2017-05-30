@@ -15,4 +15,7 @@ class Lottery{
 		$date = strtotime(date('Y-m-d'));
 		return strtotime(date('Y-m-d') . ' ' . $time) - $date;
 	}
+	static public function get_rule($data , $rule){
+
+	}
 }

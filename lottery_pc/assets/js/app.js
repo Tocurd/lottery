@@ -9,6 +9,11 @@ var ApiRequest = new ApiRequest({
 
 		ReloadPeriods : {params : {
 			lottery_id : {is_number : true}
+		}},
+
+		Betting : {params : {
+			byid : {is_number : true},
+			data : {},
 		}}
 	}
 
