@@ -7,6 +7,7 @@ class Lottery extends CI_Controller {
 		$this->load->model('Lottery_model');
 		$this->load->model('Lottery_time_model');
 		$this->load->model('Lottery_data_model');
+		$this->load->model('Betting_model');
 	}
 
 
@@ -14,8 +15,9 @@ class Lottery extends CI_Controller {
 
 
 	public function betting(){
-		Rule::check(Autumn::params(array('byid')) , array(
+		Rule::check(Autumn::params(array('byid' , 'lottery_id')) , array(
 			'byid' => array('is_number' => true , 'name' => '彩票编号') ,
+			'lottery_id' => array('is_number' => true , 'name' => '彩票编号') ,
 		) , true);
 		extract(Rule::reslut());
 
@@ -57,49 +59,35 @@ class Lottery extends CI_Controller {
 
 
 
-
-
 			// 将投置的数字转换为数组
 			$line_count = 0;
 			$number_data = array();
 			$number = explode(',' , $value['data']);
-			
+
+
+			if(count($number) > $Top_game_rule['count']) Autumn::end(false , '您输入的给彩票规则不正确1');
+
 
 			foreach($number as $line_key => $number_value){
+				$count = 0;
 				$row = explode(' ', $number_value);
 				array_push($number_data , $row);
 				if(count($row) > 0) $line_count ++;
 
-	
-				var_dump("line:{$line_key}");
+		
+				// var_dump("line:" . ($line_key + 1));
+
 				// 对规范进行检测
 				foreach ($data as $data_key => $data_value) {
-					echo $data_value;
 					$data_rule = explode('=', $data_value);
-
-					// var_dump($data_rule[0] - 1);
-
-
-
-					if($data_rule[0] - 1 == $line_key){
-						if(count($row) < $line['count']) Autumn::end(false , '您输入的给彩票规则不正确1');
-					}else{
-						if($number_value != '') Autumn::end(false , '您输入的给彩票规则不正确2');
+					if($data_rule[0] == $line_key + 1){
+						$count ++;
+						if(count($row) < $line['count'] || count($row) > count(explode(',', $Game_rule_data['number']))) Autumn::end(false , '您输入的给彩票规则不正确1');
 					}
 				}
+
+			
 			}
-
-
-
-			$params = array(
-				'byid' => $byid,
-				'choose_money' => $choose_money[$value['type']],
-				'choose_type' => $value['type'],
-				'multiple' => (int) $value['lt_sel_times'] ,
-				'money' => 0,
-				'notes' => 0,
-				'data' => $number_data,
-			);
 
 
 
@@ -109,17 +97,33 @@ class Lottery extends CI_Controller {
 
 
 
+
 			// 默认算法
 			if($custom == false){
 				$noteNumber = 1;
-				foreach ($params['data'] as $params_data_key => $params_data_value) {
-					$noteNumber *= count($params_data_value) - 1;
-					
+				foreach ($number_data as $params_data_key => $params_data_value) {
+					$noteNumber *= count($params_data_value);
 				}
 			}
 			
 
-			print_r($noteNumber);
+
+			$this->Betting_model->create(array(
+				'byid' => $byid,
+				'order_id' => 'O' . date('Ymd') . rand(100000 , 999999),
+				'create_time' => date('Y-m-d H:i:s'),
+				'from_lottery' => $lottery_id,
+				'from_game_rule' => $Game_rule_data['rule'],
+		
+
+				'pattern_money' => $choose_money[$value['type']],
+				'pattern' => $value['type'],
+				'multiple' => (int) $value['lt_sel_times'] ,
+				'money' => (($noteNumber * $choose_money[$value['type']]) * $value['lt_sel_times']),
+				'notes' => $noteNumber,
+				'number' => json_encode($number_data),
+			));
+
 
 
 
@@ -151,7 +155,6 @@ class Lottery extends CI_Controller {
 		) , true);
 		extract(Rule::reslut());
 
-		$lottery_id = 20;
 		if( ! $this->Lottery_model->is_exist(array('id' => $lottery_id))) Autumn::end(false , '您输入的彩票不存在');
 		$Lottery_data = $this->Lottery_model->get(array('id' => $lottery_id));
 

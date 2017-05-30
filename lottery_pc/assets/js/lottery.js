@@ -375,6 +375,7 @@ function notes(data){
 	if(Game_rule_data.byid == 'shishicai' && byid == 'five_location'){
 		custom = true;
 		$.each(number , function(key , value){
+			console.log(value.length)
 			noteNumber += value.length
 		})
 	}
@@ -670,6 +671,7 @@ $("#lt_buy").click(function(){
 	ApiRequest.push('Lottery/Betting' , {params : {
 		byid : $("#lt_issues :selected").val() , 
 		lottery : nowNotes ,
+		lottery_id : lotteryId,
 	}}).then(function(data){
 
 	} , function(error){
