@@ -10,6 +10,7 @@ class Lottery extends CI_Controller {
 		$this->load->model('Lottery_model');
 		$this->load->model('Lottery_time_model');
 		$this->load->model('Lottery_data_model');
+		$this->load->model('Betting_model');
 
 		if( ! $this->Lottery_model->is_exist(array('id' => $this->input->get('id' , true)))) show_404();
 
@@ -114,6 +115,20 @@ class Lottery extends CI_Controller {
 
 		$Game_rule_data['Game_rule_menu_list'] = $Game_rule_menu_list;
 
+
+
+		$Betting_list = $this->Betting_model->get_list(array('uid' => $_SESSION['user']['id']) , 1 , 1 , array() , 'all');
+		foreach ($Betting_list as &$value) {
+			
+			$value['from_game_rule_name'] = $this->Game_rule_model->get(array('id' => $value['from_game_rule']))['name'];
+
+			$number = '';
+			foreach (json_decode($value['number']) as $number_value) {
+				$number .= implode(' ', $number_value) . ',';
+			}
+			$value['number'] = substr($number, 0 , strlen($number) - 1);
+		}
+
 		Loader::view(array('lottery') , array(
 			'Game_rule_list' => $Game_rule_list,
 			'Game_rule_data' => $Game_rule_data,
@@ -123,6 +138,7 @@ class Lottery extends CI_Controller {
 			'Now_lottery' => $Lottery_time_data[0],
 			'Next_lottery_data' => $Next_lottery_data,
 			'Game_rule_data' => $Game_rule_data,
+			'Betting_list' => $Betting_list,
 
 			// 下一期彩票开奖时间
 			'Next_lottery_time' => $Next_lottery_data['timestamp'] - $now_time,

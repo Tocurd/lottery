@@ -177,7 +177,8 @@ function switchTab(eq , conEq){
 	.find('.item').eq(conEq).removeClass('back').addClass('act');
 	rule(Game_rule_data.Game_rule_menu_list[eq].song[conEq]);
 	$("#lt_sel_nums , #lt_sel_money").text('0');
-	$("#lt_sel_times").val('1')
+	$("#lt_sel_times").val('1');
+	$("#lt_cf_clear").click();
 }
 
 /**
@@ -185,6 +186,10 @@ function switchTab(eq , conEq){
  * @return {[type]} [description]
  */
 function rule(data){
+	console.log(data);
+
+	$("#lt_desc").text(data.description);
+	$("#lt_help").attr('hover-text' , data.winning_description)
 	var reslut = [] , html = '';
 	var indexName = {
 		'全' : 'all',
@@ -219,17 +224,28 @@ function rule(data){
 		} 
 	}
 
+
+	var dom = new Dom();
 	// 循环的将号码转换成HTML
+	var allRule = Game_rule_data.Game_rule_menu_list[topIndex];
+	var allSong = allRule.song[songIndex];
+	if(allSong.byid.substr( - 4 , 4) == 'star'){
+		$("#lt_selector").html(dom.get('star')).attr('data-byid');
+
+	}
 	$.each(data , function(key , value){
 		var split = value.split('=');
-		html += parse(rule.name[split[0] - 1] , rule.number , split[0] , quick);
+		html += parse(rule.name[split[0] - 1] , rule.number , split[0] , quick , rule);
 	});
 	$("#lt_selector").html(html).attr('data-byid')
 
 }
 
 
-function parse(name , data , index , quick){
+function parse(name , data , index , quick , rule){
+	var dom = new Dom();
+
+
 	var reslut = '<div class="nbs" data-index="' + index + '"><div class="ti">' + name + '</div><div class="nb">';
 	$.each(data , function(key , value){
 		reslut += '<div name="lt_place_0" data-index="' + index + '">' + value + '</div>';
@@ -498,6 +514,8 @@ $("#lt_sel_insert").click(function(){
 	var rule = Game_rule_data.Game_rule_menu_list[topIndex];
 	var song = rule.song[songIndex];
 	
+	is_add = false;
+
 	data = {
 		index : index,
 		topIndex : rule.id,
@@ -525,7 +543,7 @@ $("#lt_sel_insert").click(function(){
 	$.each(nowNotes , function(key , value){
 		$("#lt_cf_nums").text(parseInt($("#lt_cf_nums").text()) + value.lt_sel_nums);
 		$("#lt_cf_money").text(parseInt($("#lt_cf_money").text()) + value.lt_sel_money);
-	})
+	});
 });
 
 
@@ -578,6 +596,7 @@ function random(numberLength){
 
 		var rule = getRule();
 		var $lt_selector = $("#lt_selector .nbs .nb");
+		console.log(songIndex)
 		var song = Game_rule_data.Game_rule_menu_list[topIndex].song[songIndex];
 
 		var data = song.rule.split(/[&&||]/);
@@ -619,6 +638,17 @@ function random(numberLength){
 		var chooseMoney = [2 , 0.2 , 0.02 , 0.002];
 		var chooseMoneyLost = [0 , 2 , 2 , 3];
 		var chooseMoneyIndex = $(".choose-money li").index($(".choose-money .on"));
+		var lt_sel_nums = 1;
+
+		if(Game_rule_data.byid == 'shishicai' && byid == 'end_three_group_three'){
+			lt_sel_nums = 2;
+		}
+		if(Game_rule_data.byid == 'shishicai' && byid == 'five_location'){
+			lt_sel_nums = 5;
+		}
+
+
+
 
 		index++;
 		var data = {
@@ -628,8 +658,8 @@ function random(numberLength){
 			name : Game_rule_data.Game_rule_menu_list[topIndex].name + "_" + song.name,
 			data : reslut.join(','),
 			type : $(".choose-money .on").text(),
-			lt_sel_nums : 1,
-			lt_sel_money : chooseMoney[chooseMoneyIndex] * parseInt($("#lt_sel_times").val()),
+			lt_sel_nums : lt_sel_nums,
+			lt_sel_money : lt_sel_nums * (chooseMoney[chooseMoneyIndex] * parseInt($("#lt_sel_times").val())),
 			lt_sel_times : parseInt($("#lt_sel_times").val()),
 		};
 		nowNotes.push(data);
@@ -668,12 +698,23 @@ $("#lt_cf_clear").click(function(){
 
 
 $("#lt_buy").click(function(){
+	if(nowNotes.length <= 0){
+		popup.toast('您还没有选择要投注的号码')
+		return false;
+	}
+
 	ApiRequest.push('Lottery/Betting' , {params : {
 		byid : $("#lt_issues :selected").val() , 
 		lottery : nowNotes ,
 		lottery_id : lotteryId,
 	}}).then(function(data){
-
+		$("#lt_cf_clear").click();
+		popup.sure({
+			title : '投注成功',
+			content : '您已经成功投注' + $("#lt_issues :selected").val() + '期，请您耐心等待开奖结果'
+		}).then(function(){
+			window.location.reload();
+		})
 	} , function(error){
 		console.log(error)
 		popup.toast(error.message)
@@ -773,3 +814,28 @@ function permutation(arr, num) {
 	})([], arr, num);
 	return r;
 }
+
+
+
+
+$("[hover]").hover(function(){
+	console.log('dsa');
+	var $this = $(this);
+
+	$("#JS_openFloat").show().css({
+		top : $this.offset().top - $("#JS_openFloat").height() - 13,
+		left : $this.offset().left - 10
+	}).find('#text').text($this.attr('hover-text'))
+} , function(){
+	$("#JS_openFloat").hide();
+})
+
+
+
+
+// $(document).ready(function() {
+// 	$(".yxlist").mCustomScrollbar();
+// });
+
+
+

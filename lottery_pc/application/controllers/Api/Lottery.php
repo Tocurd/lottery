@@ -8,6 +8,10 @@ class Lottery extends CI_Controller {
 		$this->load->model('Lottery_time_model');
 		$this->load->model('Lottery_data_model');
 		$this->load->model('Betting_model');
+
+		$_SESSION['user'] = array(
+			'id' => 1
+		);
 	}
 
 
@@ -21,10 +25,21 @@ class Lottery extends CI_Controller {
 		) , true);
 		extract(Rule::reslut());
 
+		$Betting_list = array();
+
+
+		// 检查选择的彩票期数是否已经停止投注或者超时
+		$time = strtotime(date('Y-m-d H:i:s')) - strtotime(date('Y-m-d'));
+		$Lottery_item_data = $this->Lottery_data_model->get(array('byid' => $byid));
+		$Lottery_time_data = $this->Lottery_time_model->get(array('id' => $Lottery_item_data['from_time_id']));
+		if($time >= $Lottery_time_data['timestamp']) Autumn::end(false , "您选择彩票期数【{$byid}】已经停止投注");
+		
+
+
 
 
 		$lottery = $this->input->post('lottery');
-		if(count($lottery) <= 0) Autumn::end(false , '您输入的彩票规则不正确');
+		if(count($lottery) <= 0) Autumn::end(false , '您还没有选择要投注的彩票');
 		foreach ($lottery as $key => $value) {
 			
 
@@ -74,8 +89,6 @@ class Lottery extends CI_Controller {
 				array_push($number_data , $row);
 				if(count($row) > 0) $line_count ++;
 
-		
-				// var_dump("line:" . ($line_key + 1));
 
 				// 对规范进行检测
 				foreach ($data as $data_key => $data_value) {
@@ -95,7 +108,24 @@ class Lottery extends CI_Controller {
 			$custom = false;
 			$noteNumber = 0;
 
-
+			if($Top_game_rule['byid'] == 'shishicai'){
+				if($Game_rule_data['byid'] == 'end_three_group_six'){
+					$custom = true;
+					$noteNumber = Bet::z6(implode('', $number_data[2]));
+				}
+				if($Game_rule_data['byid'] == 'end_three_group_three'){
+					$custom = true;
+					$noteNumber = Bet::z3(implode('', $number_data[2]));
+				}
+				if($Game_rule_data['byid'] == 'five_location'){
+					$custom = true;
+					foreach ($number_data as $params_data_key => $params_data_value) {
+						foreach ($params_data_value as $as_key => $as_value) {
+							$noteNumber += $as_value != '' ? 1 : 0;
+						}
+					}
+				}
+			}
 
 
 			// 默认算法
@@ -107,14 +137,28 @@ class Lottery extends CI_Controller {
 			}
 			
 
+			if($value['lt_sel_nums'] != $noteNumber) Autumn::end(false , '您输入的彩票注数与系统计算的不一致');
 
-			$this->Betting_model->create(array(
+
+			// 检查用户是否已经投注下单过相同的彩票注
+			if($this->Betting_model->is_exist(array(
 				'byid' => $byid,
+				'from_lottery' => $lottery_id,
+				'from_game_rule' => $Game_rule_data['id'],
+				'number' => json_encode($number_data),
+			))) Autumn::end(false , '您已经下单过相同注数的订单了');
+
+
+
+
+			array_push($Betting_list , array(
+				'byid' => $byid,
+				'uid' => $_SESSION['user']['id'],
 				'order_id' => 'O' . date('Ymd') . rand(100000 , 999999),
 				'create_time' => date('Y-m-d H:i:s'),
 				'from_lottery' => $lottery_id,
-				'from_game_rule' => $Game_rule_data['rule'],
-		
+				'from_game_rule' => $Game_rule_data['id'],
+				'from_lottery_time_id' => $Lottery_time_data['id'],
 
 				'pattern_money' => $choose_money[$value['type']],
 				'pattern' => $value['type'],
@@ -124,16 +168,12 @@ class Lottery extends CI_Controller {
 				'number' => json_encode($number_data),
 			));
 
-
-
-
-
-
-
-
-			
 		}
 
+		if(count($Betting_list) == count($lottery)){
+			$this->Betting_model->create_batch($Betting_list);
+		}
+		Autumn::end(true);
 	}
 
 

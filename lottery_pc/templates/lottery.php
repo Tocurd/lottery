@@ -178,8 +178,8 @@
 							<div class="tzn_b_n">
 								<div class="tbn_top">
 									<h5 id="lt_desc">从万位、千位、百位各选一个号码组成一注。</h5>
-									<span class="methodexample fa fa-bars" id="lt_example">范例</span>
-									<span class="methodhelp fa fa-exclamation-circle" id="lt_help">中奖说明</span>
+									<!-- <span class="methodexample fa fa-bars" id="lt_example" hover> 范例</span> -->
+									<span class="methodhelp fa fa-exclamation-circle" id="lt_help" hover> 中奖说明</span>
 									<div class="clear">
 									</div>
 								</div>
@@ -5323,48 +5323,40 @@
 											</div>
 										</div>
 										<div class="yx_box">
-											<div class="yxlist">
+											<div class="yxlist" style="overflow-y: scroll;">
 												<table width="100%" border="0" cellspacing="0" cellpadding="0">
 													<tbody>
 														<tr>
-															<th>
-																注单编号
-															</th>
-															<th>
-																投注时间
-															</th>
-															<th>
-																玩法
-															</th>
-															<th>
-																期号
-															</th>
-															<th>
-																投注内容
-															</th>
-															<th>
-																倍数
-															</th>
-															<th>
-																模式
-															</th>
-															<th>
-																总金额(元)
-															</th>
-															<th>
-																奖金(元)
-															</th>
-															<th>
-																状态
-															</th>
+															<th>注单编号</th>
+															<th>投注时间</th>
+															<th>玩法</th>
+															<th>期号</th>
+															<th>投注内容</th>
+															<th>注数</th>
+															<th>倍数</th>
+															<th>模式</th>
+															<th>总金额(元)</th>
+															<th>奖金(元)</th>
+															<th>状态</th>
 														</tr>
 													</tbody>
 													<tbody class="projectlist">
-														<tr class="no-records">
-															<td height="37" colspan="10" align="center">
-																没有找到指定条件的投注记录
-															</td>
-														</tr>
+														{Betting_list}
+															<tr>
+																<td>{order_id}</td>
+																<td>{create_time}</td>
+																<td>{from_game_rule_name}</td>
+																<td>{byid}</td>
+																<td style="text-align: center;"><span style="display: block;max-height: 30px;overflow: hidden;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;max-width: 115px;margin:0 auto" hover hover-text="{number}">{number}</span></td>
+																<td>{notes}</td>
+																<td>{multiple}</td>
+																<td>{pattern}</td>
+																<td>{money}</td>
+																<td>-</td>
+																<td>-</td>
+															</tr>
+														{/Betting_list}
+														<tr class="no-records"><td height="37" colspan="10" align="center">没有找到指定条件的投注记录</td></tr>
 													</tbody>
 												</table>
 											</div>
@@ -5377,13 +5369,83 @@
 					</div>
 				</div>
 			</div>
-
+	<div id="JS_openFloat" style="display:none;position: absolute; z-index: 200; left: 272px; top: 296px;" class="more">
+		<div class="ibox">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr class="t">
+						<td class="tl"></td>
+						<td class="tm"></td>
+						<td class="tr"></td>
+					</tr>
+				<tr class="mm">
+						<td class="ml">
+							<img src="http://swckfj.b0.upaiyun.com/images/comm/t.gif">
+						</td>
+						<td id="text">
+							从0-9中选择2个数字组成两注，所选号码与开奖号码的百位、十位、个位相同，且顺序不限，即为中奖。
+						</td>
+						<td class="mr">
+							<img src="http://swckfj.b0.upaiyun.com/images/comm/t.gif">
+						</td>
+					</tr>
+					<tr class="b">
+						<td class="bl">
+						</td>
+						<td class="bm">
+							<img src="http://swckfj.b0.upaiyun.com/images/comm/t.gif">
+						</td>
+						<td class="br">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="ar">
+				<div class="ic"></div>
+			</div>
+		</div>
+	</div>
 	<?php $this->load->view('\template\footer.php')?>
 	<script type="text/javascript">
 		var lotteryId = <?=$this->input->get('id' , true)?>;
 		var nextLotteryTime = <?=$Next_lottery_time?>;
 		var Game_rule_data = <?=json_encode($Game_rule_data)?>
 	</script>
+	<script type="text/dom">
+		var star = <tr>
+			<td valign="top">
+				<textarea id="lt_write_box" style="width:600px;height:80px;"></textarea>
+				<br>
+				<span class="write_box_desc">
+					每一个号码之间请用一个 空格[ ]、逗号[,] 或者 分号[;] 隔开
+					<span>
+					</span>
+				</span>
+			</td>
+			<td valign="top">
+				<span class="ds">
+					<span class="lsbb">
+						<input name="lt_write_del" type="button" value="删除重复号" class="lsb" id="lt_write_del">
+					</span>
+				</span>
+				<span class="ds">
+					<span class="lsbb">
+						<input name="lt_write_import" type="button" value="&nbsp;导入文件&nbsp;" class="lsb"
+						id="lt_write_import">
+					</span>
+				</span>
+				<span class="ds">
+					<span class="lsbb">
+						<input name="lt_write_empty" type="button" value="&nbsp;清&nbsp;&nbsp;空&nbsp;"
+						class="lsb" id="lt_write_empty">
+					</span>
+				</span>
+			</td>
+		</tr>
+	</script>
+
+	<script type="text/javascript" src="./assets/bin/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="./assets/bin/jquery.mCustomScrollbar.min.js"></script>
 	<script type="text/javascript" src="./assets/js/lottery.js"></script>
 </body>
 </html>

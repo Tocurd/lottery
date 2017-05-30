@@ -943,7 +943,7 @@ li {
   position: absolute;
   width: 260px;
   left: 0;
-  top: 56px;
+  top: 62px;
   background: rgba(39, 48, 65, 0.9);
   border-top: 3px #12b35e solid;
   -webkit-transition: all 0.3s ease-in;
@@ -1144,7 +1144,6 @@ li {
 .top-header {
   background-color: #273041;
   width: 100%;
-  float: left;
   height: 80px;
 }
 .box {

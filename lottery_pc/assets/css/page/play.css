@@ -7,7 +7,6 @@
 }
 
 #rightcon{
-    float: left;
 }
 @font-face {
     font-family: "DISPLAYFREETFB";
@@ -1434,7 +1433,8 @@ ul, li {
 }
 
 .yxlist tr td:nth-child(2), .yxlist tr th:nth-child(2) {
-    width: 18%
+    width: 15%;
+    padding-left: 15px
 }
 
 .yxlisttr td:nth-child(3), .yxlist tr th:nth-child(3) {
@@ -1446,11 +1446,11 @@ ul, li {
 }
 
 .yxlist tr td:nth-child(5), .yxlist tr th:nth-child(5) {
-    width: 18%
+    width: 15%
 }
 
 .yxlist tr td:nth-child(6), .yxlist tr th:nth-child(6) {
-    width: 3%
+    width: 6%
 }
 
 .yxlist tr td:nth-child(7), .yxlist tr th:nth-child(7) {
@@ -1458,18 +1458,22 @@ ul, li {
 }
 
 .yxlisttr td:nth-child(8), .yxlist tr th:nth-child(8) {
-    width: 13%
+    width: 8%
 }
 
 .yxlist tr td:nth-child(9), .yxlist tr th:nth-child(9) {
-    width: 13%
+    width: 8%
 }
 
 .yxlist tr td:nth-child(10), .yxlist tr th:nth-child(10) {
-    width: 7%;
+    width: 8%;
     padding-right: 15px
 }
 
+.yxlist tr td:nth-child(11), .yxlist tr th:nth-child(11) {
+    width: 5%;
+    padding-right: 15px
+}
 .blue {
     color: #ea721a;
     text-decoration: underline

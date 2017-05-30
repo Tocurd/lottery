@@ -121,18 +121,20 @@ var ApiRequest = (function(ApiRequestList){
 				if(data.state){
 					options.promise.resolve(data);
 				}else{
-					if(isset(data.message)){
-						options.promise.reject({
-							message : "请求出现异常，接口服务器尚未反馈错误信息，请稍候再试！"
-						});
-					}else{
+					// console.log(data)
+					// if(isset(data.message)){
+					// 	options.promise.reject({
+					// 		message : "请求出现异常，接口服务器尚未反馈错误信息，请稍候再试！"
+					// 	});
+					// }else{
 						options.promise.reject({
 							message : data.message
 						});
-					}
+					// }
 				}
 			},
 			error : function(data){
+				console.log(data)
 				try{
 					var error = JSON.parse(data.responseText);
 					options.promise.reject({
