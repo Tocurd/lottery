@@ -22,6 +22,7 @@ class Lottery extends CI_Controller {
 		) , true);
 		extract(Rule::reslut());
 
+		$money = 0;
 		$Betting_list = array();
 
 
@@ -31,8 +32,6 @@ class Lottery extends CI_Controller {
 		$Lottery_time_data = $this->Lottery_time_model->get(array('id' => $Lottery_item_data['from_time_id']));
 		if($time >= $Lottery_time_data['timestamp']) Autumn::end(false , "您选择彩票期数【{$byid}】已经停止投注");
 		
-
-
 
 
 		$lottery = $this->input->post('lottery');
@@ -95,10 +94,8 @@ class Lottery extends CI_Controller {
 						if(count($row) < $line['count'] || count($row) > count(explode(',', $Game_rule_data['number']))) Autumn::end(false , '您输入的给彩票规则不正确1');
 					}
 				}
-
 			
 			}
-
 
 
 			// 算出注数
@@ -148,6 +145,7 @@ class Lottery extends CI_Controller {
 
 
 
+			$money += (($noteNumber * $choose_money[$value['type']]) * $value['lt_sel_times']);
 			array_push($Betting_list , array(
 				'byid' => $byid,
 				'uid' => $_SESSION['user']['id'],
@@ -167,7 +165,10 @@ class Lottery extends CI_Controller {
 
 		}
 
+	
 		if(count($Betting_list) == count($lottery)){
+			$this->load->model('Message_model');
+			$this->Message_model->add(array('type' => '消费' , 'title' => "您已成功消费{$money}元购置彩票"));
 			$this->Betting_model->create_batch($Betting_list);
 		}
 		Autumn::end(true);

@@ -26,35 +26,35 @@
 
 		<ul class="header-nav-user">
 			<li>
-				<a class="account_autosave" href="http://game.nb15.net/account_autosave.shtml">
+				<a class="account_autosave" href="./center/auto_recharge">
 					<div class="fa fa-cny fa-2x"></div>
 					<span>充值提现</span>
 				</a>
 			</li>
 			<li>
-				<a class="users_info" href="http://game.nb15.net/users_message.shtml">
+				<a class="users_info" href="./center/message">
 					<div class="fa fa-user fa-2x"></div>
 					<span>账户中心</span>
 				</a>
 			</li>
 			<li>
-				<a class="promotion_center" href="http://game.nb15.net/promotion_center.shtml">
+				<a class="promotion_center" href="./activity">
 					<div class="fa fa-bullhorn fa-2x"></div>
 					<span>活动中心</span>
 				</a>
 			</li>
 			<li>
-				<a class="help_general" href="http://game.nb15.net/help_general.shtml">
+				<a class="help_general" href="./help">
 					<div class="fa fa-question fa-2x"></div>
 					<span>常见问题</span>
 				</a>
 			</li>
-			<li>
+			<!-- <li>
 				<a class="history_playlist" href="http://game.nb15.net/download/">
 					<div class="fa fa-cloud-download fa-2x"></div>
 					<span>客户端</span>
 				</a>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 </div>

@@ -65,3 +65,7 @@
 <script type="text/javascript" src="./assets/bin/popup/popup.js"></script>
 <script type="text/javascript" src="./assets/js/api.js"></script>
 <script type="text/javascript" src="./assets/js/app.js"></script>
+<script type="text/javascript">
+    var active = '{active}';
+    $(".left a[href='./" + active + "']").addClass('active')
+</script>
