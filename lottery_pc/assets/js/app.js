@@ -15,6 +15,18 @@ var ApiRequest = new ApiRequest({
 			byid : {is_number : true},
 			data : {},
 		}}
+	},
+
+
+	User : {
+		Login : {params : {
+			username : {max : 16 , min : 6 , name : '用户名'},
+			verification : {max : 4 , min : 4 , name : '验证码'}
+		}} ,
+
+		Goto_login : {params : {
+			password : {max : 16 , min : 6 , name : '密码'}
+		}}
 	}
 
 

@@ -6,7 +6,11 @@ class Test extends CI_Controller {
 	}
 	public function index(){
 
+		Loader::view(array('login') , array(
+		) , 'home');
 
+
+		exit;
 		$this->load->model('Lottery_time_model');
 
 		$data = $this->Lottery_time_model->get_list(array() , 1 , 1 , array() , 'all');
@@ -19,5 +23,11 @@ class Test extends CI_Controller {
 		}
 
 
+	}
+
+
+	public function login(){
+		Loader::view(array('login') , array(
+		) , 'home');
 	}
 }

@@ -9,9 +9,6 @@ class Lottery extends CI_Controller {
 		$this->load->model('Lottery_data_model');
 		$this->load->model('Betting_model');
 
-		$_SESSION['user'] = array(
-			'id' => 1
-		);
 	}
 
 

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Lottery extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		$this->output->enable_profiler(TRUE);
+		if( ! isset($_SESSION['user']['id'])) header("Location: ./login"); 
 	}
 	public function index(){
 		$this->load->model('Game_rule_model');
