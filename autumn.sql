@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3300
+Source Server         : localhost_3306
 Source Server Version : 50505
 Source Host           : localhost:3300
 Source Database       : autumn
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-05-30 13:40:32
+Date: 2017-05-31 18:36:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -75,6 +75,7 @@ CREATE TABLE `autumn_betting` (
   `create_time` datetime NOT NULL,
   `from_lottery` int(11) DEFAULT NULL,
   `from_game_rule` int(11) DEFAULT NULL,
+  `from_lottery_time_id` int(11) DEFAULT NULL,
   `multiple` int(11) DEFAULT NULL,
   `notes` int(11) DEFAULT NULL,
   `pattern` int(11) DEFAULT NULL,
@@ -85,18 +86,12 @@ CREATE TABLE `autumn_betting` (
   `state` int(11) DEFAULT NULL,
   `pattern_money` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of autumn_betting
 -- ----------------------------
-INSERT INTO `autumn_betting` VALUES ('1', '1', 'L2017052212345644', null, '2017-05-23 00:11:38', '20', '57', '1', '2000', '0', '0123456789,0123456789,0123456789,0123456789,0123456789', '999', '0', '14', '1', null);
-INSERT INTO `autumn_betting` VALUES ('2', null, null, '201705301', '0000-00-00 00:00:00', null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `autumn_betting` VALUES ('3', null, 'O20170530628607', '201705301', '2017-05-30 16:07:37', '20', '1', '1', '1', '0', '[[\"7\"],[\"8\"],[\"5\"],[\"5\"],[\"3\"]]', '2', null, null, null, '2');
-INSERT INTO `autumn_betting` VALUES ('4', null, 'O20170530485372', '201705301', '2017-05-30 16:07:37', '20', '1', '1', '1', '0', '[[\"6\"],[\"0\"],[\"0\"],[\"0\"],[\"7\"]]', '2', null, null, null, '2');
-INSERT INTO `autumn_betting` VALUES ('5', null, 'O20170530271276', '201705301', '2017-05-30 16:07:37', '20', '1', '1', '1', '0', '[[\"4\"],[\"3\"],[\"3\"],[\"1\"],[\"3\"]]', '2', null, null, null, '2');
-INSERT INTO `autumn_betting` VALUES ('6', null, 'O20170530264492', '201705301', '2017-05-30 16:07:37', '20', '1', '1', '1', '0', '[[\"8\"],[\"4\"],[\"6\"],[\"5\"],[\"4\"]]', '2', null, null, null, '2');
-INSERT INTO `autumn_betting` VALUES ('7', null, 'O20170530860968', '201705301', '2017-05-30 16:07:37', '20', '1', '1', '1', '0', '[[\"1\"],[\"7\"],[\"3\"],[\"1\"],[\"6\"]]', '2', null, null, null, '2');
+INSERT INTO `autumn_betting` VALUES ('8', '1', 'O20170531623278', '2017053150', '2017-05-31 14:09:08', '22', '81', '33395', '1', '50', '0', '[[\"0\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\"],[\"0\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\"],[\"0\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\"],[\"0\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\"],[\"0\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\"]]', '100', null, null, null, '2');
 
 -- ----------------------------
 -- Table structure for autumn_detail
@@ -1205,6 +1200,25 @@ INSERT INTO `autumn_lottery_time` VALUES ('33462', '117', '22', '23:44', '85440'
 INSERT INTO `autumn_lottery_time` VALUES ('33463', '118', '22', '23:49', '85740');
 INSERT INTO `autumn_lottery_time` VALUES ('33464', '119', '22', '23:54', '86040');
 INSERT INTO `autumn_lottery_time` VALUES ('33465', '120', '22', '23:59', '86340');
+
+-- ----------------------------
+-- Table structure for autumn_message
+-- ----------------------------
+DROP TABLE IF EXISTS `autumn_message`;
+CREATE TABLE `autumn_message` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
+  `type` int(11) DEFAULT NULL,
+  `state` int(11) DEFAULT NULL,
+  `content` varchar(512) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of autumn_message
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for autumn_recharge
