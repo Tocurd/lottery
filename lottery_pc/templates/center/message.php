@@ -33,6 +33,7 @@
 					{/Message_list}
 				</tbody>
 			</table>
+			<?php $this->load->view('\template\page.php' , array('list_count' => 200))?>
 
 		</div>
 	
