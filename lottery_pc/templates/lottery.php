@@ -231,27 +231,10 @@
 													<option value="4">厘</option>
 												</select>
 											</span>
-											<!-- <span id="lt_sel_prize">
-												选择奖金返点:
-												<div class="cs-select cs-skin-border" tabindex="0">
-													<span class="cs-placeholder">
-														1800-7%
-													</span>
-													<div class="cs-options">
-														<ul>
-															<li data-option="" data-value="1800|0.07" class="cs-selected">
-																<span>
-																	1800-7%
-																</span>
-															</li>
-															<li data-option="" data-value="1940|0">
-																<span>
-																	1940-0%
-																</span>
-															</li>
-														</ul>
-													</div>
-													<select name="lt_sel_dyprize" id="lt_sel_dyprize" class="cs-select cs-skin-border">
+											<span id="lt_sel_prize">
+												奖金 : 
+												<!-- <div class="cs-select cs-skin-border" tabindex="0">
+													<select >
 														<option value="1800|0.07">
 															1800-7%
 														</option>
@@ -259,8 +242,8 @@
 															1940-0%
 														</option>
 													</select>
-												</div>
-											</span> -->
+												</div> -->
+											</span>
 										</div>
 										<div class="g_submit" id="lt_sel_insert">
 											<span class="fa fa-plus fa-lg">

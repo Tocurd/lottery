@@ -11,49 +11,42 @@
 
 			<div class="box mainbox">
 				<div class="item">
-					<a href="" class="game1"></a>
+					<a href="./lottery?id=22" class="game4"></a>
 				</div>
 				<div class="item">
-					<a href="" class="game1"></a>
 				</div>
 				<div class="item">
-					<a href="" class="game1"></a>
 				</div>
 				<div class="item">
-					<a href="" class="game1"></a>
 				</div>
 				<div class="item">
-					<a href="" class="game1"></a>
 				</div>
 				<div class="item">
-					<a href="" class="game1"></a>
 				</div>
 				<div class="item">
-					<a href="" class="game1"></a>
 				</div>
 				<div class="item">
-					<a href="" class="game1"></a>
 				</div>
 
 			</div>
 			<div class="box mainbox2">
 				<div class="item">
-					<a href="" class="game9"></a>
+					
 				</div>
 				<div class="item">
-					<a href="" class="game9"></a>
+					
 				</div>
 				<div class="item">
-					<a href="" class="game9"></a>
+					
 				</div>
 				<div class="item">
-					<a href="" class="game9"></a>
+					
 				</div>
 				<div class="item">
-					<a href="" class="game9"></a>
+					
 				</div>
 				<div class="item">
-					<a href="" class="game9"></a>
+					
 				</div>
 
 			</div>

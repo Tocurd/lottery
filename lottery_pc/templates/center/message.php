@@ -11,9 +11,34 @@
 		</div>
 		<?php $this->load->view('\template\center-left.php')?>
 		<div class="right">
-			321321
+			<table border="0" cellspacing="0" cellpadding="0">
+				<thead>
+					<tr>
+						<th>消息标题</th>
+						<th>时间</th>
+						<th>类型</th>
+						<th>状态</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{Message_list}
+					<tr data-id="{id}">
+						<td>{title}</td>
+						<td>{time}</td>
+						<td>{type}</td>
+						<td>{state}</td>
+						<td><i class="fa fa-trash-o"></i></td>
+					</tr>
+					{/Message_list}
+				</tbody>
+			</table>
 
 		</div>
+	
+
+
+
 
 
 
