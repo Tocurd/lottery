@@ -1524,6 +1524,7 @@ input[type="checkbox"] {
 }
 
 .ha, .nbts div, .nb div, .nbs div {
+    max-width: 543px;
     animation-name: rise;
     animation-duration: .5s;
     animation-timing-function: ease;
@@ -1536,6 +1537,9 @@ input[type="checkbox"] {
     -webkit-animation-name: rise;
     -webkit-animation-duration: .5s;
     -webkit-animation-timing-function: ease
+}
+.nb div{
+    
 }
 
 @keyframes rise {
