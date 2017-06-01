@@ -5363,20 +5363,17 @@
 					</tr>
 				<tr class="mm">
 						<td class="ml">
-							<img src="http://swckfj.b0.upaiyun.com/images/comm/t.gif">
 						</td>
 						<td id="text">
 							从0-9中选择2个数字组成两注，所选号码与开奖号码的百位、十位、个位相同，且顺序不限，即为中奖。
 						</td>
 						<td class="mr">
-							<img src="http://swckfj.b0.upaiyun.com/images/comm/t.gif">
 						</td>
 					</tr>
 					<tr class="b">
 						<td class="bl">
 						</td>
 						<td class="bm">
-							<img src="http://swckfj.b0.upaiyun.com/images/comm/t.gif">
 						</td>
 						<td class="br">
 						</td>
