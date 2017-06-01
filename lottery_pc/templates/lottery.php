@@ -5429,6 +5429,7 @@
 
 	<script type="text/javascript" src="./assets/bin/jquery.mousewheel.min.js"></script>
 	<script type="text/javascript" src="./assets/bin/jquery.mCustomScrollbar.min.js"></script>
+	<script type="text/javascript" src="./assets/js/lottery_rule.js"></script>
 	<script type="text/javascript" src="./assets/js/lottery.js"></script>
 </body>
 </html>

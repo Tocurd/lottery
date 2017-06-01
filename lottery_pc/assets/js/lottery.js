@@ -1,3 +1,4 @@
+var lotteryRule = new lotteryRule();
 var popup = new popupWidget();
 var passLotteryIntervalId;
 var $count_down = $("#count_down span");
@@ -186,7 +187,6 @@ function switchTab(eq , conEq){
  * @return {[type]} [description]
  */
 function rule(data){
-	console.log(data);
 
 	$("#lt_desc").text(data.description);
 	$("#lt_help").attr('hover-text' , data.winning_description)
@@ -312,32 +312,8 @@ $("#lt_selector").on('click' , '.to .dxjoq' , function(){
 
 
 
-function getRule(){
-	var rule = {
-		line : $("#lt_selector").find('.nb').length,	// 最少选中多少行
-		count : 1,							// 每行最少选择多位个注数
-	};
-	var byid = $("#lt_selector").attr('data-byid');
 
-	// 时时彩定位胆，五星定位胆格式
-	if(Game_rule_data.byid == 'shishicai'){
-		switch(byid){
-			case 'five_location' : 
-				rule.line = 1;
-				rule.count = 1;
-			break;
-			case 'end_three_group_three' : 
-				rule.line = 1;
-				rule.count = 2;
-			break;
-			case 'end_three_group_six' : 
-				rule.line = 1;
-				rule.count = 3;
-			break;
-		}
-	}
-	return rule;
-}
+
 
 /**
  * 计算当前的注数
@@ -354,7 +330,7 @@ function notes(data){
 	var byid = $this.attr('data-byid');
 	var line = 0;
 
-	var rule = getRule();
+	var rule = lotteryRule.line();
 
 
 
@@ -387,39 +363,8 @@ function notes(data){
 
 
 
-	// 时时彩定位胆，五星定位胆算注算法
-	if(Game_rule_data.byid == 'shishicai' && byid == 'five_location'){
-		custom = true;
-		$.each(number , function(key , value){
-			console.log(value.length)
-			noteNumber += value.length
-		})
-	}
 
-	// 时时彩定位胆，后三组六算注算法
-	if(Game_rule_data.byid == 'shishicai' && byid == 'end_three_group_six'){
-		custom = true;
-		noteNumber = combine(number[0] , rule.count).length
-	}
-
-
-	// 时时彩定位胆，后三组三胆算注算法
-	if(Game_rule_data.byid == 'shishicai' && byid == 'end_three_group_three'){
-		custom = true;
-		noteNumber = permutation(number[0] , rule.count).length
-	}
-
-
-
-
-	// 默认算法
-	if(custom == false){
-		noteNumber = 1;
-		$.each(number , function(index , value){
-			noteNumber *= value.length
-		})
-	}
-
+	noteNumber = lotteryRule.countNotes(number)
 
 	// 获得用户选的什么玩法方式
 	var chooseMoney = [2 , 0.2 , 0.02 , 0.002];
@@ -460,7 +405,7 @@ $("#lt_sel_insert").click(function(){
 	
 
 
-	var rule = getRule();
+	var rule = lotteryRule.line();
 	var $this = $("#lt_selector");
 	number = [];
 	for(var countIndex = 0;countIndex < Game_rule_data.count;countIndex ++){
@@ -594,7 +539,7 @@ reloadPeriods();
 function random(numberLength){
 	for(var numberIndex = 0;numberIndex < numberLength;numberIndex ++){
 
-		var rule = getRule();
+		var rule = lotteryRule.line();
 		var $lt_selector = $("#lt_selector .nbs .nb");
 		console.log(songIndex)
 		var song = Game_rule_data.Game_rule_menu_list[topIndex].song[songIndex];
@@ -779,45 +724,6 @@ function formatSeconds_array(value) {
 
 
 
-
-
-
-
-/**
- * 各种彩种玩法、算法
- * DAVID 2015-04-09
- * *****************************
- * *****************************
- * *****************************
- */
-
-function combine(arr, num) {
-	var r = [];
-	(function f(t, a, n) {
-		if (n == 0) return r.push(t);
-		for (var i = 0, l = a.length; i <= l - n; i++) {
-			f(t.concat(a[i]), a.slice(i + 1), n - 1);
-		}
-	})([], arr, num);
-	return r;
-} /* 排列算法*/
-
-
-/* 组合算法*/
-function permutation(arr, num) {
-	var r = [];
-	(function f(t, a, n) {
-		if (n == 0) return r.push(t);
-		for (var i = 0, l = a.length; i < l; i++) {
-			f(t.concat(a[i]), a.slice(0, i).concat(a.slice(i + 1)), n - 1);
-		}
-	})([], arr, num);
-	return r;
-}
-
-
-
-
 $("[hover]").hover(function(){
 	console.log('dsa');
 	var $this = $(this);
@@ -829,13 +735,6 @@ $("[hover]").hover(function(){
 } , function(){
 	$("#JS_openFloat").hide();
 })
-
-
-
-
-// $(document).ready(function() {
-// 	$(".yxlist").mCustomScrollbar();
-// });
 
 
 
