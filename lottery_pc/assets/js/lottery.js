@@ -187,6 +187,7 @@ function switchTab(eq , conEq){
  * @return {[type]} [description]
  */
 function rule(data){
+	console.log(data)
 
 	$("#lt_desc").text(data.description);
 	$("#lt_help").attr('hover-text' , data.winning_description)
@@ -229,10 +230,15 @@ function rule(data){
 	// 循环的将号码转换成HTML
 	var allRule = Game_rule_data.Game_rule_menu_list[topIndex];
 	var allSong = allRule.song[songIndex];
+
+
 	if(allSong.byid.substr( - 4 , 4) == 'star'){
 		$("#lt_selector").html(dom.get('star')).attr('data-byid');
 
+		return false;
 	}
+
+
 	$.each(data , function(key , value){
 		var split = value.split('=');
 		html += parse(rule.name[split[0] - 1] , rule.number , split[0] , quick , rule);
@@ -244,7 +250,7 @@ function rule(data){
 
 function parse(name , data , index , quick , rule){
 	var dom = new Dom();
-
+	console.log(rule)
 
 	var reslut = '<div class="nbs" data-index="' + index + '"><div class="ti">' + name + '</div><div class="nb">';
 	$.each(data , function(key , value){
@@ -716,7 +722,15 @@ function formatSeconds_array(value) {
 
 
 
-
+var timeout = 0;
+$("body").on("propertychange input" , "#lt_write_box" , function(){
+	var $this = $(this);
+	clearTimeout(timeout);
+	timeout = setTimeout(function(){
+		var data = $this.val();
+		console.log(data)
+	} , 350);
+});
 
 
 
