@@ -1,0 +1,49 @@
+2017-06-08 16:51:46 脚本开启
+2017-06-08 16:51:46 检查【重庆时时彩】是否有近七日数据
+2017-06-08 16:51:46 2017-06-07 : yes
+2017-06-08 16:51:46 2017-06-08 : yes
+2017-06-08 16:51:46 2017-06-09 : yes
+2017-06-08 16:51:46 2017-06-10 : yes
+2017-06-08 16:51:46 2017-06-11 : yes
+2017-06-08 16:51:46 2017-06-12 : yes
+2017-06-08 16:51:46 2017-06-13 : no
+2017-06-08 16:51:46 【重庆时时彩】第65期，需要开奖
+2017-06-08 16:51:46 {"id":"33410","periods":"65","from_lottery":"22","time":"16:49","timestamp":"60540"}
+2017-06-08 16:51:46 {"id":"25136","byid":"2017060865","periods":"65","from_time_id":"33410","from_lottery":"22","day":"2017-06-08 00:00:00","data":"79419","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-08 16:51:47 【重庆时时彩】第65期，正在摇奖中
+2017-06-08 16:51:48 【重庆时时彩】第65期，已成功开奖
+2017-06-08 16:59:00 【重庆时时彩】第66期，需要开奖
+2017-06-08 16:59:00 {"id":"33411","periods":"66","from_lottery":"22","time":"16:59","timestamp":"61140"}
+2017-06-08 16:59:00 {"id":"25135","byid":"2017060866","periods":"66","from_time_id":"33411","from_lottery":"22","day":"2017-06-08 00:00:00","data":"57312","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-08 16:59:00 【重庆时时彩】第66期，正在摇奖中
+2017-06-08 17:00:00 【重庆时时彩】第66期，已成功开奖
+2017-06-08 17:09:00 【重庆时时彩】第67期，需要开奖
+2017-06-08 17:09:00 {"id":"33412","periods":"67","from_lottery":"22","time":"17:09","timestamp":"61740"}
+2017-06-08 17:09:00 {"id":"25134","byid":"2017060867","periods":"67","from_time_id":"33412","from_lottery":"22","day":"2017-06-08 00:00:00","data":"32997","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-08 17:09:00 【重庆时时彩】第67期，正在摇奖中
+2017-06-08 17:10:00 【重庆时时彩】第67期，已成功开奖
+2017-06-08 17:19:00 【重庆时时彩】第68期，需要开奖
+2017-06-08 17:19:00 {"id":"33413","periods":"68","from_lottery":"22","time":"17:19","timestamp":"62340"}
+2017-06-08 17:19:00 {"id":"25133","byid":"2017060868","periods":"68","from_time_id":"33413","from_lottery":"22","day":"2017-06-08 00:00:00","data":"47210","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-08 17:19:00 【重庆时时彩】第68期，正在摇奖中
+2017-06-08 17:20:00 【重庆时时彩】第68期，已成功开奖
+2017-06-08 17:29:00 【重庆时时彩】第69期，需要开奖
+2017-06-08 17:29:00 {"id":"33414","periods":"69","from_lottery":"22","time":"17:29","timestamp":"62940"}
+2017-06-08 17:29:00 {"id":"25132","byid":"2017060869","periods":"69","from_time_id":"33414","from_lottery":"22","day":"2017-06-08 00:00:00","data":"40671","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-08 17:29:00 【重庆时时彩】第69期，正在摇奖中
+2017-06-08 17:30:00 【重庆时时彩】第69期，已成功开奖
+2017-06-08 17:39:00 【重庆时时彩】第70期，需要开奖
+2017-06-08 17:39:00 {"id":"33415","periods":"70","from_lottery":"22","time":"17:39","timestamp":"63540"}
+2017-06-08 17:39:00 {"id":"25131","byid":"2017060870","periods":"70","from_time_id":"33415","from_lottery":"22","day":"2017-06-08 00:00:00","data":"67123","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-08 17:39:00 【重庆时时彩】第70期，正在摇奖中
+2017-06-08 17:40:00 【重庆时时彩】第70期，已成功开奖
+2017-06-08 17:49:00 【重庆时时彩】第71期，需要开奖
+2017-06-08 17:49:00 {"id":"33416","periods":"71","from_lottery":"22","time":"17:49","timestamp":"64140"}
+2017-06-08 17:49:00 {"id":"25130","byid":"2017060871","periods":"71","from_time_id":"33416","from_lottery":"22","day":"2017-06-08 00:00:00","data":"31074","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-08 17:49:00 【重庆时时彩】第71期，正在摇奖中
+2017-06-08 17:50:00 【重庆时时彩】第71期，已成功开奖
+2017-06-08 17:59:00 【重庆时时彩】第72期，需要开奖
+2017-06-08 17:59:00 {"id":"33417","periods":"72","from_lottery":"22","time":"17:59","timestamp":"64740"}
+2017-06-08 17:59:00 {"id":"25129","byid":"2017060872","periods":"72","from_time_id":"33417","from_lottery":"22","day":"2017-06-08 00:00:00","data":"18964","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-08 17:59:00 【重庆时时彩】第72期，正在摇奖中
+2017-06-08 18:00:00 【重庆时时彩】第72期，已成功开奖

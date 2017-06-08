@@ -357,16 +357,12 @@ function notes(data){
 	}
 
 
-
-
 	// 如果没有达到选中的要求就返回
 	if(line < rule.line) return false;
 	is_add = true;
 
-
 	var noteNumber = 0;
 	var custom = false;
-
 
 
 
@@ -389,6 +385,15 @@ function notes(data){
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
 
 /**
  * 添加
@@ -423,6 +428,7 @@ $("#lt_sel_insert").click(function(){
 		});
 		number.push(row.length > 0 ? row : [])
 	}
+	console.log(number)
 
 
 
@@ -682,12 +688,100 @@ var Global = {
 	addLotteryCandidate : function(option){
 		var $this = $('#lt_cf_content');
 		var in_fister = $this.find('.nr');
-
 	}
 }
 
 
 
+
+
+
+
+
+var timeout = 0;
+$("body").on("propertychange input" , "#lt_write_box" , function(){
+	var $this = $(this);
+	clearTimeout(timeout);
+
+	timeout = setTimeout(function(){
+		var rule = Game_rule_data.Game_rule_menu_list[topIndex].song[songIndex].rule.split(/[&&||]/);
+		for(var i = 0 ;i < rule.length;i++){  
+			if(rule[i] == "" || typeof(rule[i]) == "undefined"){  
+				rule.splice(i,1);  
+				i = i - 1;  
+			} 
+		}
+
+		var data = $this.val();
+		var number = [];
+		$.each(data.split(/[,; \n]/) , function(key , value){
+			if(value.split('').length == rule.length) number.push(value.split(''))
+		})
+		var notesData = notes(number);
+	} , 350);
+});
+
+
+
+
+
+
+
+
+function insert(data){
+	var rule = lotteryRule.line();
+	for(var index = 0;index < Game_rule_data.count;index ++){
+		var rule = Game_rule_data.Game_rule_menu_list[topIndex].song[songIndex].rule.split(/[&&||]/);
+		for(var i = 0 ;i < rule.length;i++){  
+			if(rule[i] == "" || typeof(rule[i]) == "undefined"){  
+				rule.splice(i,1);  
+				i = i - 1;  
+			} 
+		}
+
+
+		$.each(rule , function(key , value){
+			var splitRule = value.split('=');
+
+		})
+
+		console.log(rule)
+
+
+
+
+		// var row = [];
+		// $this.find('.nbs[data-index="' + (countIndex + 1) +  '"] .nb').each(function(index, el) {
+		// 	$(el).find('[name="lt_place_0"].on').each(function(key , value) {
+		// 		row.push($(value).text());
+		// 	});
+		// });
+		// number.push(row.length > 0 ? row : [])
+	}
+	console.log(number)
+}
+
+
+
+// hover
+$("[hover]").hover(function(){
+	var $this = $(this);
+	$("#JS_openFloat").show().css({
+		top : $this.offset().top - $("#JS_openFloat").height() - 13,
+		left : $this.offset().left - 10
+	}).find('#text').text($this.attr('hover-text'))
+} , function(){
+	$("#JS_openFloat").hide();
+})
+
+
+
+
+
+/***/
+// function 
+// 
+// 
 
 
 
@@ -718,37 +812,4 @@ function formatSeconds_array(value) {
 	}
 	return time; 
 } 
-
-
-
-
-var timeout = 0;
-$("body").on("propertychange input" , "#lt_write_box" , function(){
-	var $this = $(this);
-	clearTimeout(timeout);
-	timeout = setTimeout(function(){
-		var data = $this.val();
-		console.log(data)
-	} , 350);
-});
-
-
-
-
-
-
-
-$("[hover]").hover(function(){
-	console.log('dsa');
-	var $this = $(this);
-
-	$("#JS_openFloat").show().css({
-		top : $this.offset().top - $("#JS_openFloat").height() - 13,
-		left : $this.offset().left - 10
-	}).find('#text').text($this.attr('hover-text'))
-} , function(){
-	$("#JS_openFloat").hide();
-})
-
-
 
