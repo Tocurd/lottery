@@ -1,4 +1,6 @@
+var lottery = {};
 var lotteryRule = new lotteryRule();
+
 var popup = new popupWidget();
 var passLotteryIntervalId;
 var $count_down = $("#count_down span");
@@ -180,6 +182,15 @@ function switchTab(eq , conEq){
 	$("#lt_sel_nums , #lt_sel_money").text('0');
 	$("#lt_sel_times").val('1');
 	$("#lt_cf_clear").click();
+
+
+	lottery = new lotteryBin({
+		topData : Game_rule_data.Game_rule_menu_list[topIndex],
+		songData : Game_rule_data.Game_rule_menu_list[topIndex].song[songIndex],
+	});
+	console.log(lottery.getData())
+
+
 }
 
 /**
@@ -187,7 +198,6 @@ function switchTab(eq , conEq){
  * @return {[type]} [description]
  */
 function rule(data){
-	console.log(data)
 
 	$("#lt_desc").text(data.description);
 	$("#lt_help").attr('hover-text' , data.winning_description)
@@ -250,7 +260,6 @@ function rule(data){
 
 function parse(name , data , index , quick , rule){
 	var dom = new Dom();
-	console.log(rule)
 
 	var reslut = '<div class="nbs" data-index="' + index + '"><div class="ti">' + name + '</div><div class="nb">';
 	$.each(data , function(key , value){
@@ -352,13 +361,15 @@ function notes(data){
 			if(row.length >= rule.count) line ++;
 			number.push(row);
 		});
+
+		if(line < rule.line) return false;
 	}else{
 		number = data;
 	}
 
 
+
 	// 如果没有达到选中的要求就返回
-	if(line < rule.line) return false;
 	is_add = true;
 
 	var noteNumber = 0;
@@ -428,7 +439,6 @@ $("#lt_sel_insert").click(function(){
 		});
 		number.push(row.length > 0 ? row : [])
 	}
-	console.log(number)
 
 
 
@@ -553,7 +563,6 @@ function random(numberLength){
 
 		var rule = lotteryRule.line();
 		var $lt_selector = $("#lt_selector .nbs .nb");
-		console.log(songIndex)
 		var song = Game_rule_data.Game_rule_menu_list[topIndex].song[songIndex];
 
 		var data = song.rule.split(/[&&||]/);
@@ -673,7 +682,6 @@ $("#lt_buy").click(function(){
 			window.location.reload();
 		})
 	} , function(error){
-		console.log(error)
 		popup.toast(error.message)
 	})
 })
@@ -704,20 +712,16 @@ $("body").on("propertychange input" , "#lt_write_box" , function(){
 	clearTimeout(timeout);
 
 	timeout = setTimeout(function(){
-		var rule = Game_rule_data.Game_rule_menu_list[topIndex].song[songIndex].rule.split(/[&&||]/);
-		for(var i = 0 ;i < rule.length;i++){  
-			if(rule[i] == "" || typeof(rule[i]) == "undefined"){  
-				rule.splice(i,1);  
-				i = i - 1;  
-			} 
-		}
+		
 
-		var data = $this.val();
-		var number = [];
-		$.each(data.split(/[,; \n]/) , function(key , value){
-			if(value.split('').length == rule.length) number.push(value.split(''))
-		})
-		var notesData = notes(number);
+		lottery.clearLotteryTemp()
+		$.each($this.val().split(/[,; \n]/) , function(key , value){
+			if(value.split('').length == lottery.getData().rule.length){
+				lottery.addLotteryTemp(value.split(''))
+			}
+		});
+		
+		
 	} , 350);
 });
 
@@ -745,7 +749,6 @@ function insert(data){
 
 		})
 
-		console.log(rule)
 
 
 
@@ -758,7 +761,6 @@ function insert(data){
 		// });
 		// number.push(row.length > 0 ? row : [])
 	}
-	console.log(number)
 }
 
 
