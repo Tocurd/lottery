@@ -49,4 +49,20 @@
 		var selectValue = $(value).attr('value');
 		$(value).find('option[value="' + selectValue + '"]').attr('selected' , true)
 	});
+
+
+
+	$("table").on('click' , '.fa' , function(){
+		if(typeof tableToolsClick == 'function'){
+			tableToolsClick(
+				$(this)
+				.attr('class')
+				.replace('fa fa-' , '')
+				.replace('-o' , '') , 
+				$(this)
+			)
+	}
+	})
+
+
 </script>

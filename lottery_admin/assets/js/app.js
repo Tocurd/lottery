@@ -13,6 +13,79 @@ $(document).on('click', ".widget-checkbox", function(event) {
 	$(this).toggleClass('active');
 });
 var ApiRequest = new ApiRequest({
+	Letter : {
+		Create : {params : {
+			title : {max : 255 , min : 1 , name : '标题'},
+			content : {max : 1024 , min : 1 , name : '标题'},
+			username : {max : 100 , min : 0 , name : '用户名'},
+		}}
+	},
+	Config : {
+		Edit : {params : {}}
+	},
+	
+	Order : {
+		Success : {params : {}},
+		Remove : {params : {}},
+	},
+	Withdrawals : {
+		Check : {params : {}},
+		Remove : {params : {}},
+		Trash : {params : {}},
+	},
+
+	Collection : {
+		Remove : {params : {}}
+	},
+
+	Order_betting : {
+		Revoke : {params : {
+			id : {max : 11 , min : 1 , name : '索引'},
+		}},
+		Search : {params : {
+			type : {max : 32 , min : 0 , name : 'type'},
+			end_time : {max : 32 , min : 0 , name : 'end_time'},
+			order_id : {max : 32 , min : 0 , name : 'order_id'},
+			periods : {max : 32 , min : 0 , name : 'periods'},
+			start_time : {max : 32 , min : 0 , name : 'start_time'},
+			username : {max : 32 , min : 0 , name : 'username'},
+		}}
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	User : {
 		Create : {params : {

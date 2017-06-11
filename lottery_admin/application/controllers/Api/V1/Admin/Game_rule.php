@@ -31,14 +31,13 @@ class Game_rule extends CI_Controller {
 
 
 	public function Save(){
-		$params = Autumn::params(array('name' , 'count' , 'id' , 'indexName' , 'numberRange'));
+		$params = Autumn::params(array('name' , 'count' , 'id' , 'numberRange'));
 		extract($params);
 		$Game_rule_data = $this->Game_rule_model->get(array('id' => $id));
 		if($Game_rule_data['type'] != '0') Autumn::end(false , '您操作的玩法不是顶级玩法');
 		$this->Game_rule_model->edit(array('id' => $id) , array(
 			'name' => $name , 
 			'count' => $count,
-			'indexName' => $indexName,
 			'numberRange' => $numberRange,
 		));
 		Autumn::end(true);

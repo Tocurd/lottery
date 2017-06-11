@@ -29,7 +29,6 @@ class Lottery extends CI_Controller {
 			'stop_interval' => array('is_number' => true , 'name' => '停止投注间隔'),
 			'open_interval' => array('is_number' => true , 'name' => '开奖间隔'),
 			'draw_interval' => array('is_number' => true , 'name' => '摇奖间隔'),
-
 		) , true);
 		extract($params);
 

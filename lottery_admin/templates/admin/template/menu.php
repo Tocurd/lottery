@@ -1,6 +1,6 @@
 <div class="left-menu">
 	<div class="header-image">
-		<img src="http://qlogo4.store.qq.com/qzone/1137716847/1137716847/50?1458033117">
+		<img src="http://qlogo4.store.qq.com/qzone/123456/123456/50?1458033117">
 	</div>
 	<div class="menu">
 		<ul>
@@ -14,7 +14,7 @@
 	<div class="song-menu">
 		<div class="header-user-data">
 			后台管理系统<br>
-			<span>tocurd.com</span>
+			<span>xxxxx.com</span>
 		</div>
 		<div class="item">
 			<ul>
@@ -35,15 +35,16 @@
 				<li><a href="./{admin_view}/admin_user"><i class="fa fa-user"></i>管理列表</a></li>
 				<li><a href="./{admin_view}/admin_user/group"><i class="fa fa-list"></i>管理权组</a></li>
 				<li><a href="./{admin_view}/user"><i class="fa fa-users"></i>用户列表</a></li>
-				<li><a href="./{admin_view}/card"><i class="fa fa-list"></i>银行绑定</a></li>
+				<li><a href="./{admin_view}/card"><i class="fa fa-list"></i>银行管理</a></li>
+				<li><a href="./{admin_view}/letter"><i class="fa fa-list"></i>私信管理</a></li>
 			</ul>
 		</div>
 		<div class="item">
 			<ul>
-				<li><a href="./{admin_view}/order"><i class="fa fa-list"></i>充值订单</a></li>
-				<li><a href="./{admin_view}/order/withdrawals"><i class="fa fa-list"></i>提现请求</a></li>
-				<li><a href="./{admin_view}/order/betting"><i class="fa fa-list"></i>投注订单</a></li>
 				<li><a href="./{admin_view}/order/detail"><i class="fa fa-list"></i>帐变明细</a></li>
+				<li><a href="./{admin_view}/order/betting"><i class="fa fa-list"></i>投注管理</a></li>
+				<li><a href="./{admin_view}/order/withdrawals"><i class="fa fa-list"></i>提现管理</a></li>
+				<li><a href="./{admin_view}/order"><i class="fa fa-list"></i>充值订单</a></li>
 			</ul>
 		</div>
 		<div class="item">
@@ -58,6 +59,7 @@
 				<li><a href="./{admin_view}/setting/game_rule"><i class="fa fa-building-o"></i>游戏规则</a></li>
 				<li><a href="./{admin_view}/setting/lottery_time"><i class="fa fa-building-o"></i>开奖时间</a></li>
 				<li><a href="./{admin_view}/setting/lottery_data"><i class="fa fa-building-o"></i>开奖数据</a></li>
+				<li><a href="./{admin_view}/collection"><i class="fa fa-money"></i>收款设置</a></li>
 			</ul>
 		</div>
 

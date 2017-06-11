@@ -5,7 +5,7 @@
 </head>
 <body class="login_bg">
 <div id="xf_login_container">
-    <!-- <img src="picture/xf_login_logo.png" alt="新蜂娱乐" class="logo"> -->
+    <img src="./assets/images/logo.png" alt="新蜂娱乐" class="logo">
 </div>
 
 

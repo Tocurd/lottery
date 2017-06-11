@@ -362,9 +362,10 @@ function notes(data){
 	var custom = false;
 
 
-
+	console.log(number)
 
 	noteNumber = lotteryRule.countNotes(number)
+	console.log(noteNumber)
 
 	// 获得用户选的什么玩法方式
 	var chooseMoney = [2 , 0.2 , 0.02 , 0.002];

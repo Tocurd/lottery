@@ -16,7 +16,6 @@ var lotteryRule = (function(){
 		};
 
 
-
 		// 时时彩玩法
 		if(Game_rule_data.byid == 'shishicai'){
 			switch(byid){
@@ -37,13 +36,28 @@ var lotteryRule = (function(){
 					rule.line = 1;
 					rule.count = 3;
 				break;
+
+
+
+
+
+				// 五星
+				case '五星_五星组合' : 
+					rule.line = 5;
+					rule.count = 1;
+				break;
+
+
+				default :
+					rule = defaultRule;
+				break;
 			}
 		}
 
 
 
 
-		return defaultRule;
+		return rule;
 	}
 
 
@@ -61,42 +75,59 @@ var lotteryRule = (function(){
 
 	module.prototype.countNotes = function(number){
 
-		console.log(number);
-		
+		var noteNumber = 0;
 		var custom = false;
 		var byid = $("#lt_selector").attr('data-byid');
 
-		// 时时彩定位胆，五星定位胆算注算法
-		if(Game_rule_data.byid == 'shishicai' && byid == 'five_location'){
-			custom = true;
-			$.each(number , function(key , value){
-				noteNumber += value.length
-			})
+
+
+		if(Game_rule_data.byid == 'shishicai'){
+			switch(byid){
+
+
+				// 时时彩定位胆，五星定位胆算注算法
+				case 'five_location':
+					$.each(number , function(key , value){
+						noteNumber += value.length
+					})
+				break;
+
+
+				// 时时彩定位胆，后三组六算注算法
+				case 'end_three_group_six':
+					noteNumber = combine(number[0] , rule.count).length
+				break;
+				
+
+				// 时时彩定位胆，后三组三胆算注算法
+				case 'end_three_group_three':
+					noteNumber = permutation(number[0] , rule.count).length
+				break;
+
+
+
+				case '五星_五星组合':
+					noteNumber = number[0].length;
+					$.each(number , function(key , value){
+						noteNumber *= value.length
+					});
+					console.log(noteNumber)
+				break;
+
+
+
+
+				default :
+					noteNumber = 1;
+					$.each(number , function(index , value){
+						noteNumber *= value.length
+					})
+				break;
+			}
 		}
 
-		// 时时彩定位胆，后三组六算注算法
-		if(Game_rule_data.byid == 'shishicai' && byid == 'end_three_group_six'){
-			custom = true;
-			noteNumber = combine(number[0] , rule.count).length
-		}
 
 
-		// 时时彩定位胆，后三组三胆算注算法
-		if(Game_rule_data.byid == 'shishicai' && byid == 'end_three_group_three'){
-			custom = true;
-			noteNumber = permutation(number[0] , rule.count).length
-		}
-
-
-
-
-		// 默认算法
-		if(custom == false){
-			noteNumber = 1;
-			$.each(number , function(index , value){
-				noteNumber *= value.length
-			})
-		}
 
 
 		return noteNumber;

@@ -3,7 +3,7 @@
 	</style>
 </head>
 <body>
-	<?php $this->load->view($admin_view . '/template/menu.php' , array('active' => 2 , 'song_active' => 3))?>
+	<?php $this->load->view($admin_view . '/template/menu.php' , array('active' => 2 , 'song_active' => 0))?>
 	<?php $this->load->view($admin_view . '/template/top-header.php')?>
 
 	<div class="warpper">
@@ -25,7 +25,6 @@
 				<th>余额</th>	 
 				<th>时间</th>	 
 				<th>帐变类型</th>	 
-				<th>操作</th>	 
 			</tr>
 			{Detail_list}
 			<tr>
@@ -39,10 +38,7 @@
 				<td>{money}</td>
 				<td>{balance}</td>
 				<td>{create_time}</td>
-				<td>{type}</td>
-				<td>
-					<i class="fa fa-trash-o"></i>
-				</td>
+				<td><span class="label success">{type}</span></td>
 			</tr>
 			{/Detail_list}
 		</table>
