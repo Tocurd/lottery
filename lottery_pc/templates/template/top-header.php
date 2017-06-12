@@ -1,6 +1,6 @@
 <div class="top-header">
 	<div class="warpper">
-
+	<img src="./assets/images/logo.png" style="float: left;position: absolute;top:13px;" width="170" alt="">
 		<div id="dd" class="header-nav-game" tabindex="1"><span class="nav-game-bt">全部游戏</span>
 			<dl class="dropdown">
 				<?php

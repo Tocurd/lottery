@@ -18,7 +18,7 @@ class Lottery_time extends CI_Controller {
 		$from_lottery = isset($_GET['from_lottery']) ? htmlspecialchars($this->input->get('from_lottery')) : $Lottery_list[0]['id'];
 		$Lottery_time_list = $this->Lottery_time_model->get_list_by(array(
 			'from_lottery' => (int) $from_lottery
-		) , $page , 20 , array() , 'Not all', array('periods' => 'asc'));
+		) , $page , 20 , array() , 'Not all', array('time' => 'asc'));
 		$Lottery_data = $this->Lottery_model->get(array('id' => $from_lottery));
 
 		

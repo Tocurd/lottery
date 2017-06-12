@@ -1,7 +1,6 @@
 <?php
 /**
  * Loader 加载网站的视图
- * From : Tocurd
  * Create Time : 2016年10月29日 09:40:15
  * Update Time : 2016年10月29日 09:40:30
  */

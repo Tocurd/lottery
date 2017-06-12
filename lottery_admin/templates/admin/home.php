@@ -1,5 +1,10 @@
 	<style>
 		body{min-width: 1400px;}
+		.top li{
+			margin-bottom: 15px;
+			margin-right: 4px;
+			float: left;
+		}
 	</style>
 </head>
 <body>
@@ -11,6 +16,13 @@
 	?>
 
 	<div class="warpper">
+		<div class="box fl top">
+			<h1>监控状态</h1>
+			<ul>
+				<li><span class="label success">微信</span></li>
+				<li><span class="label success">支付宝</span></li>
+			</ul>
+		</div>
 		<div class="box fl">
 			<h1>系统状态</h1>
 			<div class="left fl">

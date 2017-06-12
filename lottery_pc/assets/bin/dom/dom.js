@@ -1,6 +1,5 @@
 /**
  * 获取dom 获取在 javascript/dom 中的dom节点
- * @description http://github.com/tocurd/dom.js
  * @return {[type]}          [description]
  */
 var Dom = (function(){

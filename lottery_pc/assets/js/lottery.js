@@ -1,7 +1,4 @@
-var lottery = {};
 var lotteryRule = new lotteryRule();
-var is_add = false;
-
 var popup = new popupWidget();
 var passLotteryIntervalId;
 var $count_down = $("#count_down span");
@@ -162,13 +159,11 @@ var topIndex = 0;
 var songIndex = 0;
 $("#tabbar-div-s2 .tab-header").click(function(){
 	topIndex = $("#tabbar-div-s2 .tab-header").index(this);
-	songIndex = 0;
 	switchTab(topIndex , 0);
 });
 $(".tabCon .item").click(function(){
 	songIndex = $(".tabCon").eq(topIndex).find('.item').index(this);
 	switchTab(topIndex , songIndex);
-	
 });
 
 
@@ -185,14 +180,6 @@ function switchTab(eq , conEq){
 	$("#lt_sel_nums , #lt_sel_money").text('0');
 	$("#lt_sel_times").val('1');
 	$("#lt_cf_clear").click();
-
-	lottery = new lotteryBin({
-		topData : Game_rule_data.Game_rule_menu_list[topIndex],
-		songData : Game_rule_data.Game_rule_menu_list[topIndex].song[songIndex],
-	});
-
-
-
 }
 
 /**
@@ -200,7 +187,6 @@ function switchTab(eq , conEq){
  * @return {[type]} [description]
  */
 function rule(data){
-	console.log(data)
 
 	$("#lt_desc").text(data.description);
 	$("#lt_help").attr('hover-text' , data.winning_description)
@@ -223,11 +209,9 @@ function rule(data){
 			byid : indexName[value]
 		})
 	})
-
-
 	var rule = {
 		name : data.indexName.split(','),
-		number : typeof data.number == 'object' ? data.number :  data.number.split(','),
+		number : data.number.split(','),
 		quick : quick,
 	};
 
@@ -245,15 +229,10 @@ function rule(data){
 	// 循环的将号码转换成HTML
 	var allRule = Game_rule_data.Game_rule_menu_list[topIndex];
 	var allSong = allRule.song[songIndex];
-
-
 	if(allSong.byid.substr( - 4 , 4) == 'star'){
 		$("#lt_selector").html(dom.get('star')).attr('data-byid');
 
-		return false;
 	}
-
-
 	$.each(data , function(key , value){
 		var split = value.split('=');
 		html += parse(rule.name[split[0] - 1] , rule.number , split[0] , quick , rule);
@@ -265,6 +244,7 @@ function rule(data){
 
 function parse(name , data , index , quick , rule){
 	var dom = new Dom();
+
 
 	var reslut = '<div class="nbs" data-index="' + index + '"><div class="ti">' + name + '</div><div class="nb">';
 	$.each(data , function(key , value){
@@ -366,23 +346,26 @@ function notes(data){
 			if(row.length >= rule.count) line ++;
 			number.push(row);
 		});
-
-		if(line < rule.line) return false;
 	}else{
 		number = data;
 	}
 
 
 
+
 	// 如果没有达到选中的要求就返回
+	if(line < rule.line) return false;
 	is_add = true;
+
 
 	var noteNumber = 0;
 	var custom = false;
 
 
+	console.log(number)
 
 	noteNumber = lotteryRule.countNotes(number)
+	console.log(noteNumber)
 
 	// 获得用户选的什么玩法方式
 	var chooseMoney = [2 , 0.2 , 0.02 , 0.002];
@@ -402,15 +385,6 @@ function notes(data){
 	}
 }
 
-
-
-
-
-
-
-
-
-
 /**
  * 添加
  * @param  {[type]} ){	$(".tz_tab_list_box").} [description]
@@ -422,31 +396,6 @@ var index = 0;
 $("#lt_sel_insert").click(function(){
 	var popup = new popupWidget();
 
-	var byidName = lottery.getData().songData.byid.substr( - 4 , 4);
-	if(byidName == 'star'){
-		var addAreaLottery = lottery.addAreaLottery();
-		if( ! lottery.notes() || addAreaLottery == false){
-			popup.sure({
-				title : '温馨提示',
-				content : '号码选择不完整，请重新选择'
-			}).then(function(){popup.close()});
-			return false;
-		}
-
-
-		$.each(addAreaLottery , function(key , value){
-
-			insertStar(value);
-		})
-		return false;
-	}
-
-
-
-	// ===================需要重构
-
-
-
 	if(is_add == false){
 		popup.sure({
 			title : '温馨提示',
@@ -454,6 +403,8 @@ $("#lt_sel_insert").click(function(){
 		}).then(function(){popup.close()});
 		return false;
 	}
+	
+
 
 	var rule = lotteryRule.line();
 	var $this = $("#lt_selector");
@@ -467,8 +418,6 @@ $("#lt_sel_insert").click(function(){
 		});
 		number.push(row.length > 0 ? row : [])
 	}
-
-
 
 
 
@@ -544,101 +493,6 @@ $("#lt_sel_insert").click(function(){
 });
 
 
-
-
-
-
-
-/**
- * 添加单式彩票
- * @param  {[type]} data [description]
- * @return {[type]}      [description]
- */
-function insertStar(value){
-	var data = '';
-
-	console.log(value)
-
-	if(reslutItem == 0){
-		$("#lt_cf_content tbody").html('')
-	}
-	$("#lt_write_box").val('')
-	$.each(value , function(key , value){
-		data += value.join(' ') + ',';
-	});
-	data = data.substr(0 , data.length - 1);
-
-
-	var is_identical = false;
-	$.each(nowNotes , function(key , value){
-		if( ! is_identical){
-			if(value.data == data){
-				is_identical = true
-				return false;
-			}
-		}
-	});
-
-	if(is_identical){
-		popup.sure({
-			title : '温馨提示',
-			content : '确认区有相同的投注内容已经帮您过滤'
-		}).then(function(){
-			popup.close()
-		});
-		return false;
-	}
-
-	reslutItem ++;
-	index ++;
-	if(reslutItem == 0){
-		$("#lt_cf_content tbody").html('')
-	}
-
-	var rule = Game_rule_data.Game_rule_menu_list[topIndex];
-	var song = rule.song[songIndex];
-	
-	is_add = false;
-
-
-	data = {
-		index : index,
-		topIndex : rule.id,
-		songIndex : song.id,
-		name : rule.name + "_" + song.name,
-		data : data,
-		type : $(".choose-money .on").text(),
-		lt_sel_nums : parseInt($("#lt_sel_nums").text()),
-		lt_sel_money : parseInt($("#lt_sel_money").text()),
-		lt_sel_times : parseInt($("#lt_sel_times").val()),
-	};
-
-	nowNotes.push(data);
-	$("[name='lt_place_0']").removeClass('on');
-	$(".dxjoq").removeClass('on')
-	$("#lt_cf_content tbody").append("<tr data-index='" + index + "' style='cursor:pointer;' class='><td class='tl_li_l' width='4'></td><td><span style='display:block;width:240px;overflow: hidden;overflow: hidden;padding-right:20px;text-overflow:ellipsis;white-space: nowrap;'>[" + data.name + "] " + data.data + "</span></td><td width='25'>" + data.type + "</td><td width='80' class='r' style='min-width:100px;'>" + data.lt_sel_nums + "注</td><td width='80' class='r'>" + data.lt_sel_times + "倍</td><td width='120' class='r'>" + data.lt_sel_money + "元</td><td class='c tl_li_r' width='16' title='删除'></td></tr>")		
-	$("#lt_sel_nums").text('0')
-	$("#lt_sel_money").text('0')
-	$("#lt_sel_times").val('1')
-
-
-
-
-
-	$("#lt_cf_nums , #lt_cf_money").text('0');
-	$.each(nowNotes , function(key , value){
-		$("#lt_cf_nums").text(parseInt($("#lt_cf_nums").text()) + value.lt_sel_nums);
-		$("#lt_cf_money").text(parseInt($("#lt_cf_money").text()) + value.lt_sel_money);
-	});
-
-
-}
-
-
-
-
-
-
 $(document).on('click' , '.tl_li_r' , function(){
 	reslutItem--;
 	var index = $(this).parent().attr('data-index');
@@ -649,34 +503,20 @@ $(document).on('click' , '.tl_li_r' , function(){
 })
 
 
-
-
 // 倍数点击按钮及元角分厘按钮
-// 
-$("body").on("propertychange input" , "#lt_sel_times" , function(){
-	var byidName = lottery.getData().songData.byid.substr( - 4 , 4);
-	if($("#lt_sel_times").val() <= 0){
-		$("#lt_sel_times").val(1)
-	}
-	byidName == 'star' ? updateBottomNoteAndMoney(lottery.notes()) : notes();
-})
 $(".choose-money li").click(function(){
-	var byidName = lottery.getData().songData.byid.substr( - 4 , 4);
 	$(".choose-money li").removeClass('on');
 	$(this).addClass('on');
-
-	byidName == 'star' ? updateBottomNoteAndMoney(lottery.notes()) : notes()
+	notes()
 });
 $("#plustime").click(function(){
-	var byidName = lottery.getData().songData.byid.substr( - 4 , 4);
 	$("#lt_sel_times").val(parseInt($("#lt_sel_times").val()) + 1)
-	byidName == 'star' ? updateBottomNoteAndMoney(lottery.notes()) : notes()
+	notes()
 });
 $("#reducetime").click(function(){
-	var byidName = lottery.getData().songData.byid.substr( - 4 , 4);
 	if($("#lt_sel_times").val() - 1 <= 0) return;
 	$("#lt_sel_times").val(parseInt($("#lt_sel_times").val()) - 1)
-	byidName == 'star' ? updateBottomNoteAndMoney(lottery.notes()) : notes()
+	notes()
 });
 
 
@@ -702,6 +542,7 @@ function random(numberLength){
 
 		var rule = lotteryRule.line();
 		var $lt_selector = $("#lt_selector .nbs .nb");
+		console.log(songIndex)
 		var song = Game_rule_data.Game_rule_menu_list[topIndex].song[songIndex];
 
 		var data = song.rule.split(/[&&||]/);
@@ -821,6 +662,7 @@ $("#lt_buy").click(function(){
 			window.location.reload();
 		})
 	} , function(error){
+		console.log(error)
 		popup.toast(error.message)
 	})
 })
@@ -835,108 +677,12 @@ var Global = {
 	addLotteryCandidate : function(option){
 		var $this = $('#lt_cf_content');
 		var in_fister = $this.find('.nr');
+
 	}
 }
 
 
 
-
-
-
-
-
-var timeout = 0;
-$("body").on("propertychange input" , "#lt_write_box" , function(){
-	var $this = $(this);
-	clearTimeout(timeout);
-	timeout = setTimeout(function(){
-		lottery.clearLotteryTemp()
-		$.each($this.val().split(/[,; \n]/) , function(key , value){
-			if(value.split('').length == lottery.getData().rule.length){
-				lottery.addLotteryTemp(value.split('') , {
-					multiple : $("#lt_sel_times").val(),
-					chooseMoney : [2 , 0.2 , 0.02 , 0.002][$(".choose-money li").index($(".choose-money .on"))],
-					chooseMoneyLost : [0 , 1 , 2 , 3][$(".choose-money li").index($(".choose-money .on"))],
-				})
-			}
-		});
-
-		updateBottomNoteAndMoney(lottery.notes());
-
-	} , 350);
-});
-
-
-
-
-function updateBottomNoteAndMoney(noteCount){
-	if(!noteCount){
-		$("#lt_sel_nums , #lt_sel_money").text('0');
-		return false;
-	}
-	var chooseMoney = [2 , 0.2 , 0.02 , 0.002];
-	var chooseMoneyIndex = $(".choose-money li").index($(".choose-money .on"));
-	var chooseMoneyLost = [0 , 2 , 2 , 3];
-	$('#lt_sel_nums').text(noteCount)
-	$('#lt_sel_money').text(((noteCount * chooseMoney[chooseMoneyIndex]) * $("#lt_sel_times").val()).toFixed(chooseMoneyLost[chooseMoneyIndex]));
-}
-
-
-
-
-
-function insert(data){
-	var rule = lotteryRule.line();
-	for(var index = 0;index < Game_rule_data.count;index ++){
-		var rule = Game_rule_data.Game_rule_menu_list[topIndex].song[songIndex].rule.split(/[&&||]/);
-		for(var i = 0 ;i < rule.length;i++){  
-			if(rule[i] == "" || typeof(rule[i]) == "undefined"){  
-				rule.splice(i,1);  
-				i = i - 1;  
-			} 
-		}
-
-
-		$.each(rule , function(key , value){
-			var splitRule = value.split('=');
-
-		})
-
-
-
-
-
-		// var row = [];
-		// $this.find('.nbs[data-index="' + (countIndex + 1) +  '"] .nb').each(function(index, el) {
-		// 	$(el).find('[name="lt_place_0"].on').each(function(key , value) {
-		// 		row.push($(value).text());
-		// 	});
-		// });
-		// number.push(row.length > 0 ? row : [])
-	}
-}
-
-
-
-// hover
-$("[hover]").hover(function(){
-	var $this = $(this);
-	$("#JS_openFloat").show().css({
-		top : $this.offset().top - $("#JS_openFloat").height() - 13,
-		left : $this.offset().left - 10
-	}).find('#text').text($this.attr('hover-text'))
-} , function(){
-	$("#JS_openFloat").hide();
-})
-
-
-
-
-
-/***/
-// function 
-// 
-// 
 
 
 
@@ -967,4 +713,29 @@ function formatSeconds_array(value) {
 	}
 	return time; 
 } 
+
+
+
+
+
+
+
+
+
+
+
+
+$("[hover]").hover(function(){
+	console.log('dsa');
+	var $this = $(this);
+
+	$("#JS_openFloat").show().css({
+		top : $this.offset().top - $("#JS_openFloat").height() - 13,
+		left : $this.offset().left - 10
+	}).find('#text').text($this.attr('hover-text'))
+} , function(){
+	$("#JS_openFloat").hide();
+})
+
+
 

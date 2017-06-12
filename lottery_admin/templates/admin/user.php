@@ -1,19 +1,23 @@
 	<style type="text/css">
 		.setting input[type='text']{
 			width: 100%;
+			padding:0;
+			position: relative;	
+			top:-2px;
+			font-size: 12px!important;
 		}
 		.setting{
 			max-width: 100%;
 		}
-		.setting *{
-			font-size: 13px!important;
+		.setting td{
+			font-size: 12px!important;
 		}
 		.setting th{
 			background-color: #fafafa;
-			padding:13px 15px;
+			padding:13px 13px;
 		}
 		.setting td{
-			padding:20px 15px!important;
+			padding:20px 13px!important;
 		}
 	</style>
 </head>
@@ -33,37 +37,54 @@
 		</div>
 		<table class="table-list setting">
 			<tr>
-				<th><input type="checkbox" name=""></th>
-				<th width="200">用户名</th>
-				<th width="200">昵称</th>
-				<th width="80">积分</th>
-				<th width="80">余额</th>
-			
-				<th width="100">返点%</th>
-				<th width="240">注册时间</th>
+				<th width="60"><input type="checkbox" name=""></th>
+				<th width="120">用户名</th>
+				<th width="120">昵称</th>
+				<th width="120">上级</th>
+				<th width="78">积分</th>
+				<th width="78">累计</th>
+				<th width="78">兑换</th>
+				<th width="78">余额</th>
+				<th width="78">冻结</th>
+				<th width="78">返点%</th>
+				<th width="78">投注</th>
+				<th width="78">盈亏</th>
+				<th width="160">注册时间</th>
+				<th width="160">最后登录</th>
 				<th>注册IP</th>
-				<th width="120">地区</th>
-				<th width="120">来源</th>
-				<th width="90">类型</th>
-				<th width="90">状态</th>
+				<th width="110">地区</th>
+				<th width="70">类型</th>
+				<th width="70">状态</th>
+
 				<th width="150">操作</th>
 			</tr>
+
+
+
+
 			{User_list}
 			<tr data-json='{json}'>
 				<input type="hidden" value="{id}" api-param-name='id'>
 				<td><input type="checkbox" name=""></td>
 				<td><input type="text" value="{username}" api-param-name='username'></td>
 				<td><input type="text" value="{nickname}" api-param-name='nickname'></td>
+				<td><input type="text" value="{parent}" api-param-name='parent'></td>
 				<td><input type="text" value="{integral}" api-param-name='integral'></td>
+				<td>{cumulative_integral}</td> <!--累计-->
+				<td>{exchange_integral}</td> <!--兑换-->
 				<td><input type="text" value="{money}" api-param-name='money'></td>
+				<td><input type="text" value="{frozen_money}" api-param-name='frozen_money'></td> <!--冻结-->
 				<td><input type="text" value="{rebate}" api-param-name='rebate'></td>
+				<td>{betting}</td> <!--投注-->
+				<td>{profit_loss}</td> <!--盈亏-->
 				<td>{reg_time}</td>
+				<td>{lost_login_time}</td>
 				<td>{reg_ip}</td>
-				<td>{source}</td>
 				<td>{source}</td>
 				<td>{type}</td>
 				<td>{state}</td>
 				<td>
+					<i class="fa fa-user"></i>
 					<i class="fa fa-edit"></i>
 					<i class="fa fa-trash-o"></i>
 				</td>

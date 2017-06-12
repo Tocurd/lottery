@@ -69,11 +69,11 @@ class Lottery extends CI_Controller {
 				'from_time_id' => $Lottery_time_data_value['id'],
 				'day' => date('Y-m-d' , $time)
 			))['data'];
-			$Lottery_time_data_value['a'] = $Lottery_time_data_value['data'][0];
-			$Lottery_time_data_value['b'] = $Lottery_time_data_value['data'][1];
-			$Lottery_time_data_value['c'] = $Lottery_time_data_value['data'][2];
-			$Lottery_time_data_value['d'] = $Lottery_time_data_value['data'][3];
-			$Lottery_time_data_value['e'] = $Lottery_time_data_value['data'][4];
+			@$Lottery_time_data_value['a'] = $Lottery_time_data_value['data'][0];
+			@$Lottery_time_data_value['b'] = $Lottery_time_data_value['data'][1];
+			@$Lottery_time_data_value['c'] = $Lottery_time_data_value['data'][2];
+			@$Lottery_time_data_value['d'] = $Lottery_time_data_value['data'][3];
+			@$Lottery_time_data_value['e'] = $Lottery_time_data_value['data'][4];
 		}
 
 

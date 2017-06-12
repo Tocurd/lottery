@@ -16,7 +16,6 @@ var lotteryRule = (function(){
 		};
 
 
-
 		// 时时彩玩法
 		if(Game_rule_data.byid == 'shishicai'){
 			switch(byid){
@@ -37,13 +36,28 @@ var lotteryRule = (function(){
 					rule.line = 1;
 					rule.count = 3;
 				break;
+
+
+
+
+
+				// 五星
+				case '五星_五星组合' : 
+					rule.line = 5;
+					rule.count = 1;
+				break;
+
+
+				default :
+					rule = defaultRule;
+				break;
 			}
 		}
 
 
 
 
-		return defaultRule;
+		return rule;
 	}
 
 
@@ -60,62 +74,50 @@ var lotteryRule = (function(){
 
 
 	module.prototype.countNotes = function(number){
+
+		var noteNumber = 0;
 		var custom = false;
 		var byid = $("#lt_selector").attr('data-byid');
-		var noteNumber = 0;
 
 
-		console.log(Game_rule_data.byid , byid)
 
 		if(Game_rule_data.byid == 'shishicai'){
 			switch(byid){
 
-				// 五星_定位胆算注算法
-				case 'five_location' :
+
+				// 时时彩定位胆，五星定位胆算注算法
+				case 'five_location':
 					$.each(number , function(key , value){
 						noteNumber += value.length
 					})
 				break;
 
 
-				// 前二算法
-				case 'five_location' :
-					$.each(number , function(key , value){
-						noteNumber += value.length
-					})
-				break;
-
-
-
-				// 后三组六算注算法
-				case 'end_three_group_six' :
+				// 时时彩定位胆，后三组六算注算法
+				case 'end_three_group_six':
 					noteNumber = combine(number[0] , rule.count).length
 				break;
+				
 
-
-				// 后三组三算注
-				case 'end_three_group_three' :
+				// 时时彩定位胆，后三组三胆算注算法
+				case 'end_three_group_three':
 					noteNumber = permutation(number[0] , rule.count).length
 				break;
 
 
-				case '前二_直选跨度' :
-					var rule = [10 , 18 , 16 , 14 , 12 , 10 , 8 , 6 , 4 , 2]
-					$.each(number[0] , function(key , value){
-						noteNumber += rule[value]
-					})
+
+				case '五星_五星组合':
+					noteNumber = number[0].length;
+					$.each(number , function(key , value){
+						noteNumber *= value.length
+					});
+					console.log(noteNumber)
 				break;
 
 
-				case '前二_直选和值' :
-					var rule = [1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 9 , 8 , 7 , 6 , 5 , 4 , 3 , 2 , 1]
-					$.each(number[0] , function(key , value){
-						noteNumber += rule[value]
-					})
-				break;
 
 
-				default : 
+				default :
 					noteNumber = 1;
 					$.each(number , function(index , value){
 						noteNumber *= value.length
@@ -126,8 +128,6 @@ var lotteryRule = (function(){
 
 
 
-
-	
 
 
 		return noteNumber;

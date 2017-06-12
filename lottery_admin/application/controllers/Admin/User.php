@@ -16,6 +16,10 @@ class User extends CI_Controller {
 		}
 		$User_list = $this->User_model->get_list($where);
 		foreach ($User_list as &$value) {
+
+			if($value['parent'] != ''){
+				$value['parent'] = $this->User_model->get(array('id' => $value['parent']))['username'];
+			}
 			$value['json'] = json_encode($value);
 			$value['type'] = $value['type'] == '0' ? '<span class="label success">会员</span>' : '<span class="label danger">代理</span>';
 			$value['state'] = $value['state'] == '0' ? '<span class="label success">正常</span>' : '<span class="label danger">封禁</span>';
