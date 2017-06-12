@@ -4,12 +4,21 @@ class Letter extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Letter_model');
+		$this->load->model('User_model');
 	}
 	public function _remap($method){
 		Admin::is_login(false , "Letter/{$method}");
 		$this->$method();
 	}
 
+	public function remove(){
+		$params = Autumn::params(array('id'));
+		extract($params);
+		$Letter_data = $this->Letter_model->get(array('id' => $id));
+		if( ! isset($Letter_data['id'])) Autumn::end(false , '您要删除的数据不存在');
+		$this->Letter_model->remove(array('id' => $id));
+		Autumn::end(true);
+	}
 
 	public function create(){
 		$params = Autumn::params(array('username' , 'title' , 'content'));
@@ -32,6 +41,7 @@ class Letter extends CI_Controller {
 			'uid' => $uid,
 			'title' => $title ,
 			'content' => $content ,
+			'state' => 0,
 			'create_time' => date('Y-m-d H:i:s'),
 		));
 

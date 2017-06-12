@@ -74,17 +74,12 @@ var lotteryRule = (function(){
 
 
 	module.prototype.countNotes = function(number){
-<<<<<<< HEAD
 
 		var noteNumber = 0;
-=======
->>>>>>> 3d4c307274381e4d4d98cbc205c579f8361514df
 		var custom = false;
 		var byid = $("#lt_selector").attr('data-byid');
-		var noteNumber = 0;
 
 
-<<<<<<< HEAD
 
 		if(Game_rule_data.byid == 'shishicai'){
 			switch(byid){
@@ -117,64 +112,12 @@ var lotteryRule = (function(){
 						noteNumber *= value.length
 					});
 					console.log(noteNumber)
-=======
-		console.log(Game_rule_data.byid , byid)
-
-		if(Game_rule_data.byid == 'shishicai'){
-			switch(byid){
-
-				// 五星_定位胆算注算法
-				case 'five_location' :
-					$.each(number , function(key , value){
-						noteNumber += value.length
-					})
-				break;
-
-
-				// 前二算法
-				case 'five_location' :
-					$.each(number , function(key , value){
-						noteNumber += value.length
-					})
->>>>>>> 3d4c307274381e4d4d98cbc205c579f8361514df
 				break;
 
 
 
-<<<<<<< HEAD
 
 				default :
-=======
-				// 后三组六算注算法
-				case 'end_three_group_six' :
-					noteNumber = combine(number[0] , rule.count).length
-				break;
-
-
-				// 后三组三算注
-				case 'end_three_group_three' :
-					noteNumber = permutation(number[0] , rule.count).length
-				break;
-
-
-				case '前二_直选跨度' :
-					var rule = [10 , 18 , 16 , 14 , 12 , 10 , 8 , 6 , 4 , 2]
-					$.each(number[0] , function(key , value){
-						noteNumber += rule[value]
-					})
-				break;
-
-
-				case '前二_直选和值' :
-					var rule = [1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 9 , 8 , 7 , 6 , 5 , 4 , 3 , 2 , 1]
-					$.each(number[0] , function(key , value){
-						noteNumber += rule[value]
-					})
-				break;
-
-
-				default : 
->>>>>>> 3d4c307274381e4d4d98cbc205c579f8361514df
 					noteNumber = 1;
 					$.each(number , function(index , value){
 						noteNumber *= value.length
@@ -186,11 +129,6 @@ var lotteryRule = (function(){
 
 
 
-<<<<<<< HEAD
-=======
-	
-
->>>>>>> 3d4c307274381e4d4d98cbc205c579f8361514df
 
 		return noteNumber;
 

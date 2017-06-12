@@ -35,7 +35,7 @@
 				<li><a href="./{admin_view}/admin_user"><i class="fa fa-user"></i>管理列表</a></li>
 				<li><a href="./{admin_view}/admin_user/group"><i class="fa fa-list"></i>管理权组</a></li>
 				<li><a href="./{admin_view}/user"><i class="fa fa-users"></i>用户列表</a></li>
-				<li><a href="./{admin_view}/card"><i class="fa fa-list"></i>银行管理</a></li>
+				<li><a href="./{admin_view}/card"><i class="fa fa-list"></i>绑卡管理</a></li>
 				<li><a href="./{admin_view}/letter"><i class="fa fa-list"></i>私信管理</a></li>
 			</ul>
 		</div>

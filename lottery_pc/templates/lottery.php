@@ -212,7 +212,7 @@
 											元,倍数:
 											<span class="changetime" id="reducetime" title="减少1倍">－
 											</span>
-											<input name="lt_sel_times" value="1" type="text" maxlength="4" class="bei" id="lt_sel_times"  >
+											<input name="lt_sel_times" value="1" type="text" size="4" class="bei" id="lt_sel_times"  readonly="readonly">
 											<span class="changetime" id="plustime" title="增加1倍">＋
 											</span>
 											倍
@@ -5394,7 +5394,7 @@
 	<script type="text/dom">
 		var star = <tr>
 			<td valign="top">
-				<textarea id="lt_write_box" onkeyup="" style="width:600px;height:80px;"></textarea>
+				<textarea id="lt_write_box" style="width:600px;height:80px;"></textarea>
 				<br>
 				<span class="write_box_desc">
 					每一个号码之间请用一个 空格[ ]、逗号[,] 或者 分号[;] 隔开
@@ -5427,7 +5427,6 @@
 	<script type="text/javascript" src="./assets/bin/jquery.mousewheel.min.js"></script>
 	<script type="text/javascript" src="./assets/bin/jquery.mCustomScrollbar.min.js"></script>
 	<script type="text/javascript" src="./assets/js/lottery_rule.js"></script>
-	<script type="text/javascript" src="./assets/js/lottery.bin.js"></script>
 	<script type="text/javascript" src="./assets/js/lottery.js"></script>
 </body>
 </html>

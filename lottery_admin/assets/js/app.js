@@ -13,13 +13,23 @@ $(document).on('click', ".widget-checkbox", function(event) {
 	$(this).toggleClass('active');
 });
 var ApiRequest = new ApiRequest({
+
+
+	Card : {
+		Remove : {params : {}}
+	},
+	
+
 	Letter : {
 		Create : {params : {
 			title : {max : 255 , min : 1 , name : '标题'},
 			content : {max : 1024 , min : 1 , name : '标题'},
 			username : {max : 100 , min : 0 , name : '用户名'},
-		}}
+		}},
+		Remove : {params : {}}
 	},
+
+
 	Config : {
 		Edit : {params : {}}
 	},

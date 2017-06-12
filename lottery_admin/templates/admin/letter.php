@@ -20,10 +20,12 @@
 				<th limit='qrcode_delete_all'><input type="checkbox" id="js-select-all" name=""></th>
 				<th>用户名</th>
 				<th>标题</th>
-				<th>内容</th>
+				<th width="800">内容</th>
 				<th>创建时间</th>
 				<th>状态</th>
+				<th>类型</th>
 				<th>操作</th>
+
 			</tr>
 			{Collection_list}
 			<tr data-json='{json}'>
@@ -33,6 +35,7 @@
 				<td>{content}</td>
 				<td>{create_time}</td>
 				<td>{state}</td>
+				<td>{type}</td>
 				<td>
 					<i limit="qrcode_delete" class="fa fa-trash-o"></i>
 				</td>
@@ -79,7 +82,8 @@
 			apiRequestSure({
 				title : '发送私信' , 
 				content : dom.get('qrcode.create'),
-				apiName : 'Letter/Create'
+				apiName : 'Letter/Create',
+				success : '发送成功'
 			})
 		
 		});
