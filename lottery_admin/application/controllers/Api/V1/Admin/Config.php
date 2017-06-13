@@ -17,6 +17,13 @@ class Config extends CI_Controller {
 			$this->Config_model->edit(array('name' => $key) , array(
 				'value' => $value
 			));
+
+			if($key == 'oddsSetting'){
+				$this->load->model('Game_rule_model');
+				$this->Game_rule_model->edit(array('id' => 95) , array(
+					'highest_bonus' => $value
+				));
+			}
 		}
 		Autumn::end(true);
 	}

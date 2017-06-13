@@ -4,8 +4,8 @@
 	<?php $this->load->view($admin_view . '/template/top-header.php')?>
 
 	<div class="warpper">
-		<div class="tools" style="margin-top:4px;">
-			<button class="btn success" limit="group_create" onclick="admin_group_create();"><i class="fa fa-server"></i>创建权限组</button>
+		<div class="tools">
+			<button class="btn fezocms" limit="group_create" onclick="admin_group_create();"><i class="fa fa-server"></i>创建权限组</button>
 		</div>
 		<table class="table-list">
 			<tr>

@@ -48,7 +48,6 @@ class Lottery extends CI_Controller {
 
 
 
-
 			// 检查输入的模式
 			$choose_money = array('元' => 2 , '角' => 0.2 , '分' => 0.02 , '厘' => 0.002);
 			if( ! isset($choose_money[$value['type']])) Autumn::end(false , '您选择的模式不正确');
@@ -149,6 +148,7 @@ class Lottery extends CI_Controller {
 			array_push($Betting_list , array(
 				'byid' => $byid,
 				'uid' => $_SESSION['user']['id'],
+				'day' => date('Y-m-d'),
 				'order_id' => 'O' . date('Ymd') . rand(100000 , 999999),
 				'create_time' => date('Y-m-d H:i:s'),
 				'from_lottery' => $lottery_id,
@@ -167,11 +167,13 @@ class Lottery extends CI_Controller {
 
 	
 		if(count($Betting_list) == count($lottery)){
-			$this->load->model('Message_model');
-			$this->Message_model->add(array('type' => '消费' , 'title' => "您已成功消费{$money}元购置彩票"));
+			$this->load->model('Letter_model');
+			$this->Letter_model->add(array('type' => '消费' , 'title' => "您已成功消费{$money}元购置彩票"));
+
 			$this->Betting_model->create_batch($Betting_list);
+			Autumn::end(true);
 		}
-		Autumn::end(true);
+		Autumn::end(false);
 	}
 
 

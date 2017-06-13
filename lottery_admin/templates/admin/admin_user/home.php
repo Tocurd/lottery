@@ -4,7 +4,7 @@
 	<?php $this->load->view($admin_view . '/template/top-header.php')?>
 	<div class="warpper">
 		<div class="tools">
-			<button class="btn success" onclick="create_user();" limit="admin_user_create"><i class="fa fa-user-plus"></i>创建管理员</button>
+			<button class="btn fezocms" onclick="create_user();" limit="admin_user_create"><i class="fa fa-user-plus"></i>创建管理员</button>
 			<select>
 				{Group_list}
 				<option value="">{name}</option>

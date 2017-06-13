@@ -1,6 +1,6 @@
 	<style>
 		body{min-width: 1400px;}
-		.sheng{width:80px;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+		.sheng{width:300px;display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
 		.table-list *{font-size: 13px!important;}
 	</style>
 </head>

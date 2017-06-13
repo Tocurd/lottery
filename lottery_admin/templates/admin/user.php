@@ -28,7 +28,7 @@
 	<div class="warpper">
 		<div class="tools">
 			<button class="btn danger"><i class="fa fa-trash-o"></i>删除选中</button>
-			<button class="btn success" id="js-create"><i class="fa fa-plus"></i>创建用户</button>
+			<button class="btn fezocms" id="js-create"><i class="fa fa-plus"></i>创建用户</button>
 			<button class="btn"><i class="fa fa-search"></i>高级筛选</button>
 			<select name="" id="">
 				<option value="">普通会员</option>

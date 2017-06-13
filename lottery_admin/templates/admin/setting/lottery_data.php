@@ -52,6 +52,7 @@
 
 				<td>
 					<i class="fa fa-edit"></i>
+					<i class="fa fa-check"></i>
 				</td>
 			</tr>
 			{/Lottery_data_list}

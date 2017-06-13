@@ -29,33 +29,57 @@ body{
 	height: 100%;
 	width: 135px;
 	background-color: #293038;
-	
 	.item{
+		float:left;
+		width:100%;
+	}
+	.title{
 		float: left;
-		width: 100%;
+		width:100%;
+		font-size:18px;
+		padding:14px 10px 14px 17px;
+		text-align:center;
+		position: relative;
+		.fa-angle-down{
+			float:right;
+			top:13px;
+			right:15px;
+			position: absolute;
+			font-size: 14px;
+			color:#f2f2f2;
+		}
+		.left{
+			float:left;
+			color:#f2f2f2;
+			font-size: 12px;
+			margin-right:10px;
+		}
+		i{
+			position: relative;
+		}
 		h2{
 			color:#f2f2f2;
 			font-weight: 400;
-			font-size: 17px;
+			font-size: 12px;
 			float: left;
-		}
-		.title{
-			color:#f2f2f2;
-			float: left;
-
 		}
 	}
 
 	.song{
-		i , a{color:#f2f2f2}
-		a{
-			color: #777;
-			padding: 10px 0;
+		float:left;
+		width:100%;
+		background-color:#363f4a;
+		padding:5px 0;
+		i{
+			color:#f2f2f2;
+			position: relative;
 		}
 		li{
-			border-bottom:1px solid #333;
+			background-color:#363f4a;
+			border-left:3px solid #363f4a;
 			&:hover , &.active{
-				background-color: #222;
+				border-left:3px solid #339BEB;
+				background-color: #293038;
 			}
 			font-size: 12px;
 			float: left;
@@ -67,12 +91,12 @@ body{
 			height: 100%;
 			text-decoration: none;
 			a{
-				color: #777;
-				padding: 10px 0;
+				color: #ddd;
+				padding: 9.5px 0;
 			}
 			i{
-				margin-right: 7px;
-				margin-left:3px;
+				margin-right: 10px;
+				margin-left:-2px;
 			}
 		}
 

@@ -1,0 +1,47 @@
+2017-06-13 11:11:13 脚本开启
+2017-06-13 11:11:13 检查【澳门3D】是否有近七日数据
+2017-06-13 11:11:13 2017-06-12 : yes
+2017-06-13 11:11:13 2017-06-13 : yes
+2017-06-13 11:11:13 2017-06-14 : yes
+2017-06-13 11:11:13 2017-06-15 : yes
+2017-06-13 11:11:13 2017-06-16 : yes
+2017-06-13 11:11:13 2017-06-17 : yes
+2017-06-13 11:11:13 2017-06-18 : no
+2017-06-13 11:11:13 【澳门3D】第31期，需要开奖
+2017-06-13 11:11:13 {"id":"33376","periods":"31","from_lottery":"22","time":"11:09","timestamp":"40140"}
+2017-06-13 11:11:13 {"id":"25170","byid":"2017061331","periods":"31","from_time_id":"33376","from_lottery":"22","day":"2017-06-13 00:00:00","data":"973","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-13 11:11:13 【澳门3D】第31期，正在摇奖中
+2017-06-13 11:11:14 【澳门3D】第31期，已成功开奖
+2017-06-13 11:19:00 【澳门3D】第32期，需要开奖
+2017-06-13 11:42:49 {"id":"33377","periods":"32","from_lottery":"22","time":"11:19","timestamp":"40740"}
+2017-06-13 11:42:49 {"id":"25169","byid":"2017061332","periods":"32","from_time_id":"33377","from_lottery":"22","day":"2017-06-13 00:00:00","data":"589","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-13 11:42:49 【澳门3D】第32期，正在摇奖中
+2017-06-13 11:42:50 【澳门3D】第34期，需要开奖
+2017-06-13 11:42:50 {"id":"33379","periods":"34","from_lottery":"22","time":"11:39","timestamp":"41940"}
+2017-06-13 11:42:50 {"id":"25167","byid":"2017061334","periods":"34","from_time_id":"33379","from_lottery":"22","day":"2017-06-13 00:00:00","data":"292","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-13 11:42:50 【澳门3D】第34期，正在摇奖中
+2017-06-13 11:42:51 【澳门3D】第34期，已成功开奖
+2017-06-13 11:43:23 脚本开启
+2017-06-13 11:43:23 检查【澳门3D】是否有近七日数据
+2017-06-13 11:43:23 2017-06-12 : no
+2017-06-13 11:43:23 2017-06-13 : no
+2017-06-13 11:43:23 2017-06-14 : no
+2017-06-13 11:43:23 2017-06-15 : no
+2017-06-13 11:43:23 2017-06-16 : no
+2017-06-13 11:43:23 2017-06-17 : no
+2017-06-13 11:43:23 2017-06-18 : no
+2017-06-13 11:43:24 【澳门3D】第34期，需要开奖
+2017-06-13 11:43:24 {"id":"33379","periods":"34","from_lottery":"22","time":"11:39","timestamp":"41940"}
+2017-06-13 11:43:24 {"id":"26007","byid":"2017061334","periods":"34","from_time_id":"33379","from_lottery":"22","day":"2017-06-13 00:00:00","data":"705","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-13 11:43:24 【澳门3D】第34期，正在摇奖中
+2017-06-13 11:43:25 【澳门3D】第34期，已成功开奖
+2017-06-13 11:49:00 【澳门3D】第35期，需要开奖
+2017-06-13 11:49:00 {"id":"33380","periods":"35","from_lottery":"22","time":"11:49","timestamp":"42540"}
+2017-06-13 11:49:00 {"id":"26006","byid":"2017061335","periods":"35","from_time_id":"33380","from_lottery":"22","day":"2017-06-13 00:00:00","data":"397","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-13 11:49:00 【澳门3D】第35期，正在摇奖中
+2017-06-13 11:50:00 【澳门3D】第35期，已成功开奖
+2017-06-13 11:59:00 【澳门3D】第36期，需要开奖
+2017-06-13 11:59:00 {"id":"33381","periods":"36","from_lottery":"22","time":"11:59","timestamp":"43140"}
+2017-06-13 11:59:00 {"id":"26005","byid":"2017061336","periods":"36","from_time_id":"33381","from_lottery":"22","day":"2017-06-13 00:00:00","data":"202","state":"0","lottery_time":null,"order_count":"0","send_lottery_count":"0","winning_count":"0","participate_count":"0","betting_money":"0","winning_money":"0","rebate_money":"0","profit_loss":"0"}
+2017-06-13 11:59:00 【澳门3D】第36期，正在摇奖中
+2017-06-13 12:00:00 【澳门3D】第36期，已成功开奖

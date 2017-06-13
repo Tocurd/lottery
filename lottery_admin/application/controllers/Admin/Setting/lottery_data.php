@@ -59,8 +59,12 @@ class lottery_data extends CI_Controller {
 					case '1' : $data['state'] = '<span class="label danger">摇奖中</span>';break;
 					case '2' : $data['state'] = '<span class="label success">已开奖</span>';break;
 				}
-				array_push($Lottery_data_list , $data);
 
+
+				// 计算相关的数据
+				
+
+				array_push($Lottery_data_list , $data);
 			}else{
 				$value['state'] = '<span class="label">未开奖</span>';
 				array_push($Lottery_data_list , $value);
