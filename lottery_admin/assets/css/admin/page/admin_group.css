@@ -1,1 +1,35 @@
-.admin_group_create .tools{float:left;width:100%;margin-top:10px}.admin_group_create .limit{border-radius:5px;margin-top:10px;float:left;width:100%;padding:8px 14px;background-color:#f3f3f3;max-height:200px;overflow:hidden;overflow-y:scroll}.admin_group_create .limit h2{float:left;width:100%;color:#aaa;font-weight:400;font-size:12px;margin-bottom:14px;margin-top:14px}.admin_group_create .limit .widget-checkbox{margin-top:1px;margin-right:7px}.admin_group_create .limit label{margin-left:10px;margin-right:15px;margin-bottom:11px;float:left}
+.admin_group_create .tools {
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+}
+.admin_group_create .limit {
+  border-radius: 5px;
+  margin-top: 10px;
+  float: left;
+  width: 100%;
+  padding: 8px 14px;
+  background-color: #f3f3f3;
+  max-height: 200px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.admin_group_create .limit h2 {
+  float: left;
+  width: 100%;
+  color: #aaa;
+  font-weight: 400;
+  font-size: 12px;
+  margin-bottom: 14px;
+  margin-top: 14px;
+}
+.admin_group_create .limit .widget-checkbox {
+  margin-top: 1px;
+  margin-right: 7px;
+}
+.admin_group_create .limit label {
+  margin-left: 10px;
+  margin-right: 15px;
+  margin-bottom: 11px;
+  float: left;
+}

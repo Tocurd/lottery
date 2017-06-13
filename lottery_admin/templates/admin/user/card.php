@@ -31,7 +31,7 @@
 				<td>{ownerName}</td>
 				<td>{branch}</td>
 				<td>{paytype}</td>
-				<td>{qrcode}</td>
+				<td><img src="./assets/card-qrcode/{qrcode}" width="50" height="50"></td>
 				<td>
 					<i class="fa fa-edit"></i>
 					<i class="fa fa-trash-o"></i>
@@ -57,6 +57,32 @@
 				<input type="text" api-param-name="account" name="account" placeholder="请输入银行账号"/>
 				<input type="text" api-param-name="ownerName" name="ownerName" placeholder="请输入开户姓名"/>
 				<input type="text" api-param-name="branch" name="branch" placeholder="请输入开户行"/>
+
+
+				<button class="btn upload card-upload">
+					<i class="fa fa-upload"></i>
+					上传二维码
+					<input type="file" id="js-file" name="file">
+				</button>
+			</form>
+		</div>
+		<style>
+			select{color:#777!important;}
+			.upload {display:none;border:1px solid #eee;height:40px;width: 100%;margin-top:10px;position: relative;cursor: pointer;}
+			.upload input[type='file']{position: absolute;left:0;top:0;width:100%;height:100%;opacity:0;cursor: pointer;}
+		</style>
+		var card.edit = <div>
+			<form id="upload">
+				<input type="text" api-param-name="username" name="username" value="{%username%}" placeholder="请输入所属用户名"/>
+				<select api-param-name="paytype" name="paytype" value="{%paytype%}">
+					<option value="0">银行卡</option>
+					<option value="1">支付宝</option>
+					<option value="2">微信</option>
+				</select>
+				<input type="text" api-param-name="bankname" name="bankname" value="{%bankname%}" placeholder="请输入银行名称"/>
+				<input type="text" api-param-name="account" name="account" value="{%account%}" placeholder="请输入银行账号"/>
+				<input type="text" api-param-name="ownerName" name="ownerName" value="{%ownerName%}" placeholder="请输入开户姓名"/>
+				<input type="text" api-param-name="branch" name="branch" value="{%branch%}" placeholder="请输入开户行"/>
 
 
 				<button class="btn upload card-upload">
@@ -145,6 +171,71 @@
 					otherParams : {
 						id : data.id
 					}
+				})
+			}
+			if(target == 'edit'){
+
+				popup.sure({
+					title : '编辑绑卡' , 
+					content : dom.get('card.edit' , data),
+					style : {
+						width : 500
+					}
+				}).then(function(){
+					$.ajax({
+						url: "./api/v1/admin/card/edit",
+						type: 'POST',
+						cache: false,
+						data: new FormData($('#upload')[0]),
+						processData: false,
+						contentType: false
+					}).done(function(data){
+					
+						var data = JSON.parse(data);
+						if( ! data.state){
+							popup.toast(data.message);
+							return false;
+						}else{
+							popup.toast('编辑成功');
+							setTimeout(function(){
+								window.location.reload()
+							} , 1000)
+						}
+					}).fail(function(res){
+						popup.toast(error)
+					});
+				})
+
+				$('[name="bankname"]').hide()
+				$('[name="account"]').hide()
+				$('[name="ownerName"]').hide()
+				$('[name="branch"]').hide()
+				$('.card-upload').show()
+				if(data.patype == '0'){
+					$('[name="bankname"]').show()
+					$('[name="account"]').show()
+					$('[name="ownerName"]').show()
+					$('[name="branch"]').show()
+					$('.card-upload').hide()
+				}
+				$('[api-param-name="paytype"]').change(function(){
+					$('[name="bankname"]').hide()
+					$('[name="account"]').hide()
+					$('[name="ownerName"]').hide()
+					$('[name="branch"]').hide()
+					$('.card-upload').show()
+					if($('[api-param-name="paytype"]').val() == '0'){
+						$('[name="bankname"]').show()
+						$('[name="account"]').show()
+						$('[name="ownerName"]').show()
+						$('[name="branch"]').show()
+						$('.card-upload').hide()
+					}
+				});
+
+
+				$("#js-file").change(function(){
+					popup.toast('上传图片成功');
 				})
 			}
 		}
