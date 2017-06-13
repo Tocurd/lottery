@@ -1,4 +1,7 @@
 <div class="left-menu">
+ 	<!-- <div class="header-image"> -->
+		<!-- <img src="http://qlogo4.store.qq.com/qzone/123456/123456/50?1458033117"> -->
+ 	<!-- </div> -->
 	<div class="item">
 		<div class="title">
 			<i class="fa left fa-home"></i>

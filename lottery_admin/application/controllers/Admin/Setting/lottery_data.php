@@ -4,6 +4,7 @@ class lottery_data extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
+		$this->load->model('Betting_model');
 		$this->load->model('Lottery_model');
 		$this->load->model('Lottery_data_model');
 		$this->load->model('Lottery_time_model');
@@ -62,7 +63,51 @@ class lottery_data extends CI_Controller {
 
 
 				// 计算相关的数据
+				$where = array('day' => $data['day'] , 'from_lottery_time_id' => $data['from_time_id'],'from_lottery' => $data['from_lottery']);
+				$data['order_count'] = $this->Betting_model->get_count($where);
+				$data['send_lottery_count'] = $this->Betting_model->get_count(array_merge($where , array('sendprize_state' => 1)));
 				
+
+				// 中奖订单数量
+				$data['winning_count'] = $this->Betting_model->get_count(array_merge($where , array('winning_state' => 1)));
+				
+
+				// 参与人数
+				$this->Betting_model->group_by('uid');
+				$data['participate_count'] = $this->Betting_model->get_count($where);
+
+
+				// 总金额
+				$this->Betting_model->select_sum('money');
+				$data['betting_money'] = $this->Betting_model->get($where)['money'];
+
+
+				// 中奖金额
+				$this->Betting_model->select_sum('winning_money');
+				$data['winning_money'] = $this->Betting_model->get($where)['winning_money'];
+
+
+				// 返点金额
+				$this->Betting_model->select_sum('rebate_money');
+				$data['rebate_money'] = $this->Betting_model->get($where)['rebate_money'];
+
+
+				// 盈亏
+				$data['profit_loss'] = $data['betting_money'] - $data['winning_money'] - $data['rebate_money'];
+
+
+
+				if($data['order_count'] <= 0) $data['order_count'] = '<span style="color:#bbb">---</span>';
+				if($data['send_lottery_count'] <= 0) $data['send_lottery_count'] = '<span style="color:#bbb">---</span>';
+				if($data['winning_count'] <= 0) $data['winning_count'] = '<span style="color:#bbb">---</span>';
+				if($data['participate_count'] <= 0) $data['participate_count'] = '<span style="color:#bbb">---</span>';
+				if($data['betting_money'] <= 0) $data['betting_money'] = '<span style="color:#bbb">---</span>';
+				if($data['winning_money'] <= 0) $data['winning_money'] = '<span style="color:#bbb">---</span>';
+				if($data['rebate_money'] <= 0) $data['rebate_money'] = '<span style="color:#bbb">---</span>';
+
+
+				$data['profit_loss'] = $data['profit_loss'] >= 0 ? "<span class='label success'>{$data['profit_loss']}</span>" : "<span class='label danger'>{$data['profit_loss']}</span>";
+
 
 				array_push($Lottery_data_list , $data);
 			}else{
@@ -83,4 +128,7 @@ class lottery_data extends CI_Controller {
 			'Lottery_data_list' => $Lottery_data_list
 		));
 	}
+
+
+
 }

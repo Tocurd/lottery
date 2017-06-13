@@ -23,14 +23,14 @@
 				<th>开奖数据</th>
 				<th>状态</th>
 				<th>开奖时间</th>
-				<th>订单数</th>
-				<th>已派奖</th>
-				<th>中奖数</th>
-				<th>参与人数</th>
-				<th>投注额</th>
-				<th>中奖额</th>
-				<th>返点额</th>
-				<th>盈亏</th>
+				<th width="90">订单数</th>
+				<th width="90">已派奖</th>
+				<th width="90">中奖数</th>
+				<th width="90">参与人数</th>
+				<th width="90">投注额</th>
+				<th width="90">中奖额</th>
+				<th width="90">返点额</th>
+				<th width="90">盈亏</th>
 				<th>操作</th>
 			</tr>
 			{Lottery_data_list}
@@ -73,6 +73,19 @@
 			var id = $(this).parent().parent().attr('data-id');
 			window.location.href = './{admin_view}/setting/lottery_list/edit?id=' + id;
 		});
+
+		$(".fa-check").click(function(){
+			var id = $(this).parent().parent().attr('data-id');
+			apiRequestSure({
+				title : '您确定要开奖吗',
+				content : '该操作无法撤回请谨慎操作，您确定要开奖吗？',
+				apiName : 'Lottery_data/Open',
+				success : '开奖成功',
+				otherParams : {id : id}
+			})
+		});
+
+
 		$("#js-switch").change(function(){
 			var id = $(this).val();
 			window.location.href = './{admin_view}/setting/lottery_time?lottery_data=' + id;

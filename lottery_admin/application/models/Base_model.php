@@ -26,6 +26,14 @@ class Base_model extends CI_Model {
 		return $this->db->select($select)->count_all_results($this->table_name);
 	}
 
+	public function select_sum($string = 'id'){
+		$this->db->select_sum($string);
+		return $this;
+	}
+	public function group_by($data = array()){
+		$this->db->group_by($data);
+		return $this;
+	}
 	public function or_where($where = array()){
 		$this->db->or_where($where);
 		return $this;

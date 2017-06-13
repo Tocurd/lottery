@@ -13,7 +13,9 @@ $(document).on('click', ".widget-checkbox", function(event) {
 	$(this).toggleClass('active');
 });
 var ApiRequest = new ApiRequest({
-
+	Lottery_data : {
+		Open : {params : {}}
+	},
 
 	Card : {
 		Remove : {params : {}}
