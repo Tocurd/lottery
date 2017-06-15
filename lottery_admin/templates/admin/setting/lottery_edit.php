@@ -1,5 +1,14 @@
 	<style type="text/css">
 		.btn{padding:9px 27px;}
+		.setting textarea {
+			color: #555;
+			border: none;
+			outline: none;
+			margin-top: 4px;
+			padding: 0 0;
+			width: 300px;
+			height: 80px;
+		}
 	</style>
 </head>
 <body>
@@ -33,7 +42,7 @@
 					<td>停止投注间隔 (秒)</td>
 					<td><input type="text" api-param-name="stop_interval" value="<?=$Lottery_data['stop_interval']?>" placeholder="请输入停止投注间隔 (秒)"></td>
 				</tr>
-				<tr>
+				<tr style="display: none;">
 					<td>开奖间隔 (秒)</td>
 					<td><input type="text" api-param-name="open_interval" value="<?=$Lottery_data['open_interval']?>" placeholder="请输入开奖间隔 (秒)"></td>
 				</tr>
@@ -42,14 +51,19 @@
 					<td><input type="text" api-param-name="draw_interval" value="<?=$Lottery_data['draw_interval']?>" placeholder="请输入摇奖间隔 (秒)"></td>
 				</tr>
 
-
+				<tr>
+					<td>隔天期数</td>
+					<td>
+						<textarea placeholder="隔天期数（以逗号分隔）" api-param-name="inter_day_periods" value="<?=$Lottery_data['inter_day_periods']?>" ></textarea>
+					</td>
+				</tr>
 				
 
 
 			</table>
 			<div class="tools" style="padding:0px 12px;margin-top:26px;">
 				<button class='btn fezocms' id="js-save"><i class="fa fa-save"></i> 编辑配置项</button>
-				<button class='btn '>返回彩种列表</button>
+				<button class='btn ' onclick="window.location.href='./{admin_view}/setting/lottery_list'">返回彩种列表</button>
 			</div>
 		</div>
 		

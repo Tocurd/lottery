@@ -190,10 +190,12 @@ class Lottery extends CI_Controller {
 	 * @return [type] [description]
 	 */
 	public function now(){
-		$data = Rule::check(Autumn::params(array('lottery_id')) , array(
-			'lottery_id' => array('is_number' => true , 'name' => '彩票编号') ,
-		) , true);
-		extract(Rule::reslut());
+		// $data = Rule::check(Autumn::params(array('lottery_id')) , array(
+		// 	'lottery_id' => array('is_number' => true , 'name' => '彩票编号') ,
+		// ) , true);
+		// extract(Rule::reslut());
+
+		$lottery_id = 22;
 
 		if( ! $this->Lottery_model->is_exist(array('id' => $lottery_id))) Autumn::end(false , '您输入的彩票不存在');
 		$Lottery_data = $this->Lottery_model->get(array('id' => $lottery_id));
@@ -207,7 +209,17 @@ class Lottery extends CI_Controller {
 			'from_lottery' => $lottery_id,
 			'timestamp >' => strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'))
 		) , array() , array('timestamp' => 'asc'));
-		$Next_lottery_data['byid'] = date('Ymd') . '-' . $Next_lottery_data['periods'];
+
+		print_r($Next_lottery_data);
+
+
+		if($Next_lottery_data['periods'] == 120){
+			$time = date('Ymd' , time() - 86400);
+		}else{
+			$time = date('Ymd');
+		}
+		$Next_lottery_data['byid'] = $time . '-' . $Next_lottery_data['periods'];
+
 
 
 		// 假如获取不到最新期开奖数据，则顺延到第二天
@@ -219,6 +231,16 @@ class Lottery extends CI_Controller {
 			$Next_lottery_data['timestamp'] += 86400;
 			$Next_lottery_data['byid'] = date('Ymd' , time() + 86400) . '-' . $Next_lottery_data['periods'];
 		}
+
+
+
+
+
+
+
+
+
+
 
 
 

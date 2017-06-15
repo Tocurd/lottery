@@ -21,7 +21,7 @@ class Lottery extends CI_Controller {
 	 * @return null [<description>]
 	 */
 	public function Create(){
-		$params = Autumn::params(array('name','from_group','periods','stop_interval','open_interval'));
+		$params = Autumn::params(array('name','from_group','periods','stop_interval','open_interval','inter_day_periods'));
 		Rule::check($params , array(
 			'name' => array('max' => 16 , 'min' => 2 , 'name' => '彩票名称'),
 			'from_group' => array('is_number' => true , 'name' => '游戏规则'),

@@ -14,7 +14,11 @@ $(document).on('click', ".widget-checkbox", function(event) {
 });
 var ApiRequest = new ApiRequest({
 	Lottery_data : {
-		Open : {params : {}}
+		Open : {params : {}},
+		Edit : {params : {
+			id : {},
+			number : {max : 255 , min : 1 , name : '开奖号码'},
+		}}
 	},
 
 	Card : {

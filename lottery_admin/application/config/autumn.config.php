@@ -10,7 +10,7 @@ $config['seeting'] = array(
 $config['actype'] = array('投注');
 
 $config['betting_state'] = array(
-	'betting_state' => array('未开奖' , '已开奖' , '开奖中'),
+	'betting_state' => array('未开奖' , '摇奖中' , '已开奖'),
 	'winning_state' => array('未中奖' , '已中奖'),
 	'sendprize_state' => array('未派奖' , '已派奖'),
 );

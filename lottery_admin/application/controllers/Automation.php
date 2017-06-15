@@ -71,20 +71,25 @@ class Automation extends CI_Controller {
 
 
 			if(isset($data['id'])){
-				if($data['state'] == '0'){
-					$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，需要开奖");
-					$this->prints(json_encode($Lottery_time_data));
-					$this->prints(json_encode($data));
-					$this->Lottery_data_model->edit(array('id' => $data['id']) , array('state' => 1));
-					$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，正在摇奖中");
-				}
-				if($data['state'] == '1'){
-					$date = strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'));
-					if($date >= $Lottery_time_data['timestamp'] + $value['draw_interval']){
-
-						$this->Lottery_data_model->edit(array('id' => $data['id']) , array('state' => 2));
-						$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，已成功开奖");
+				if($data['manual_lottery'] != '1'){
+					if($data['state'] == '0'){
+						$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，需要开奖");
+						$this->prints(json_encode($Lottery_time_data));
+						$this->prints(json_encode($data));
+						$this->Lottery_data_model->edit(array('id' => $data['id']) , array('state' => 1));
+						$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，正在摇奖中");
 					}
+					if($data['state'] == '1'){
+						$date = strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'));
+						if($date >= $Lottery_time_data['timestamp'] + $value['draw_interval']){
+
+							$this->Lottery_data_model->edit(array('id' => $data['id']) , array('state' => 2));
+							$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，已成功开奖");
+						}
+					}
+				}else{
+					// $_SESSION['manual_lottery']
+					$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，开奖器得知了管理员并不愿意让他开着期奖，所以他沮丧着头在角落里哭泣");
 				}
 			}else{
 				$this->prints("未发现开奖数据，正在准备号码采集策略");
@@ -108,6 +113,7 @@ class Automation extends CI_Controller {
 		foreach($Lottery_list as $key => $value) {
 			$this->prints("检查【{$value['name']}】是否有近七日数据");
 
+
 			// 彩票的游戏规则
 			$Game_rule = $this->Game_rule_model->get(array('id' => $value['from_group']));
 
@@ -117,22 +123,35 @@ class Automation extends CI_Controller {
 					'from_lottery' => $value['id'],
 					"day" => $date
 				))){
+
+
 					$data = array();
 					$this->prints("{$date} : no");
 					$Lottery_time_list = $this->Lottery_time_model->get_list(array('from_lottery' => $value['id']) , 0 , 0 , array() , 'all');
 					foreach ($Lottery_time_list as $time_value) {
+						
+
+						if($time_value['periods'] == 120){
+							$time = date('Ymd' , time() - 86400);
+						}else{
+							$time = $date;
+						}
 						$push = array(
-							'day' => $date,
-							'byid' => date('Ymd' , strtotime($date)) . $time_value['periods'],
+							'day' => $time,
+							'byid' => date('Ymd' , strtotime($time)) . $time_value['periods'],
 							'periods' => $time_value['periods'],
 							'from_lottery' => $value['id'],
 							'from_time_id' => $time_value['id'],
 							'data' => $this->generate_code($Game_rule['count']),
-							'state' => 0
+							'state' => 0,
 						);
 						array_push($data, $push);
 					}
 					$this->Lottery_data_model->create_batch($data);
+
+
+
+
 				}else{
 					$this->prints("{$date} : yes");
 				}

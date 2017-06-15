@@ -32,8 +32,8 @@
 				<td>{name}</td>
 				<td>{name}</td>
 				<td>{from_group}</td>
-				<td><input type="text" name="" value="30"></td>
-				<td><input type="text" name="" value="600"></td>
+				<td>{stop_interval}</td>
+				<td>{draw_interval}</td>
 				<td>
 					<i class="fa fa-edit"></i>
 					<i class="fa fa-trash-o"></i>

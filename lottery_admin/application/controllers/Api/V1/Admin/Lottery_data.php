@@ -7,6 +7,7 @@ class Lottery_data extends CI_Controller {
 		$this->load->model('Lottery_data_model');
 		$this->load->model('Betting_model');
 		$this->load->model('Game_rule_model');
+		$this->load->model('Lottery_model');
 	}
 	public function _remap($method){
 		Admin::is_login(false , "Admin_user/{$method}");
@@ -14,15 +15,43 @@ class Lottery_data extends CI_Controller {
 	}
 
 
+	public function edit(){
+		extract(Autumn::params(array('id' , 'number')));
+		$Lottery_data = $this->Lottery_data_model->get(array('id' => $id));
+		if( ! isset($Lottery_data['from_lottery'])) Autumn::end(false , '您输入的开奖数据不存在');
+
+
+		$Top_game_rule_data = $this->Lottery_model->get(array('id' => $Lottery_data['from_lottery']));
+		$Top_game_rule_data = $this->Game_rule_model->get(array('id' => $Top_game_rule_data['from_group']));
+
+		if(strlen($number) > $Top_game_rule_data['count']){
+			Autumn::end(false , '想搞事情？输入的那么大的长度干嘛？');
+		}
+
+		if($Lottery_data['state'] == 2){
+			Autumn::end(false , '你对已经开奖的数据进行编辑，是不是想搞事情？');
+		}
+
+		$Lottery_data = $this->Lottery_data_model->edit(array('id' => $id) , array(
+			'data' => $number,
+			'manual_lottery' => 1
+		));
+		Autumn::end(true);
+	}
+
 
 	
-	public function open(){
-		extract(Autumn::params(array('id')));
+	public function open($id = ''){
+		if(isset($_POST['id'])) extract(Autumn::params(array('id')));
+
 		$Lottery_data = $this->Lottery_data_model->get(array('id' => $id));
 		if( ! isset($Lottery_data['from_lottery'])) Autumn::end(false , '您输入的开奖数据不存在');
 		$is_ok = false;
 
-		
+
+		if($Lottery_data['state'] == 2){
+			Autumn::end(false , '您要开奖的数据，已经开过奖了。');
+		}
 
 		$winning_number = str_split($Lottery_data['data'] , 1);
 
@@ -43,28 +72,39 @@ class Lottery_data extends CI_Controller {
 			$number = json_decode($value['number']);
 			$winning_money = 0;
 
+			$len = strlen($value['pattern_money']) - 2;
+			$len = $len <= 0 ? 0 : $len;
+			$len = (($len * 10) <= 0 ? 1 : ($len));
+			$len = '1' . str_pad('' , $len , '0');
 
 			if($Top_game_rule_data['byid'] == 'shishicai'){
 				if($Song_game_rule_data['byid'] == 'five_location'){
 					$is_ok = true;
+
 					foreach ($number as $number_key => $number_value) {
 						if(in_array($winning_number[$number_key] , $number_value)){
-							$winning_money += $Song_game_rule_data['highest_bonus'];
+							$winning_money += $Song_game_rule_data['highest_bonus'] / $len;
 						}
 					}
 
-					$this->Betting_model->edit(array('id' => $value['id']) , array(
-						'winning_money' => $winning_money,
-						'winning_state' => ($winning_money > 0 ? 1 : 0) 
-					));
-
 				}
 			}
+
+
+			$this->Betting_model->edit(array('id' => $value['id']) , array(
+				'winning_money' => $winning_money,
+				'winning_state' => ($winning_money > 0 ? 1 : 0),
+				'state' => 2,
+			));
 		}
 
 
 
-		if( ! $is_ok) Autumn::end(false , '无对应开奖策略，请联系管理员添加策略');
+		
+		if( ! $is_ok) Autumn::end(false , '无对应开奖策略，或无任何号码投注，请联系管理员添加策略');
+		$this->Lottery_data_model->edit(array('id' => $id) , array(
+			'state' => 2,
+		));
 		Autumn::end(true);
 	}
 }

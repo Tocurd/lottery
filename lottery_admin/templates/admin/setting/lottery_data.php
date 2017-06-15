@@ -18,10 +18,12 @@
 		<table class="table-list setting">
 			<tr>
 				<th>彩种名称</th>
+				<th>编号</th>
 				<th>期数</th>
 				<th>日期</th>
 				<th>开奖数据</th>
 				<th>状态</th>
+				<th>人工介入</th>
 				<th>开奖时间</th>
 				<th width="90">订单数</th>
 				<th width="90">已派奖</th>
@@ -34,12 +36,14 @@
 				<th>操作</th>
 			</tr>
 			{Lottery_data_list}
-			<tr data-id='{id}'>
+			<tr data-id='{id}' data-number='{data}'>
 				<td>{name}</td>
+				<td>{byid}</td>
 				<td>{periods}</td>
 				<td>{day}</td>
 				<td>{data}</td>
 				<td>{state}</td>
+				<td>{manual_lottery}</td>
 				<td>{lottery_time}</td>
 				<td>{order_count}</td>
 				<td>{send_lottery_count}</td>
@@ -64,6 +68,12 @@
 
 	</div>
 	
+
+	<script type="text/dom">
+		var number = <div class="number" api-name="Lottery_data/Edit">
+			<input type="text" value="{%number%}" api-param-name='number' name="">
+		</div>
+	</script>
 	<?php $this->load->view($admin_view . '/template/footer.php')?>
 	<script type="text/javascript">
 		$("#js-add").click(function(){
@@ -71,7 +81,14 @@
 		});
 		$(".fa-edit").click(function(){
 			var id = $(this).parent().parent().attr('data-id');
-			window.location.href = './{admin_view}/setting/lottery_list/edit?id=' + id;
+			var number = $(this).parent().parent().attr('data-number');
+			apiRequestSure({
+				title : '编辑开奖号码',
+				content : dom.get('number' , { number : number }),
+				apiName : 'Lottery_data/Edit',
+				success : '开奖成功',
+				otherParams : {id : id}
+			})
 		});
 
 		$(".fa-check").click(function(){
