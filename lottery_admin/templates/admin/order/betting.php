@@ -28,6 +28,7 @@
 				<th>投注金额</th>
 				<th>中奖金额</th>
 				<th>返点</th>
+				<th>状态</th>
 				<th>操作</th>
 			</tr>
 
@@ -44,12 +45,11 @@
 				<td>{pattern}</td>
 				<td><span class="sheng">{number}</span></td>
 				<td>{money}</td>
-				<td>{state}</td>
-				<!-- {winning_money} -->
+				<td>{winning_money}</td>
 				<td>{rebate}</td>
+				<td>{state}</td>
 				<td>
 					{revoke}
-					
 				</td>
 			</tr>
 			{/Betting_list}

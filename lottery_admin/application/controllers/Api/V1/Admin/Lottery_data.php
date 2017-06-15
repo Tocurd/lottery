@@ -56,6 +56,7 @@ class Lottery_data extends CI_Controller {
 		$winning_number = str_split($Lottery_data['data'] , 1);
 
 
+
 		$where = array(
 			'day' => $Lottery_data['day'],
 			'from_lottery' => $Lottery_data['from_lottery'],
@@ -72,22 +73,28 @@ class Lottery_data extends CI_Controller {
 			$number = json_decode($value['number']);
 			$winning_money = 0;
 
+
+
+
 			$len = strlen($value['pattern_money']) - 2;
 			$len = $len <= 0 ? 0 : $len;
-			$len = (($len * 10) <= 0 ? 1 : ($len));
+			$len = (($len * 10) <= 0 ? 0 : ($len));
 			$len = '1' . str_pad('' , $len , '0');
 
+			$item_notes_money = ($Song_game_rule_data['highest_bonus'] / $len) * $value['multiple'];
+
 			if($Top_game_rule_data['byid'] == 'shishicai'){
+
+
+				// 定位胆
 				if($Song_game_rule_data['byid'] == 'five_location'){
 					$is_ok = true;
-
 					foreach ($number as $number_key => $number_value) {
-						if(in_array($winning_number[$number_key] , $number_value)){
-							$winning_money += $Song_game_rule_data['highest_bonus'] / $len;
-						}
+						if(in_array($winning_number[$number_key] , $number_value)) $winning_money += $item_notes_money;
 					}
-
 				}
+
+
 			}
 
 

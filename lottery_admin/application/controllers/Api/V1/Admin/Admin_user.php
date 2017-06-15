@@ -39,7 +39,7 @@ class Admin_user extends CI_Controller {
 		$params = Autumn::params(array('username' , 'password' , 'remarks' , 'group' , 'state' , 'id'));
 		Rule::check($params , array(
 			'username' => array('max' => 16 , 'min' => 5 , 'name' => '用户名') ,
-			'password' => array('max' => 16 , 'min' => 5 , 'name' => '密码' , 'is_null' => false) ,
+			'password' => array('max' => 16 , 'min' => 5 , 'name' => '密码' , 'is_null' => true) ,
 			'remarks' => array('max' => 16 , 'min' => 0 , 'name' => '描述') ,
 			'group' => array('max' => 6 , 'min' => 1 , 'name' => '用户所在权限组') ,
 			'state' => array('max' => 1 , 'min' => 1 , 'name' => '登陆状态') ,

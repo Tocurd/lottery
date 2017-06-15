@@ -121,9 +121,16 @@ class Automation extends CI_Controller {
 
 
 			if(isset($data['id'])){
+				
+				// 开奖时间
+				$Lottery_time = date('Y-m-d H:i:s' , strtotime(date('Y-m-d' , strtotime($Next_lottery_data['day'])) . ' ' . $Lottery_time_data['time']));
+
+
 
 				if($data['state'] == '0'){
 					$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，需要开奖");
+					$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，开奖时间为：" . $Lottery_time);
+					
 					$this->prints(json_encode($Lottery_time_data));
 					$this->prints(json_encode($data));
 					$this->Lottery_data_model->edit(array('id' => $data['id']) , array('state' => 1));
@@ -142,17 +149,21 @@ class Automation extends CI_Controller {
 
 
 				if($data['state'] == '1'){
+
+
+
 					$date = strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'));
+
 
 
 
 					if( ! isset($_SESSION['draw_interval'][md5($data['id'])])){
 						$_SESSION['draw_interval'][md5($data['id'])] = rand($value['draw_interval'] , $value['draw_end_interval']);
-
 						$draw_interval = $_SESSION['draw_interval'][md5($data['id'])];
 						$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，本次开奖随机摇奖时间为：{$draw_interval}秒");
 
-						$_SESSION['draw_interval'][md5($data['id'])] = date('Y-m-d H:i:s' , strtotime(date('Y-m-d')) + ($date + $draw_interval));
+
+						$_SESSION['draw_interval'][md5($data['id'])] = date('Y-m-d H:i:s' , strtotime($Lottery_time) + $draw_interval);
 						$this->prints("【{$value['name']}】第{$Lottery_time_data['periods']}期，正式开奖时间为：" . $_SESSION['draw_interval'][md5($data['id'])]);
 					}
 
