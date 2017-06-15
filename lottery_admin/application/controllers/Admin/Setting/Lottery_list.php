@@ -34,6 +34,8 @@ class Lottery_list extends CI_Controller {
 		if( ! $this->Lottery_model->is_exist(array('id' => $this->input->get('id')))) show_404();
 		$Game_rule_list = $this->Game_rule_model->get_list(array('type' => 0) , 0 , 0 , array('name' , 'id') , 'all');
 		$Lottery_data = $this->Lottery_model->get(array('id' => $this->input->get('id')));
+
+		
 		Loader::view(array('setting/lottery_edit') , array(
 			'Lottery_data' => $Lottery_data,
 			'Game_rule_list' => $Game_rule_list

@@ -23,7 +23,7 @@
 				<th>日期</th>
 				<th>开奖数据</th>
 				<th>状态</th>
-				<th>人工介入</th>
+				<th>手动开奖</th>
 				<th>开奖时间</th>
 				<th width="90">订单数</th>
 				<th width="90">已派奖</th>

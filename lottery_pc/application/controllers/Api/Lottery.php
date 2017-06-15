@@ -203,24 +203,14 @@ class Lottery extends CI_Controller {
 
 
 
+
 		// 获取彩票最新期的开奖数据
+		$time = 0;
 		$now_time = time() - strtotime(date('Y-m-d'));
 		$Next_lottery_data = $this->Lottery_time_model->get_by(array(
 			'from_lottery' => $lottery_id,
 			'timestamp >' => strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'))
 		) , array() , array('timestamp' => 'asc'));
-
-		print_r($Next_lottery_data);
-
-
-		if($Next_lottery_data['periods'] == 120){
-			$time = date('Ymd' , time() - 86400);
-		}else{
-			$time = date('Ymd');
-		}
-		$Next_lottery_data['byid'] = $time . '-' . $Next_lottery_data['periods'];
-
-
 
 		// 假如获取不到最新期开奖数据，则顺延到第二天
 		if( ! isset($Next_lottery_data['id'])){
@@ -228,16 +218,20 @@ class Lottery extends CI_Controller {
 				'from_lottery' => $Lottery_data['id'],
 				'timestamp >' => 0
 			) , array() , array('timestamp' => 'asc'));
-			$Next_lottery_data['timestamp'] += 86400;
-			$Next_lottery_data['byid'] = date('Ymd' , time() + 86400) . '-' . $Next_lottery_data['periods'];
+			$time = 86400;
 		}
 
+		$day = date('Y-m-d');
+		if(in_array($Next_lottery_data['periods'] , json_decode($Lottery_data['inter_day_periods']))){
+			$day = date('Y-m-d H:i:s' , strtotime($day) - 86400);
+		}
 
+		
 
-
-
-
-
+		$Next_lottery_data = array_merge($Next_lottery_data , $this->Lottery_data_model->get(array(
+			'periods' => $Next_lottery_data['periods'],
+			'day' => $day
+		)));
 
 
 
@@ -251,27 +245,30 @@ class Lottery extends CI_Controller {
 			'from_lottery' => $lottery_id,
 			'timestamp <=' => strtotime(date("Y-m-d H:i:s")) - strtotime(date('Y-m-d'))
 		) , array() , array('timestamp' => 'desc'));
+
 		if( ! isset($Now_lottery['id'])){
 			$Now_lottery = $this->Lottery_time_model->get_by(array(
 				'from_lottery' => $lottery_id,
 			) , array() , array('timestamp' => 'asc'));
-			$Now_lottery['is_lost'] = true;
 		}
 
 
-		if(isset($Now_lottery['is_lost']) && $Now_lottery['is_lost'] == true){
-			$Now_lottery_data = $this->Lottery_data_model->get_by(array(
-				'from_lottery' => $lottery_id,
-				'day' => date('Y-m-d' , time() - 86400),
-			) , array() , array('periods' => 'desc'));
-		}else{
-			$Now_lottery_data = $this->Lottery_data_model->get_by(array(
-				'from_lottery' => $lottery_id,
-				'periods' => $Now_lottery['periods'],
-				'day' => date('Y-m-d' , time()),
-			) , array() , array('periods' => 'asc'));
+
+		$day = date('Y-m-d');
+		if(in_array($Now_lottery['periods'] , json_decode($Lottery_data['inter_day_periods']))){
+			$day = date('Y-m-d H:i:s' , strtotime($day) - 86400);
 		}
 
+
+		$Now_lottery_data = $this->Lottery_data_model->get_by(array(
+			'from_lottery' => $lottery_id,
+			'periods' => $Now_lottery['periods'],
+			'day' => $day,
+		) , array() , array('periods' => 'desc'));
+
+
+
+	
 
 	
 

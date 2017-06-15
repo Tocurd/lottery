@@ -47,14 +47,17 @@
 					<td><input type="text" api-param-name="open_interval" value="<?=$Lottery_data['open_interval']?>" placeholder="请输入开奖间隔 (秒)"></td>
 				</tr>
 				<tr>
-					<td>摇奖间隔 (秒)</td>
-					<td><input type="text" api-param-name="draw_interval" value="<?=$Lottery_data['draw_interval']?>" placeholder="请输入摇奖间隔 (秒)"></td>
+					<td>摇奖开始时间 (秒)</td>
+					<td><input type="text" api-param-name="draw_interval" value="<?=$Lottery_data['draw_interval']?>" placeholder="请输入摇奖时间 (秒)"></td>
 				</tr>
-
+				<tr>
+					<td>摇奖结束时间 (秒)</td>
+					<td><input type="text" api-param-name="draw_end_interval" value="<?=$Lottery_data['draw_end_interval']?>" placeholder="请输入摇奖结束时间 (秒)"></td>
+				</tr>
 				<tr>
 					<td>隔天期数</td>
 					<td>
-						<textarea placeholder="隔天期数（以逗号分隔）" api-param-name="inter_day_periods" value="<?=$Lottery_data['inter_day_periods']?>" ></textarea>
+						<textarea placeholder="隔天期数（以逗号分隔）" api-param-name="inter_day_periods"><?=implode(',', json_decode($Lottery_data['inter_day_periods']))?></textarea>
 					</td>
 				</tr>
 				

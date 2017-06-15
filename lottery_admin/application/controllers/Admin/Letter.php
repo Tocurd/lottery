@@ -6,6 +6,7 @@ class Letter extends CI_Controller{
 	}
 
 	public function index(){
+		$this->load->model('User_model');
 		$this->load->model('Letter_model');
 		$Collection_list = $this->Letter_model->get_list(array());
 		foreach ($Collection_list as &$value) {

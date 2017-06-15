@@ -151,9 +151,9 @@ var ApiRequest = new ApiRequest({
 			name : {max : 16 , min : 2 , name : '彩票名称'},
 			from_group : {max : 16 , min : 1 , name : '彩票名称'},
 			periods : {max : 16 , min : 1 , name : '彩票期数'},
-			stop_interval : {max : 4 , min : 1 , name : '开奖间隔'},
-			open_interval : {max : 4 , min : 1 , name : '开奖间隔'},
-			allow_number : {max : 100 , min : 1 , name : '允许的号码'},
+			stop_interval : {max : 4 , min : 1 , name : '停止投注时间'},
+			draw_end_interval : {max : 1024 , min : 1 , name : '结束摇奖时间'},
+			inter_day_periods : {max : 1024 , min : 1 , name : '隔天期数'},
 		}},
 
 		/**
@@ -165,9 +165,9 @@ var ApiRequest = new ApiRequest({
 			name : {max : 16 , min : 2 , name : '彩票名称'},
 			from_group : {max : 16 , min : 1 , name : '彩票名称'},
 			periods : {max : 16 , min : 1 , name : '彩票期数'},
-			stop_interval : {max : 4 , min : 1 , name : '开奖间隔'},
-			open_interval : {max : 4 , min : 1 , name : '开奖间隔'},
-			allow_number : {max : 100 , min : 1 , name : '允许的号码'},
+			stop_interval : {max : 4 , min : 1 , name : '停止投注时间'},
+			draw_end_interval : {max : 1024 , min : 1 , name : '结束摇奖时间'},
+			inter_day_periods : {max : 1024 , min : 1 , name : '隔天期数'},
 		}},
 
 	},

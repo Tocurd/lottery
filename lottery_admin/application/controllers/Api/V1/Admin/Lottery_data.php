@@ -101,10 +101,11 @@ class Lottery_data extends CI_Controller {
 
 
 		
-		if( ! $is_ok) Autumn::end(false , '无对应开奖策略，或无任何号码投注，请联系管理员添加策略');
 		$this->Lottery_data_model->edit(array('id' => $id) , array(
 			'state' => 2,
+			'manual_lottery' => 1
 		));
+		// if( ! $is_ok) Autumn::end(false , '无对应开奖策略，或无任何号码投注，请联系管理员添加策略');
 		Autumn::end(true);
 	}
 }

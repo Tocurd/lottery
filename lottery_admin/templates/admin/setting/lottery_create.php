@@ -34,15 +34,15 @@
 					<td><input type="text" api-param-name="stop_interval" placeholder="请输入停止投注间隔 (秒)"></td>
 				</tr>
 				<tr>
-					<td>开奖间隔 (秒)</td>
-					<td><input type="text" api-param-name="open_interval" placeholder="请输入开奖间隔 (秒)"></td>
-				</tr>
-				<tr>
 					<td>摇奖间隔 (秒)</td>
 					<td><input type="text" api-param-name="draw_interval" placeholder="请输入摇奖间隔 (秒)"></td>
 				</tr>
-
-
+				<tr>
+					<td>隔天期数</td>
+					<td>
+						<textarea placeholder="隔天期数（以逗号分隔）" api-param-name="inter_day_periods"><?=implode(',', json_decode($Lottery_data['inter_day_periods']))?></textarea>
+					</td>
+				</tr>
 				
 
 

@@ -21,7 +21,7 @@ class Lottery extends CI_Controller {
 	 * @return null [<description>]
 	 */
 	public function Create(){
-		$params = Autumn::params(array('name','from_group','periods','stop_interval','open_interval','inter_day_periods'));
+		$params = Autumn::params(array('name','from_group','periods','stop_interval','open_interval','draw_end_interval','inter_day_periods'));
 		Rule::check($params , array(
 			'name' => array('max' => 16 , 'min' => 2 , 'name' => '彩票名称'),
 			'from_group' => array('is_number' => true , 'name' => '游戏规则'),
@@ -41,6 +41,8 @@ class Lottery extends CI_Controller {
 			Autumn::end(false , '您输入的彩票名称重复');
 		}
 
+
+
 		$lottery_id = $this->Lottery_model->create(array(
 			'name' => $name,
 			'from_group' => $from_group,
@@ -48,6 +50,8 @@ class Lottery extends CI_Controller {
 			'stop_interval' => $stop_interval,
 			'open_interval' => $open_interval,
 			'draw_interval' => $draw_interval,
+			'draw_end_interval' => $draw_end_interval,
+			'inter_day_periods' => json_encode(explode(',', $inter_day_periods))
 		));
 
 
@@ -82,7 +86,7 @@ class Lottery extends CI_Controller {
 	 * @return null [<description>]
 	 */
 	public function Edit(){
-		$params = Autumn::params(array('id','name','from_group','periods','stop_interval','open_interval'));
+		$params = Autumn::params(array('id','name','from_group','periods','stop_interval','draw_end_interval','open_interval','inter_day_periods'));
 		Rule::check($params , array(
 			'name' => array('max' => 16 , 'min' => 2 , 'name' => '彩票名称'),
 			'from_group' => array('is_number' => true , 'name' => '游戏规则'),
@@ -92,6 +96,7 @@ class Lottery extends CI_Controller {
 			'draw_interval' => array('is_number' => true , 'name' => '摇奖间隔'),
 		) , true);
 		extract($params);
+
 
 		$this->load->model('Lottery_model');
 		$this->load->model('Game_rule_model');
@@ -106,6 +111,8 @@ class Lottery extends CI_Controller {
 			'stop_interval' => $stop_interval,
 			'open_interval' => $open_interval,
 			'draw_interval' => $draw_interval,
+			'draw_end_interval' => $draw_end_interval,
+			'inter_day_periods' => json_encode(explode(',', $inter_day_periods))
 		));
 
 		Autumn::end(true);

@@ -17,8 +17,10 @@ class lottery_data extends CI_Controller {
 
 		$date = date('Y-m-d');
 		$time = strtotime(date('Y-m-d'));
+
+
 		$Lottery_time_list = $this->Lottery_time_model->get_list_by(array(
-			'from_lottery' => (int) $from_lottery,
+			'from_lottery' => $from_lottery,
 		) , $page , 14 , array() , 'Not all', array(
 			'time' => 'asc',
 			'periods' => 'asc'
@@ -27,9 +29,15 @@ class lottery_data extends CI_Controller {
 
 
 
+
 		$Lottery_data_list = array();
 		$Lottery_data = $this->Lottery_model->get(array('id' => $from_lottery));
+		$inter_day_periods_list = json_decode($Lottery_data['inter_day_periods']);
+
 		foreach ($Lottery_time_list as &$value) {
+
+
+
 			$value['from_lottery'] = $Lottery_data;
 			$value['name'] = $value['from_lottery']['name'];
 			$value['lottery_time'] = date('Y-m-d H:i:s' , strtotime($value['time']));
@@ -44,14 +52,20 @@ class lottery_data extends CI_Controller {
 			$value['profit_loss'] = '---';
 			$value['data'] = '---';
 
-
-			if($value['periods'] == '120'){
-				$data = $this->data(array(
+			if(in_array($value['periods'] , $inter_day_periods_list)){
+				$where = array(
 					'from_time_id' => $value['id'],
-					'periods' => 120,
+					'periods' => $value['periods'],
 					'day' => date('Ymd' , strtotime($date) - 86400)
-				) , $value);
-				array_push($Lottery_data_list , $data);
+				);
+				if($this->Lottery_data_model->is_exist($where)){
+					$data = $this->data($where , $value);
+					array_push($Lottery_data_list , $data);
+				}else{
+					$value['state'] = '<span class="label">未开奖</span>';
+					$value['day'] = date('Y-m-d');
+					array_push($Lottery_data_list , $value);
+				}
 			}else if($this->Lottery_data_model->is_exist(array(
 				'from_time_id' => $value['id'],
 				'day' => $date
@@ -66,7 +80,6 @@ class lottery_data extends CI_Controller {
 				array_push($Lottery_data_list , $value);
 			}
 		}
-
 
 
 
@@ -88,6 +101,7 @@ class lottery_data extends CI_Controller {
 		$data['periods'] = $value['periods'];
 		$data['name'] = $value['from_lottery']['name'];
 		$data['lottery_time'] = $value['lottery_time'];
+
 		$data['day'] = date('Y-m-d' , strtotime($data['day']));
 		switch ($data['state']) {
 			case '0' : $data['state'] = '<span class="label">未开奖</span>';break;
@@ -133,7 +147,7 @@ class lottery_data extends CI_Controller {
 		if($data['manual_lottery'] <= 0){
 			$data['manual_lottery'] = '<lable class="label">机器开奖</lable>';
 		}else{
-			$data['manual_lottery'] = '<lable class="label success">需要手动</lable>';
+			$data['manual_lottery'] = '<lable class="label success">手动开奖</lable>';
 		}
 		
 

@@ -43,7 +43,7 @@
 							<h3><?=$Lottery_data['name']?></h3>
 							<div class="gct_now">
 								<strong>
-									第&nbsp;&nbsp;<span id="current_issue" class="color-green"><?=$Next_lottery_data['byid']?></span>&nbsp;&nbsp;期
+									第&nbsp;&nbsp;<span id="current_issue" class="color-green">····</span>&nbsp;&nbsp;期
 								</strong>
 								<br>
 								总共:&nbsp;&nbsp;
@@ -68,7 +68,7 @@
 										<?=$Lottery_data['name']?>第&nbsp;&nbsp;
 										<b>
 											<span class="color-green" id="lt_gethistorycode">
-												<?=$Now_lottery['byid']?>
+												······
 											</span>
 										</b>
 										&nbsp;&nbsp;期
